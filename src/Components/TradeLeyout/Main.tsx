@@ -6,10 +6,10 @@ import SwapCurrencies from "./SwapCurrencies/SwapCurrencies";
 
 const Main = () => {
   return (
-    <div>
+    <div className="m-0  box-border">
       <Header />
-      <div className="flex flex-col">
-        <div className="w-[98%] gap-4 justify-between items-center flex">
+      <div className="flex flex-col ">
+        <div className=" gap-4 justify-between items-center flex">
           <div className="flex flex-col gap-4">
             <BuySellCurrencies />
             <SwapCurrencies />

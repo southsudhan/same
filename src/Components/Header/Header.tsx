@@ -1,5 +1,5 @@
 import { Alert, Badge, Button, Input } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { BiNotification, BiSearch } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlinePrivacyTip } from "react-icons/md";
@@ -8,11 +8,17 @@ import { openModal } from "../../Reducers/modalSlice";
 import ReusablePopover from "../ReusablePopover/ReusablePopover";
 
 const Header: React.FC = () => {
+
+  const [SearchValue, setSearchValue] = useState('');
+  const [modalResult, setModalResult] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleOpenModal = () => {
     dispatch(openModal(<div></div>));
   };
+
+  
 
   return (
     <header className="flex items-center justify-between p-4 bg-white z-50 border-b cursor-pointer fixed w-full">
@@ -40,6 +46,7 @@ const Header: React.FC = () => {
       <div className="flex items-center space-x-4">
         <Input
           size="middle"
+          value={SearchValue}
           placeholder="Search Token, Coin, Airdrop "
           className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[350px]  lg:relative absolute lg:right-0 right-5 lg:top-0  top-20   outline-none border-none hover:bg-gray-100 "
           prefix={<BiSearch />}
@@ -77,8 +84,8 @@ const Header: React.FC = () => {
             className="w-8 h-8 rounded-full"
           />
         </div>
-        <Button className="bg-orange-500 lg:h-[40px] h-[35px] text-white border-none  lg:text-sm text-sm lg:px-8 px-2 py-2 rounded-md hover:text-white">
-          MY Wallet
+        <Button className="bg-orange-500 lg:h-[40px] h-[35px] text-white border-none  lg:text-sm text-sm lg:px-8 px-2 py-2 rounded-md hover:text-white font-thin">
+          My Wallet
         </Button>
       </div>
     </header>

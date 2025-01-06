@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import CandlestickChart from "./CandlestickChart";
 import { Card, List, Select, Spin } from "antd";
+import TopCurrencies from "../TopCurrencies/TopCurrencies";
+import OrderBlock from "../OrderBlock/OrderBlock";
 
 interface Crypto {
   id: string;
@@ -21,7 +23,6 @@ const ChartCurrencies = () => {
   const [candlestickData, setCandlestickData] = useState([]);
   const [selectedCrypto, setSelectedCrypto] = useState<string | null>(null);
 
-  // Fetch candlestick data when a cryptocurrency is selected
   const fetchCandlestickData = async (id: string) => {
     const response = await fetch(
       `https://api.coingecko.com/api/v3/coins/${id}/ohlc?vs_currency=usd&days=7`
@@ -46,22 +47,13 @@ const ChartCurrencies = () => {
     fetchCandlestickData("bitcoin");
   }, []);
 
-  const sortedData =
-    data?.sort(
-      (a: Crypto, b: Crypto) =>
-        b.price_change_percentage_24h - a.price_change_percentage_24h
-    ) || [];
-  const topGainers = sortedData.slice(0, 5);
-  const topLosers = sortedData.slice(-5);
-
-  if (error && error instanceof Error) {
-    return <p>خطا در دریافت داده‌ها: {error.message}</p>;
-  }
-
   return (
     <div className="flex w-[100%] flex-col ">
-      <div className="flex flex-col justify-center gap-4 w-[100%] mt-20 ">
-        <div className="w-[100%] p-10 h-[130px] flex justify-center border border-gray-300 rounded-md  items-center ">
+      <div className="flex flex-col justify-center gap-4 w-[100%] ">
+        <div className="flex justify-start items-center gap-2">
+          <TopCurrencies />
+        </div>
+        <div className="flex justify-start items-center gap-2">
           <Select
             className="w-[300px]"
             placeholder="Select a cryptocurrency"
@@ -74,54 +66,20 @@ const ChartCurrencies = () => {
               </Select.Option>
             ))}
           </Select>
-          <div className="flex justify-center gap-1">
-            <List
-              grid={{
-                gutter: 20,
-                xs: 1,
-                sm: 2,
-                md: 3,
-                lg: 4,
-                xl: 5,
-                xxl: 6,
-              }}
-              dataSource={topGainers}
-              renderItem={(item: Crypto) => (
-                <List.Item>
-                  <Card title={item.name} bordered={false}>
-                    <p>
-                      Change: {item.price_change_percentage_24h.toFixed(2)}%
-                    </p>
-                  </Card>
-                </List.Item>
-              )}
-            />
-            {/* <h2 className="text-lg font-bold emt-4 meb-4">Top Losers</h2> */}
-            <List
-              grid={{
-                gutter: 20,
-                xs: 1,
-                sm: 2,
-                md: 3,
-                lg: 4,
-                xl: 5,
-                xxl: 6,
-              }}
-              dataSource={topLosers}
-              renderItem={(item: Crypto) => (
-                <List.Item>
-                  <Card title={item.name} bordered={false} size="small">
-                    <p>
-                      Change: {item.price_change_percentage_24h.toFixed(2)}%
-                    </p>
-                  </Card>
-                </List.Item>
-              )}
-            />
-          </div>
+          {data?.slice(0, 7).map((crypto: Crypto) => (
+            <div
+              key={crypto.id}
+              className="flex justify-start gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-200 rounded-md p-1.5 cursor-pointer"
+              onClick={() => fetchCandlestickData(crypto.id)}
+            >
+              <img src={crypto.image} alt={crypto.name} width={20} />
+              <p>{crypto.name}</p>
+            </div>
+          ))}
         </div>
-        <div className="w-[100%] flex gap-4 justify-between items-center">
-          <div className="border border-gray-300 rounded-md p-5 h-[60vh] w-[80%] ">
+
+        <div className="w-[100%] flex gap-2 justify-center items-center">
+          <div className="border border-gray-300 rounded-md p-5 h-[70vh] w-4/5 ">
             {isLoading || !data ? (
               <Spin tip="در حال بارگذاری..." />
             ) : (
@@ -146,8 +104,8 @@ const ChartCurrencies = () => {
               </>
             )}
           </div>
-          <div className="w-[25%] border border-gray-300 rounded-md h-[60vh] ">
-            <p>تغییرات</p>
+          <div className="w-[18%] border border-gray-300 rounded-md h-[60vh] ">
+            <OrderBlock />
           </div>
         </div>
       </div>
