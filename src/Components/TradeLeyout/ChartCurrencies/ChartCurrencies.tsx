@@ -49,16 +49,15 @@ const ChartCurrencies = () => {
 
   return (
     <div className="flex w-[100%] flex-col ">
-      <div className="flex flex-col justify-center gap-4 w-[100%] ">
-        <div className="flex justify-start items-center gap-2">
+      <div className="flex flex-col justify-center gap-4 w-[100%] lg:mt-0 mt-7 ">
           <TopCurrencies />
-        </div>
-        <div className="flex justify-start items-center gap-2">
+        <div className="flex justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
           <Select
             className="w-[300px]"
             placeholder="Select a cryptocurrency"
             onChange={fetchCandlestickData}
             allowClear
+            showSearch
           >
             {data?.map((crypto: Crypto) => (
               <Select.Option key={crypto.id} value={crypto.id}>
@@ -69,7 +68,7 @@ const ChartCurrencies = () => {
           {data?.slice(0, 7).map((crypto: Crypto) => (
             <div
               key={crypto.id}
-              className="flex justify-start gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-200 rounded-md p-1.5 cursor-pointer"
+              className="flex justify-start gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
               onClick={() => fetchCandlestickData(crypto.id)}
             >
               <img src={crypto.image} alt={crypto.name} width={20} />
@@ -78,8 +77,8 @@ const ChartCurrencies = () => {
           ))}
         </div>
 
-        <div className="w-[100%] flex gap-2 justify-center items-center">
-          <div className="border border-gray-300 rounded-md p-5 h-[70vh] w-4/5 ">
+        <div className="w-[100%] flex  lg:justify-between justify-evenly ">
+          <div className="border border-gray-100 rounded-md p-5  lg:w-4/5 h-3/4 ">
             {isLoading || !data ? (
               <Spin tip="در حال بارگذاری..." />
             ) : (
@@ -104,13 +103,13 @@ const ChartCurrencies = () => {
               </>
             )}
           </div>
-          <div className="w-[18%] border border-gray-300 rounded-md h-[60vh] ">
+          <div className="lg:w-[19%] w-[30%] border border-gray-100 rounded-md  ">
             <OrderBlock />
           </div>
         </div>
       </div>
     </div>
   );
-};
 
+};
 export default ChartCurrencies;

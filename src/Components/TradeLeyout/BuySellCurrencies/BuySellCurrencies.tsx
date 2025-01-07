@@ -68,7 +68,7 @@ const BuySellCurrencies = () => {
   const Iranian_Inventory = currencyInventory * DollerPrice;  
 
   return (  
-    <div className="w-[350px] h-[50%] mt-20 bg-white rounded-lg border border-gray-100 p-6 flex flex-col">  
+    <div className="w-[350px]  bg-white rounded-lg border border-gray-100 p-6 flex flex-col">  
       <p className="text-sm font-bold mb-4">Buy Currencies</p>  
       <div className="flex flex-col gap-4 mb-6">  
         <div className="flex justify-between items-center">  
@@ -117,7 +117,7 @@ const BuySellCurrencies = () => {
           <Button  
             type="primary"  
             htmlType="submit"  
-            className=" text-white rounded-md h-[40px] mt-4 w-full bg-orange-500"  
+            className=" text-white rounded-md h-[40px]  w-full bg-orange-500"  
           >  
             Buy  
           </Button>  

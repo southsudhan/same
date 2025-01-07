@@ -6,7 +6,7 @@ const OrderBlock = () => {
 
   return (
     <div>
-      <div className=" text-sm overflow-x-scroll h-[550px] p-5">
+      <div className=" text-sm overflow-x-scroll overflow-y-visible h-[80vh] p-5">
         {isLoading ? (
           <Spin size="large" />
         ) : (

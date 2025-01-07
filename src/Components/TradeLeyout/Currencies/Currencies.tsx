@@ -20,16 +20,14 @@ const Currencies = () => {
       render: (text: any) => <p>{text}</p>,
     },
     {
-      title: "Image",
-      dataIndex: "image",
-      key: "image",
-      render: (image: any) => <img src={image} width={20} alt="" />,
-    },
-    {
-      title: "Symbol",
-      dataIndex: "symbol",
-      key: "symbol",
-      render: (text: any) => <p>{text.toUpperCase()}</p>,
+      title: "Symbol & Image",
+      key: "symbolAndImage",
+      render: (record: any) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img src={record.image} width={20} alt="" style={{ marginRight: 8 }} />
+          <p>{record.symbol.toUpperCase()}</p>
+        </div>
+      ),
     },
     {
       title: "Current Price",
@@ -54,12 +52,12 @@ const Currencies = () => {
       render: (volume: any) => <p>{volume}</p>,
     },
   ];
-
   return (
-    <div className="border border-l-0 border-gray-100 w-[100%] mt-3 mb-10 ml-5 mr-5 h-[500px]">
+    <div className="border border-l-0 border-gray-100 w-[100%] mt-3 mb-10 ml-5 mr-5 h-[500px] ">
       <Table
         dataSource={data}
         columns={columns}
+        size="small"
         pagination={false}
         scroll={{ y: 400 }} // Set vertical scroll
         rowKey="symbol" // Unique key for each row

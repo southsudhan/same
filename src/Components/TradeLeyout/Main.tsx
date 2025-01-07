@@ -6,18 +6,18 @@ import SwapCurrencies from "./SwapCurrencies/SwapCurrencies";
 
 const Main = () => {
   return (
-    <div className="m-0  box-border">
+    <div className="">
       <Header />
       <div className="flex flex-col ">
-        <div className=" gap-4 justify-between items-center flex">
-          <div className="flex flex-col gap-4">
+        <div className="  justify-end items-center   mt-24  flex">
+          <div className="flex flex-col mr-2 -mt-28 gap-3">
             <BuySellCurrencies />
             <SwapCurrencies />
           </div>
           <ChartCurrencies />
         </div>
       </div>
-      <div className="w-screen gap-4 justify-between items-center flex">
+      <div className=" w-full gap-4 justify-between items-center flex  mt-6">
         <Currencies />
       </div>
     </div>

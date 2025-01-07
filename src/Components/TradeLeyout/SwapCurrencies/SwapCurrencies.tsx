@@ -9,6 +9,7 @@ import {
   Spin,
   Alert,
 } from "antd";
+import { MdOutlineCurrencyExchange } from "react-icons/md";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -52,8 +53,8 @@ const SwapCurrencies = () => {
         <Select
           value={fromCurrency}
           onChange={(value) => setFromCurrency(value)}
-          style={{ width: "100%" }}
           placeholder="Select Currency"
+          className="w-[100%] h-[45px]"
         >
           <Option value="">Select Currency</Option>
           {data?.map((currency) => (
@@ -64,13 +65,21 @@ const SwapCurrencies = () => {
         </Select>
       </div>
 
-      <div style={{ marginBottom: 16 }}>
-        <label>Amount</label>
+      <div className="flex justify-between gap-2 w-[100%]">
         <InputNumber
           value={amount}
           onChange={(value) => setAmount(value || 0)}
-          style={{ width: "100%" }}
+          placeholder="Amount"
+          className="w-[80%]"
         />
+        <Button
+          size="small"
+          type="primary"
+          onClick={handleSwap}
+          className="bg-orange-500 text-white rounded-md h-[40px] w-[20%]"
+        >
+          <MdOutlineCurrencyExchange />
+        </Button>
       </div>
 
       <div style={{ marginBottom: 16 }}>
@@ -78,7 +87,7 @@ const SwapCurrencies = () => {
         <Select
           value={toCurrency}
           onChange={(value) => setToCurrency(value)}
-          style={{ width: "100%" }}
+          className="w-[100%] h-[45px]"
           placeholder="Select Currency"
         >
           <Option value="">Select Currency</Option>
@@ -97,14 +106,6 @@ const SwapCurrencies = () => {
           {toCurrency}
         </Typography.Text>
       </div>
-
-      <Button
-        type="primary"
-        onClick={handleSwap}
-        className="bg-orange-500 text-white rounded-md h-[40px] w-full"
-      >
-        Swap Currencies
-      </Button>
     </Card>
   );
 };
