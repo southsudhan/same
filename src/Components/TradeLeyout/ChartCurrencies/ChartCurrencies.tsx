@@ -105,7 +105,11 @@ const ChartCurrencies = () => {
                       <h1 className="text-md font-bold mb-6">
                         {selectedCrypto} Candlestick Chart
                       </h1>
+                      <button onClick={toggleFullScreen}>
+
+
                         {isFullScreen ? <BiFullscreen /> : <RxExitFullScreen />}
+                      </button>
                     </div>
                     {candlestickData.length > 0 ? (
                       <CandlestickChart
