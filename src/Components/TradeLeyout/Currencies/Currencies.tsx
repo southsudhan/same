@@ -53,16 +53,15 @@ const Currencies = () => {
     },
   ];
   return (
-    <div className="border border-l-0 border-gray-100 w-[100%] mt-3 mb-10 ml-5 mr-5 h-[500px] ">
       <Table
         dataSource={data}
         columns={columns}
         size="small"
         pagination={false}
-        scroll={{ y: 400 }} // Set vertical scroll
+        className=" h-[100%] p-5"
+        scroll={{ y: 400}} // Set vertical scroll
         rowKey="symbol" // Unique key for each row
       />
-    </div>
   );
 };
 

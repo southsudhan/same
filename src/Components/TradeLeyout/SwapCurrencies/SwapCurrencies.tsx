@@ -39,15 +39,12 @@ const SwapCurrencies = () => {
         toCurrencyValue.current_price
       : 0;
 
-  if (isLoading) return <Spin tip="Loading..." />;
+  if (isLoading) return <Spin tip="Loading..." style={{color:"orange"}} />;
   if (error)
     return <Alert message="Error loading currencies" type="error" showIcon />;
 
   return (
-    <Card
-      title={<Title level={5}>Swap Currencies</Title>}
-      style={{ width: 350, borderRadius: 8, border: "1px solid #f0f0f0" }}
-    >
+    <Card title={<Title level={5}>Swap Currencies</Title>}>
       <div style={{ marginBottom: 16 }}>
         <label>From</label>
         <Select

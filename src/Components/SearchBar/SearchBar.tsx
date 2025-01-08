@@ -2,7 +2,7 @@ import Input from "antd/es/input/Input";
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useCurrencies } from "../../Hooks/Currencies/useCurrencies";
-import { List } from "antd";
+import { List, Spin } from "antd";
 import { CurrenciesModel } from "../../Models/Currencies";
 
 const SearchBar = () => {
@@ -31,7 +31,7 @@ const SearchBar = () => {
     setFilteredCurrencies([]);
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spin />;
   if (error) return <p>Error loading currencies!</p>;
 
   return (

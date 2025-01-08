@@ -98,6 +98,7 @@ const BuySellCurrencies = () => {
               onChange={handleCurrencyChange}  
               loading={isLoading}  
               className="h-[42px]"  
+              showSearch
             >  
               {data?.map((currency) => (  
                 <Option key={currency.id} value={currency.id}>  

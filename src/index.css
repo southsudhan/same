@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* src/index.css */
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -19,10 +18,3 @@ body {
   transition: background-color 0.3s ease, color 0.5s ease;
 }
 
-
-button{
-  background-color: orange;
-}
-button:hover{
-  background-color: orangered;
-}

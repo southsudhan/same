@@ -4,6 +4,8 @@ import CandlestickChart from "./CandlestickChart";
 import { Card, List, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
+import { BiFullscreen } from "react-icons/bi";
+import { RxExitFullScreen } from "react-icons/rx";
 
 interface Crypto {
   id: string;
@@ -22,6 +24,7 @@ const ChartCurrencies = () => {
   const { data, error, isLoading } = useCurrencies();
   const [candlestickData, setCandlestickData] = useState([]);
   const [selectedCrypto, setSelectedCrypto] = useState<string | null>(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const fetchCandlestickData = async (id: string) => {
     const response = await fetch(
@@ -29,9 +32,8 @@ const ChartCurrencies = () => {
     );
     const data = await response.json();
 
-    // Format data for the chart
     const formattedData = data.map((item: any) => ({
-      time: item[0] / 1000, // Convert milliseconds to seconds
+      time: item[0] / 1000,
       open: item[1],
       high: item[2],
       low: item[3],
@@ -39,18 +41,29 @@ const ChartCurrencies = () => {
     }));
 
     setCandlestickData(formattedData);
-    setSelectedCrypto(id); // Set the selected cryptocurrency
+    setSelectedCrypto(id);
+  };
+
+  const toggleFullScreen = () => {
+    if (!isFullScreen) {
+      const chartContainer = document.getElementById("chart-container");
+      if (chartContainer) {
+        chartContainer.requestFullscreen();
+      }
+    } else {
+      document.exitFullscreen();
+    }
+    setIsFullScreen(!isFullScreen);
   };
 
   useEffect(() => {
-    // Fetch Bitcoin candlestick data by default
     fetchCandlestickData("bitcoin");
   }, []);
 
   return (
     <div className="flex w-[100%] flex-col ">
       <div className="flex flex-col justify-center gap-4 w-[100%] lg:mt-0 mt-7 ">
-          <TopCurrencies />
+        <TopCurrencies />
         <div className="flex justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
           <Select
             className="w-[300px]"
@@ -68,7 +81,7 @@ const ChartCurrencies = () => {
           {data?.slice(0, 7).map((crypto: Crypto) => (
             <div
               key={crypto.id}
-              className="flex justify-start gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
+              className="flex justify-center gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
               onClick={() => fetchCandlestickData(crypto.id)}
             >
               <img src={crypto.image} alt={crypto.name} width={20} />
@@ -77,17 +90,23 @@ const ChartCurrencies = () => {
           ))}
         </div>
 
-        <div className="w-[100%] flex  lg:justify-between justify-evenly ">
-          <div className="border border-gray-100 rounded-md p-5  lg:w-4/5 h-3/4 ">
+        <div className="w-[100%] flex lg:justify-between justify-evenly gap-2">
+          <div
+            id="chart-container"
+            className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-3/4"
+          >
             {isLoading || !data ? (
               <Spin tip="در حال بارگذاری..." />
             ) : (
               <>
                 {selectedCrypto ? (
                   <>
-                    <h1 className="text-md font-bold mb-6">
-                      {selectedCrypto} Candlestick Chart
-                    </h1>
+                    <div className="flex justify-between items-center mb-2">
+                      <h1 className="text-md font-bold mb-6">
+                        {selectedCrypto} Candlestick Chart
+                      </h1>
+                        {isFullScreen ? <BiFullscreen /> : <RxExitFullScreen />}
+                    </div>
                     {candlestickData.length > 0 ? (
                       <CandlestickChart
                         key="candlestick-chart"
@@ -103,13 +122,13 @@ const ChartCurrencies = () => {
               </>
             )}
           </div>
-          <div className="lg:w-[19%] w-[30%] border border-gray-100 rounded-md  ">
+          <div className="lg:w-1/4 w-[30%] border border-gray-100 rounded-md ">
             <OrderBlock />
           </div>
         </div>
       </div>
     </div>
   );
-
 };
+
 export default ChartCurrencies;

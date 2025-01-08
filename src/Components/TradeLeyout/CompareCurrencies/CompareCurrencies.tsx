@@ -31,8 +31,9 @@ const CompareCurrencies = () => {
           <Text strong>Select Coin 1:</Text>
           <Select
             onChange={(value) => handleSelectCoin1(data[value])}
-            className="w-[225px]"
+            className="w-full"
             placeholder="Select a coin..."
+            showSearch
           >
             {data?.map((coin, index) => (
               <Option key={coin.id} value={index}>
@@ -46,8 +47,9 @@ const CompareCurrencies = () => {
           <Text strong>Select Coin 2:</Text>
           <Select
             onChange={(value) => handleSelectCoin2(data[value])}
-            className="w-[225px]"
+            className="w-full"
             placeholder="Select a coin..."
+            showSearch
           >
             {data?.map((coin, index) => (
               <Option key={coin.id} value={index}>
@@ -60,9 +62,9 @@ const CompareCurrencies = () => {
 
       {coin1 && coin2 && (
         <div className="border-t mt-4 pt-4 ">
-          <Title level={3}>Comparison:</Title>
+          <Title level={5}>Comparison:</Title>
           <div className="flex justify-between mb-2 gap-2 text-sm">
-            <Card style={{ width: 300 }} >
+            <Card className="w-1/2">
               <img src={coin1.image} width={30} alt={coin1.name} />
               <Title level={5}>
                 {coin1.name} ({coin1.symbol.toUpperCase()})
@@ -71,7 +73,7 @@ const CompareCurrencies = () => {
               <Text>Market Cap: ${coin1.market_cap}</Text>
               <Text>24h Change: {coin1.price_change_percentage_24h}%</Text>
             </Card>
-            <Card style={{ width: 300 }}>
+            <Card className="w-1/2">
               <img src={coin2.image} width={30} alt={coin2.name} />
               <Title level={5}>
                 {coin2.name} ({coin2.symbol.toUpperCase()})

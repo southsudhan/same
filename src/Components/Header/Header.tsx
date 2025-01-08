@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="flex items-center justify-between p-4 bg-white z-50 border-b cursor-pointer fixed w-full">
+    <header className="flex items-center justify-between p-4 bg-white z-50 border-b cursor-pointer fixed w-full top-0">
       <div className="flex items-center">
         <span className="text-black font-bold text-lg ml-1">Crypto</span>
         <span className="text-orange-500 font-bold text-lg">Hub</span>

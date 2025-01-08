@@ -10,7 +10,7 @@ const Main = () => {
       <Header />
       <div className="flex flex-col ">
         <div className="  justify-end items-center   mt-24  flex">
-          <div className="flex flex-col mr-2 -mt-28 gap-3">
+          <div className="flex flex-col mr-2  gap-3">
             <BuySellCurrencies />
             <SwapCurrencies />
           </div>
