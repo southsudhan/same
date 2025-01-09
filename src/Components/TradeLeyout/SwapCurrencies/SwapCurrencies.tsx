@@ -69,14 +69,14 @@ const SwapCurrencies = () => {
           placeholder="Amount"
           className="w-[80%]"
         />
-        <Button
-          size="small"
-          type="primary"
+        <button
+          // size="small"
+          // type="primary"
           onClick={handleSwap}
           className="bg-orange-500 text-white rounded-md h-[40px] w-[20%]"
         >
           <MdOutlineCurrencyExchange />
-        </Button>
+        </button>
       </div>
 
       <div style={{ marginBottom: 16 }}>

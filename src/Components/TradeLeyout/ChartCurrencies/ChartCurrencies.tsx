@@ -4,7 +4,7 @@ import CandlestickChart from "./CandlestickChart";
 import { Card, List, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
-import { BiFullscreen } from "react-icons/bi";
+import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
 import { RxExitFullScreen } from "react-icons/rx";
 
 interface Crypto {
@@ -108,7 +108,7 @@ const ChartCurrencies = () => {
                       <button onClick={toggleFullScreen}>
 
 
-                        {isFullScreen ? <BiFullscreen /> : <RxExitFullScreen />}
+                        {isFullScreen ?  <BiExitFullscreen/> : <BiFullscreen /> }
                       </button>
                     </div>
                     {candlestickData.length > 0 ? (

@@ -60,9 +60,9 @@ const Header: React.FC = () => {
             className="w-8 h-8 rounded-full"
           />
         </div>
-        <Button className="bg-orange-500 lg:h-[40px] h-[35px] text-white border-none  lg:text-sm text-sm lg:px-8 px-2 py-2 rounded-md ">
+        <button className=" lg:h-[40px] h-[35px]   lg:text-sm text-sm lg:px-8 px-2  ">
           My Wallet
-        </Button>
+        </button>
       </div>
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <CompareCurrencies />
