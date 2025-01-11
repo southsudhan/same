@@ -1,97 +1,69 @@
-import React, { useState } from "react";
-import { message, Table, Spin, Input } from "antd";
+import React from "react";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 
-const { Search } = Input;
-
-const Currencies = () => {
+const CurrencyTable: React.FC = () => {
   const { data, error, isLoading } = useCurrencies();
-  const [searchQuery, setSearchQuery] = useState("");
 
   if (isLoading) {
-    return <Spin size="large" />;
+    return <div className="text-center py-5">Loading...</div>;
   }
+
   if (error) {
-    message.error("An error occurred while fetching data.");
-    return null; // Optionally return null or a fallback UI
+    return (
+      <div className="text-red-500 text-center py-5">
+        Error: {error.message}
+      </div>
+    );
   }
-
-  // Filter data based on search query
-  const filteredData = data?.filter((currency) =>
-    currency.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const columns = [
-    {
-      title: "Markets",
-      dataIndex: "name",
-      key: "name",
-      render: (text: any, record: any) => (
-        <div className="flex items-center justify-start gap-2">
-          <img
-            src={record.image}
-            width={20}
-            alt={text}
-            style={{ marginRight: 8 }}
-          />
-          <p>{text}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Symbol",
-      dataIndex: "symbol",
-      key: "symbol",
-      render: (symbol: any, record: any) => (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <p>{symbol}</p>
-        </div>
-      ),
-    },
-    {
-      title: "Current Price (USD)",
-      dataIndex: "current_price",
-      key: "current_price",
-      render: (price: any) => <p>${price.toFixed(2)}</p>, // Format price to two decimal places
-    },
-    {
-      title: "24h Price Change",
-      dataIndex: "price_change_percentage_24h",
-      key: "price_change_percentage_24h",
-      render: (change: any) => (
-        <p className={change > 0 ? "text-green-500" : "text-red-500"}>
-          {change.toFixed(2)}%
-        </p>
-      ),
-    },
-    {
-      title: "Total Volume",
-      dataIndex: "total_volume",
-      key: "total_volume",
-      render: (volume: any) => <p>{volume}</p>,
-    },
-  ];
 
   return (
-    <div>
-      <div className="w-1/2 justify-center items-center flex relative left-1/4">
-        <Search
-          placeholder="Search currencies"
-          onSearch={(value) => setSearchQuery(value)}
-          style={{ marginBottom: 16 }}
-        />
-      </div>
-      <Table
-        dataSource={filteredData}
-        columns={columns}
-        size="small"
-        pagination={false}
-        className="h-[100%] p-5"
-        scroll={{ y: 400 }} // Set vertical scroll
-        rowKey="symbol" // Unique key for each row
-      />
+    <div className="overflow-x-scroll  w-[99%] p-5 h-[700px]">
+      <table className="w-full table-auto overflow-y-scroll">
+        <thead className="bg-orange-500 text-white">
+          <tr>
+            <th className="px-4 py-2">Currency</th>
+            <th className="px-4 py-2">Symbol</th>
+            <th className="px-4 py-2">Current Price</th>
+            <th className="px-4 py-2">Market Cap</th>
+            <th className="px-4 py-2">24h Change</th>
+          </tr>
+        </thead>
+        <tbody className="bg-transparent">
+          {data?.map((currency: any) => (
+            <tr
+              key={currency.id}
+              className="text-center border-b hover:bg-gray-100"
+            >
+              <td className="px-4 py-2 flex text-center">
+                <img
+                  src={currency.image}
+                  alt={currency.name}
+                  className="inline-block w-6 h-6 mr-2"
+                />
+                <p>{currency.name}</p>
+              </td>
+              <td className="px-4 py-2">{currency.symbol.toUpperCase()}</td>
+              <td className="px-4 py-2">
+                ${currency.current_price.toFixed(2)}
+              </td>
+              <td className="px-4 py-2">
+                ${currency.market_cap.toLocaleString()}
+              </td>
+              <td
+                className={`px-4 py-2 ${
+                  currency.price_change_percentage_24h >= 0
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {currency.price_change_percentage_24h.toFixed(2)}%
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-export default Currencies;
+export default CurrencyTable;

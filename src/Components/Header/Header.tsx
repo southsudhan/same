@@ -1,15 +1,19 @@
-import { Alert, Badge, Button, Modal } from "antd";
+import { Alert, Badge, Card, Modal } from "antd";
 import React, { useState } from "react";
-import { BiNotification } from "react-icons/bi";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { MdCompare, MdOutlinePrivacyTip } from "react-icons/md";
+import { MdCompare } from "react-icons/md";
 import ReusablePopover from "../ReusablePopover/ReusablePopover";
 import SearchBar from "../SearchBar/SearchBar";
 import MenuItem from "../MenuItem/MenuItem";
 import CompareCurrencies from "../TradeLeyout/CompareCurrencies/CompareCurrencies";
+import { CgOptions } from "react-icons/cg";
+import BuySellCurrencies from "../TradeLeyout/BuySellCurrencies/BuySellCurrencies";
+import SwapCurrencies from "../TradeLeyout/SwapCurrencies/SwapCurrencies";
 
 const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalSell, setisModalSell] = useState(false);
+  const [isSwap, setisSwap] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -20,6 +24,20 @@ const Header: React.FC = () => {
   };
 
   const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  /* sell */
+
+  const showModalSell = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOkSell = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancelSell = () => {
     setIsModalOpen(false);
   };
 
@@ -36,8 +54,20 @@ const Header: React.FC = () => {
 
         <div className="flex items-center gap-2">
           <MdCompare size={25} onClick={showModal} />
-          <ReusablePopover title={<span className="font-bold">Private</span>}>
-            <MdOutlinePrivacyTip size={25} />
+          <ReusablePopover
+            title={
+              <Card className="lg:hidden block">
+                <span className="font-bold" onClick={showModalSell}>
+                  Buy Currencies |{" "}
+                </span>
+                <span className="font-bold" onClick={undefined}>
+                  Swap Currencies
+                </span>
+              </Card>
+            }
+          >
+            {/* <MdOutlinePrivacyTi p size={25} /> */}
+            <CgOptions size={25} />
           </ReusablePopover>
 
           <ReusablePopover
@@ -66,6 +96,12 @@ const Header: React.FC = () => {
       </div>
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <CompareCurrencies />
+      </Modal>
+      <Modal open={isModalSell} onOk={showModalSell} onCancel={handleCancelSell}>
+        <BuySellCurrencies />
+      </Modal>
+      <Modal>
+        <SwapCurrencies />
       </Modal>
     </header>
   );

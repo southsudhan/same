@@ -118,9 +118,7 @@ const BuySellCurrencies = () => {
               </strong>
             </div>
           )}
-          <button type="submit" className=" w-full ">
-            Buy
-          </button>
+          <Button className="w-full p-5">Buy</Button>
         </Form>
       </div>
 

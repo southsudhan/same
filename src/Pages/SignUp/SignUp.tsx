@@ -1,72 +1,81 @@
-import { Form, Input } from "antd";
-import { BiArrowToLeft, BiArrowToRight, BiSupport } from "react-icons/bi";
+import { Form, Input, Checkbox } from "antd";
+import BlurCard from "../../Components/SignUpLeyout/BlurCard/BlurCard";
+import VideoSignUp from "../../Components/SignUpLeyout/VideoSignUp/VideoSignUp";
+import { BiArrowBack } from "react-icons/bi";
 
 const SignUp = () => {
   return (
     <div className="flex flex-col md:flex-row w-full h-screen">
-      <div className="md:w-1/2 w-full h-full flex flex-col justify-center items-start p-10 ">
-        <h1 className="text-4xl font-bold leading-tight">Hi there!</h1>
-        <p className="text-lg mb-4">Welcome to Haze. Community Dashboard</p>
-
-        <Form className="flex flex-col gap-4 w-full max-w-sm">
-          <p className="text-center">or</p>
+      <div className="justify-between items-center flex absolute top-3 left-5">
+        <p className=" lg:block hidden border-b-2">Join us</p>
+      </div>
+      <div className="md:w-1/2 w-full h-full flex flex-col justify-center items-start p-10  ">
+        <Form
+          className="flex flex-col gap-4 w-full max-w-sm justify-center lg:translate-x-1/2"
+          layout="vertical"
+        >
+          <h1 className="lg:text-4xl text-2xl font-bold mb-4 text-center">
+            Create an account
+          </h1>
+          <p className="text-sm mb-4 text-center">
+            Already have an account? <a href="/" className="text-orange-500">Log in</a>
+          </p>
           <Form.Item
+            name="firstName"
+            rules={[{ required: true, message: "Please enter your name!" }]}
+          >
+            <Input placeholder="First Name" className="p-3" />
+          </Form.Item>
+
+          <Form.Item
+            name="email"
             rules={[{ required: true, message: "Please enter your email!" }]}
           >
-            <Input type="email" placeholder="Your email" />
+            <Input type="email" placeholder="Email" className="p-3" />
           </Form.Item>
+
           <Form.Item
+            name="password"
             rules={[{ required: true, message: "Please enter your password!" }]}
           >
-            <Input type="password" placeholder="Password" />
+            <Input.Password placeholder="Enter your password" className="p-3" />
           </Form.Item>
+
           <Form.Item
-            rules={[{ required: true, message: "Please enter your password!" }]}
+            name="confirm password"
+            rules={[{ required: true, message: "Password is not match!" }]}
           >
-            <Input type="password" placeholder="Confirm password" />
+            <Input.Password
+              placeholder="Enter your Password again"
+              className="p-3"
+            />
           </Form.Item>
-          <p className="text-right text-blue-500 cursor-pointer">
-            Forgot password?
-          </p>
-          <button>Log In</button>
-          <p className="text-center">
-            Don't have an account? <a href="/">Sign up</a>
-          </p>
+
+          <Form.Item>
+            <Checkbox>
+              I agree to the{" "}
+              <a className="text-orange-500" href="#">
+                Terms & Conditions
+              </a>
+            </Checkbox>
+          </Form.Item>
+
+          <button>Create account</button>
         </Form>
       </div>
 
       <div className="md:w-1/2 w-full relative">
         <button
-          className="absolute bg-transparent right-0 top-1"
+          className="absolute bg-transparent right-0 top-1 justify-center flex items-center gap-3 cursor-pointer"
           onClick={() => (document.location = "/traderoom")}
         >
+          <BiArrowBack />
           back to traderoom
         </button>
-        <div
-          className="absolute bottom-14 left-10 md:left-16 text-white md:w-[800px] w-[200px] h-[200px] p-5
-         bg-white bg-opacity-10 rounded-2xl shadow-lg backdrop-blur-[17.5px] justify-center gap-5  flex-col md:flex hidden"
-        >
-          <h2 className="text-xl text-gray-300">
-            Go anywhere you want in a Galaxy full of wonders!
-          </h2>
-          <p className="text-gray-100">
-            this is user account page you can see more data info about traderoom
-            |<span className="text-black font-bold text-lg ml-1">Crypto</span>
-            <span className="text-orange-500 font-bold text-lg">Hub</span>
-          </p>
-          <div className="flex justify-between items-center">
-            <button className="w-1/3">see info</button>
 
-            <BiSupport />
-          </div>
-        </div>
-        <video
-          src="https://cdn.dribbble.com/userupload/13232137/file/original-1d289cafb1e7de3fc9bf914f448e079b.mp4"
-          autoPlay
-          muted
-          loop
-          className="w-full h-full object-cover md:block hidden"
-        ></video>
+        <BlurCard />
+
+        <VideoSignUp />
       </div>
     </div>
   );

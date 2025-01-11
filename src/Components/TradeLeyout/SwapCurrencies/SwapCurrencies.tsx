@@ -39,7 +39,7 @@ const SwapCurrencies = () => {
         toCurrencyValue.current_price
       : 0;
 
-  if (isLoading) return <Spin tip="Loading..." style={{color:"orange"}} />;
+  if (isLoading) return <Spin tip="Loading..." style={{ color: "orange" }} />;
   if (error)
     return <Alert message="Error loading currencies" type="error" showIcon />;
 
@@ -69,14 +69,14 @@ const SwapCurrencies = () => {
           placeholder="Amount"
           className="w-[80%]"
         />
-        <button
+        <Button
           // size="small"
           // type="primary"
           onClick={handleSwap}
           className="bg-orange-500 text-white rounded-md h-[40px] w-[20%]"
         >
           <MdOutlineCurrencyExchange />
-        </button>
+        </Button>
       </div>
 
       <div style={{ marginBottom: 16 }}>
@@ -95,8 +95,8 @@ const SwapCurrencies = () => {
           ))}
         </Select>
       </div>
-
-      <div style={{ marginBottom: 16 }}>
+      <hr />
+      <div style={{ marginBottom: 0 }}>
         <Title level={5}>Converted Amount</Title>
         <Typography.Text strong>
           {amount} {fromCurrency} is approximately {convertedAmount.toFixed(2)}{" "}
