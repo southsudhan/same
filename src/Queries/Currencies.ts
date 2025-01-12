@@ -9,3 +9,12 @@ export const getCurrencies = async () => {
     );  
     return r.data;
   };
+
+
+  export const getProductById = async (id: string) => {
+    const r = await axios.get<CurrenciesModel>(
+      `${import.meta.env.VITE_API_URL}${EndPoints.CURRENCIES}`
+    );
+    return r.data;
+  };
+  

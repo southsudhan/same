@@ -93,7 +93,7 @@ const ChartCurrencies = () => {
         <div className="w-[100%] flex lg:justify-between justify-evenly gap-2">
           <div
             id="chart-container"
-            className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-3/4"
+            className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-full"
           >
             {isLoading || !data ? (
               <Spin tip="در حال بارگذاری..." />

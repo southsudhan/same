@@ -1,7 +1,8 @@
-import { Alert, Button, Form, Input, message, Select } from "antd";
+import { Alert, Form, Input, message, Select } from "antd";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import { useState } from "react";
 import { FaDollarSign } from "react-icons/fa";
+import Button from "../../Ui/BaseUi/Button/Button";
 
 const { Option } = Select;
 
@@ -118,7 +119,7 @@ const BuySellCurrencies = () => {
               </strong>
             </div>
           )}
-          <Button className="w-full p-5">Buy</Button>
+          <Button>Buy</Button>
         </Form>
       </div>
 

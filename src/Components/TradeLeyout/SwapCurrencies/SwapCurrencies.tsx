@@ -1,15 +1,8 @@
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import { useState } from "react";
-import {
-  Select,
-  InputNumber,
-  Button,
-  Card,
-  Typography,
-  Spin,
-  Alert,
-} from "antd";
+import { Select, InputNumber, Card, Typography, Spin, Alert } from "antd";
 import { MdOutlineCurrencyExchange } from "react-icons/md";
+import Button from "../../Ui/BaseUi/Button/Button";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -69,12 +62,7 @@ const SwapCurrencies = () => {
           placeholder="Amount"
           className="w-[80%]"
         />
-        <Button
-          // size="small"
-          // type="primary"
-          onClick={handleSwap}
-          className="bg-orange-500 text-white rounded-md h-[40px] w-[20%]"
-        >
+        <Button width={60} onClick={handleSwap}>
           <MdOutlineCurrencyExchange />
         </Button>
       </div>
@@ -96,8 +84,8 @@ const SwapCurrencies = () => {
         </Select>
       </div>
       <hr />
-      <div style={{ marginBottom: 0 }}>
-        <Title level={5}>Converted Amount</Title>
+      <div style={{ marginTop: 10 }}>
+        <h4>Converted Amount</h4>
         <Typography.Text strong>
           {amount} {fromCurrency} is approximately {convertedAmount.toFixed(2)}{" "}
           {toCurrency}

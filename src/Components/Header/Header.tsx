@@ -9,6 +9,7 @@ import CompareCurrencies from "../TradeLeyout/CompareCurrencies/CompareCurrencie
 import { CgOptions } from "react-icons/cg";
 import BuySellCurrencies from "../TradeLeyout/BuySellCurrencies/BuySellCurrencies";
 import SwapCurrencies from "../TradeLeyout/SwapCurrencies/SwapCurrencies";
+import Button from "../Ui/BaseUi/Button/Button";
 
 const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,15 +31,21 @@ const Header: React.FC = () => {
   /* sell */
 
   const showModalSell = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOkSell = () => {
-    setIsModalOpen(false);
+    setisModalSell(true);
   };
 
   const handleCancelSell = () => {
-    setIsModalOpen(false);
+    setisModalSell(false);
+  };
+
+  /* swap */
+
+  const showModalSwap = () => {
+    setisSwap(true);
+  };
+
+  const handleCancelSwap = () => {
+    setisSwap(false);
   };
 
   return (
@@ -58,9 +65,9 @@ const Header: React.FC = () => {
             title={
               <Card className="lg:hidden block">
                 <span className="font-bold" onClick={showModalSell}>
-                  Buy Currencies |{" "}
+                  Buy Currencies |
                 </span>
-                <span className="font-bold" onClick={undefined}>
+                <span className="font-bold" onClick={showModalSwap}>
                   Swap Currencies
                 </span>
               </Card>
@@ -86,21 +93,24 @@ const Header: React.FC = () => {
         <div className="flex items-center border border-orange-500 rounded-full shadow-xl">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
-            alt="Profile"
-            className="w-8 h-8 rounded-full"
+            className="w-36 h-10 rounded-full"
           />
         </div>
-        <button className=" lg:h-[40px] h-[35px]   lg:text-sm text-sm lg:px-8 px-2  ">
+        <Button className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  ">
           My Wallet
-        </button>
+        </Button>
       </div>
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <CompareCurrencies />
       </Modal>
-      <Modal open={isModalSell} onOk={showModalSell} onCancel={handleCancelSell}>
+      <Modal
+        open={isModalSell}
+        onOk={showModalSell}
+        onCancel={handleCancelSell}
+      >
         <BuySellCurrencies />
       </Modal>
-      <Modal>
+      <Modal open={isSwap} onOk={showModalSwap} onCancel={handleCancelSwap}>
         <SwapCurrencies />
       </Modal>
     </header>

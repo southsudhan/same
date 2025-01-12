@@ -27,11 +27,11 @@ const CompareCurrencies = () => {
       <Title level={5}>Cryptocurrency Comparison</Title>
 
       <div className="flex space-x-4 mb-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col w-[100%]">
           <Text strong>Select Coin 1:</Text>
           <Select
             onChange={(value) => handleSelectCoin1(data[value])}
-            className="w-full"
+            className="w-1/2"
             placeholder="Select a coin..."
             showSearch
           >

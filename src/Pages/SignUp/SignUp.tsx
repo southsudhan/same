@@ -2,6 +2,7 @@ import { Form, Input, Checkbox } from "antd";
 import BlurCard from "../../Components/SignUpLeyout/BlurCard/BlurCard";
 import VideoSignUp from "../../Components/SignUpLeyout/VideoSignUp/VideoSignUp";
 import { BiArrowBack } from "react-icons/bi";
+import Button from "../../Components/Ui/BaseUi/Button/Button";
 
 const SignUp = () => {
   return (
@@ -18,7 +19,10 @@ const SignUp = () => {
             Create an account
           </h1>
           <p className="text-sm mb-4 text-center">
-            Already have an account? <a href="/" className="text-orange-500">Log in</a>
+            Already have an account?{" "}
+            <a href="/" className="text-orange-500">
+              Log in
+            </a>
           </p>
           <Form.Item
             name="firstName"
@@ -60,18 +64,18 @@ const SignUp = () => {
             </Checkbox>
           </Form.Item>
 
-          <button>Create account</button>
+          <Button>Create account</Button>
         </Form>
       </div>
 
       <div className="md:w-1/2 w-full relative">
-        <button
-          className="absolute bg-transparent right-0 top-1 justify-center flex items-center gap-3 cursor-pointer"
+        <div
           onClick={() => (document.location = "/traderoom")}
+          className="absolute top-4 border-b right-12 text-white items-center flex gap-2"
         >
           <BiArrowBack />
           back to traderoom
-        </button>
+        </div>
 
         <BlurCard />
 
