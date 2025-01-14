@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import CandlestickChart from "./CandlestickChart";
-import { Card, List, Select, Spin } from "antd";
+import { Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
-import { RxExitFullScreen } from "react-icons/rx";
+import TimeFarmChart from "../../TimeFarmChart/TimeFarmChart";
 
 interface Crypto {
   id: string;
@@ -101,14 +101,14 @@ const ChartCurrencies = () => {
               <>
                 {selectedCrypto ? (
                   <>
-                    <div className="flex justify-between items-center mb-2">
-                      <h1 className="text-md font-bold mb-6">
+                    <div className="lg:flex grid justify-between items-center mb-2">
+                      <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px]">
                         {selectedCrypto} Candlestick Chart
-                      </h1>
+                      </p>
+
+                      <TimeFarmChart />
                       <button onClick={toggleFullScreen}>
-
-
-                        {isFullScreen ?  <BiExitFullscreen/> : <BiFullscreen /> }
+                        {isFullScreen ? <BiExitFullscreen /> : <BiFullscreen />}
                       </button>
                     </div>
                     {candlestickData.length > 0 ? (
@@ -117,7 +117,7 @@ const ChartCurrencies = () => {
                         data={candlestickData}
                       />
                     ) : (
-                      <p>Loading chart...</p>
+                      <Spin />
                     )}
                   </>
                 ) : (

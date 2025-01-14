@@ -5,7 +5,7 @@ const OrderBlock = () => {
   const { data, error, isLoading } = useCurrencies();
 
   if (isLoading) {
-    return <Spin size="large" />;
+    return <Spin size="default" />;
   }
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -32,7 +32,7 @@ const OrderBlock = () => {
               <span>
                 {crypto.name} ({crypto.symbol.toUpperCase()})
               </span>
-              <span>${crypto.current_price.toLocaleString()}</span>
+              <span>${crypto.market_cap .toLocaleString()}</span>
               <span
                 className={
                   crypto.price_change_percentage_24h > 0

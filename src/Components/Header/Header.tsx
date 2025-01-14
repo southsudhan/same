@@ -90,10 +90,11 @@ const Header: React.FC = () => {
             </Badge>
           </ReusablePopover>
         </div>
-        <div className="flex items-center border border-orange-500 rounded-full shadow-xl">
+        <div className="flex items-center border border-orange-500 rounded-full shadow-xl" onClick={()=>document.location = "/dashboard"}>
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
-            className="w-36 h-10 rounded-full"
+            className="rounded-full"
+            width={130}
           />
         </div>
         <Button className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  ">
