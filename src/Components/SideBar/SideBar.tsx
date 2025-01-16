@@ -34,7 +34,7 @@ const SideBar = () => {
       <div
         onClick={toggleSidebar}
         className={`${
-          isMobile ? "left-[340px]" : ""
+          isMobile ? "left-[320px]" : ""
         } fixed top-[110px]  items-center gap-2 z-[1000] lg:hidden flex`}
       >
         <BiMenu size={30} />

@@ -1,77 +1,100 @@
-import React from 'react';  
-import { Card, Row, Col } from 'antd';  
-import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';  
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';  
+import { Card, Col, Row } from "antd";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-const dataRadar = [  
-  { subject: 'Europe', A: 2728 },  
-  { subject: 'Americas', A: 2409 },  
-  { subject: 'Asia', A: 2843 },  
-  { subject: 'Africa', A: 3028 },  
-  { subject: 'Pacific', A: 1838 },  
-  { subject: 'Middle East', A: 800 },  
-];  
+const metricsData = [
+  { name: "Creativity", percentage: 62.13 },
+  { name: "Problem-Solving", percentage: 53.97 },
+];
 
-const dataPie = [  
-  { name: 'Amazon', value: 45 },  
-  { name: 'Tokopedia', value: 25 },  
-  { name: 'Alibaba', value: 35 },  
-];  
+const data = [
+  { name: "May 7", revenue: 10, target: 35 },
+  { name: "May 8", revenue: 75, target: 231 },
+  { name: "May 9", revenue: 75, target: 33 },
+  { name: "May 10", revenue: 10, target: 80 },
+];
 
-const COLORS = ['#0088FE', '#ffa600', '#ff0000'];  
-
-const CercelChart = () => {  
-  return (  
-    <div className=" mt-3 ">  
-      <Row gutter={16}>  
-        <Col span={8}>  
-          <Card title="Sales by Region"  className='h-[280px] border border-gray-100'>  
-            <ResponsiveContainer  height={186}>  
-              <RadarChart outerRadius={90} data={dataRadar}>  
-                <PolarGrid />  
-                <PolarAngleAxis dataKey="subject" />  
-                <PolarRadiusAxis />  
-                <Radar name="Sales" dataKey="A" stroke="#c08300" fill="#ffaf1b" fillOpacity={0.6} />  
-              </RadarChart>  
-            </ResponsiveContainer>  
-          </Card>  
-        </Col>  
-        <Col span={8}>  
-          <Card title="Sales by E-commerce Platform" className='h-[280px] border border-gray-100'>  
-            <ResponsiveContainer width="100%" height={185}>  
-              <PieChart>  
-                <Pie   
-                  data={dataPie}   
-                  cx="50%"   
-                  cy="50%"   
-                  innerRadius={40}   
-                  outerRadius={80}   
-                  fill="#8884d8"   
-                  dataKey="value"  
-                >  
-                  {dataPie.map((entry, index) => (  
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />  
-                  ))}  
-                </Pie>  
-              </PieChart>  
-            </ResponsiveContainer>  
-          </Card>  
-        </Col>  
-        <Col span={8}>  
-          <Card title="Registered Users" className='h-[280px] border border-gray-100'>  
-            <div className="flex flex-col items-center">  
-              <div className="text-3xl">2,324</div>  
-              <div className="text-gray-500">Total Users</div>  
-              <div className="mt-4">  
-                <div>1,809 Premium Plan</div>  
-                <div>515 Basic Plan</div>  
-              </div>  
-            </div>  
-          </Card>  
-        </Col>  
-      </Row>  
-    </div>  
-  );  
-};  
+const CercelChart = () => {
+  return (
+    <div className="mt-2">
+      <Row gutter={16} className="lg:flex grid">
+        <Col span={12}>
+          <Card title="Training Progress" className="lg:w-full w-screen">
+            <ResponsiveContainer width="100%" height={165}>
+              <LineChart data={data}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip
+                  formatter={(value, name) => {
+                    return [`$${value.toFixed(2)}`, name];
+                  }}
+                />
+                <CartesianGrid strokeDasharray="3 3" />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke="#000000"
+                  dot={{ fill: "#000000" }}
+                  activeDot={{ r: 8 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="target"
+                  stroke="#FBBF24"
+                  dot={{ fill: "#ffa600" }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </Card>
+        </Col>
+        <Col span={12}>
+          <Card title="Training Impact Metrics" className="lg:w-full w-screen">
+            <div className="mb-2">
+              <span>+15% Technical Skills</span>
+            </div>
+            {metricsData.map((metric, index) => (
+              <div key={index} className="mb-3">
+                <div className="flex justify-between items-center">
+                  <span>{metric.name}</span>
+                  <span>{metric.percentage}%</span>
+                </div>
+                <div className="relative">
+                  <div className="bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-orange-300 h-2 rounded-full"
+                      style={{ width: `${metric.percentage}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="mb-2">
+              <span>+13% Soft Skills</span>
+            </div>
+            <div className="mb-3">
+              <div className="relative">
+                <div className="bg-gray-200 rounded-full h-2">
+                  <div
+                    className="bg-orange-300 h-2 rounded-full"
+                    style={{ width: `${metricsData[0].percentage}%` }} // Utilize an example metric
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
+};
 
 export default CercelChart;
