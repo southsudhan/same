@@ -1,6 +1,13 @@
-import React from "react";
 import { Card } from "antd";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+} from "recharts";
 
 const ChartOwner = () => {
   // Data for the bar chart (structured for Recharts)
@@ -22,10 +29,30 @@ const ChartOwner = () => {
   // Latest visits data
   const latestVisits = [
     { id: 1, name: "Esther Howard", specialty: "Dermatology", time: "8:44" },
-    { id: 2, name: "Eleanor Pena", specialty: "Gastroenterology", time: "8:54" },
-    { id: 3, name: "Cameron Keimasi", specialty: "Rheumatology", time: "12:23" },
-    { id: 4, name: "Mohamad Afshari", specialty: "Rheumatology", time: "13:24" },
-    { id: 5, name: "Martin Williamson", specialty: "Rheumatology", time: "17:42" },
+    {
+      id: 2,
+      name: "Eleanor Pena",
+      specialty: "Gastroenterology",
+      time: "8:54",
+    },
+    {
+      id: 3,
+      name: "Cameron Keimasi",
+      specialty: "Rheumatology",
+      time: "12:23",
+    },
+    {
+      id: 4,
+      name: "Mohamad Afshari",
+      specialty: "Rheumatology",
+      time: "13:24",
+    },
+    {
+      id: 5,
+      name: "Martin Williamson",
+      specialty: "Rheumatology",
+      time: "17:42",
+    },
   ];
 
   return (
@@ -36,13 +63,7 @@ const ChartOwner = () => {
         className="rounded-lg lg:w-3/4 w-full"
         style={{ minHeight: "420px" }}
       >
-        <BarChart
-          width={1100}
-          height={320}
-        //   className=""
-          data={data}
-          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-        >
+        <BarChart width={1100} height={320} data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />

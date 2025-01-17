@@ -13,7 +13,7 @@ const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [demoMode, setDemoMode] = useState(false);
 
-  const isMobile = window.innerWidth < 900; // Adjust width as needed
+  const isMobile = window.innerWidth < 900; 
 
   useEffect(() => {
     if (isMobile) {

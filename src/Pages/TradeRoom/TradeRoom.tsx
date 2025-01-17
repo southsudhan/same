@@ -1,7 +1,6 @@
 import Header from "../../Components/Header/Header";
 import BuySellCurrencies from "../../Components/TradeLeyout/BuySellCurrencies/BuySellCurrencies";
 import ChartCurrencies from "../../Components/TradeLeyout/ChartCurrencies/ChartCurrencies";
-import CurrencyTable from "../../Components/TradeLeyout/Currencies/Currencies";
 import SwapCurrencies from "../../Components/TradeLeyout/SwapCurrencies/SwapCurrencies";
 
 const TradeRoom = () => {
@@ -16,7 +15,6 @@ const TradeRoom = () => {
           </div>
           <ChartCurrencies />
         </div>
-        <CurrencyTable/>
       </div>
     </>
   );

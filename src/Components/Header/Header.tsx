@@ -50,7 +50,10 @@ const Header: React.FC = () => {
 
   return (
     <header className="flex items-center justify-between p-4 bg-white z-50 border-b cursor-pointer fixed w-full top-0">
-      <div className="flex items-center">
+      <div
+        className="flex items-center"
+        onClick={() => (document.location = "/")}
+      >
         <span className="text-black font-bold text-lg ml-1">Crypto</span>
         <span className="text-orange-500 font-bold text-lg">Hub</span>
       </div>
@@ -79,10 +82,13 @@ const Header: React.FC = () => {
 
           <ReusablePopover
             title={
-              <div className="font-bold">
-                Notifications
-                <Alert message="Success Text" type="warning" closable />
-              </div>
+              <div className="font-bold gap-2 flex-col flex">
+              Notifications
+              <Alert message="Your order has been placed successfully" type="success" closable showIcon className="lg:w-[400px] w-[300px]" />
+              <Alert message="Insufficient funds for transaction" type="warning" closable showIcon className="lg:w-[400px] w-[300px]" />
+              <Alert message="Unable to process your order" type="error" closable showIcon className="lg:w-[400px] w-[300px]" />
+              <Alert message="Your account balance has been updated" type="info" closable showIcon className="lg:w-[400px] w-[300px]" />
+            </div>
             }
           >
             <Badge dot>
@@ -90,14 +96,17 @@ const Header: React.FC = () => {
             </Badge>
           </ReusablePopover>
         </div>
-        <div className="flex items-center border border-orange-500 rounded-full shadow-xl" onClick={()=>document.location = "/dashboard"}>
+        <div className="flex items-center border border-orange-500 rounded-full shadow-xl">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
             className="rounded-full"
             width={130}
           />
         </div>
-        <Button className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  ">
+        <Button
+          className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  "
+          onClick={() => (document.location = "/dashboard")}
+        >
           My Wallet
         </Button>
       </div>
