@@ -55,15 +55,23 @@ const ChartOwner = () => {
     },
   ];
 
+
+
+
   return (
     <div className="p-0 lg:flex grid gap-2">
       {/* Revenue Over Time Card */}
       <Card
         title="Revenue Over Time"
-        className="rounded-lg lg:w-3/4 w-full"
+        className="rounded-lg lg:w-3/4 w-screen"
         style={{ minHeight: "420px" }}
       >
-        <BarChart width={1100} height={320} data={data}>
+        <BarChart
+          width={1100}
+          // reverseStackOrder
+          height={320}
+          data={data}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />
@@ -76,7 +84,7 @@ const ChartOwner = () => {
 
       {/* Session by Country Card */}
       <Card
-        className="lg:w-1/4 w-full"
+        className="lg:w-1/4 w-screen"
         style={{ minHeight: "410px" }}
         title="Session by Country"
       >

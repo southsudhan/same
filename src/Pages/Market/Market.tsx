@@ -158,7 +158,6 @@ const Market = () => {
             columns={columns}  
             dataSource={filteredData}  
             rowKey="id"  
-
             pagination={{ pageSize: 10 }}  
             style={{ fontSize: 12 }}  
           />  

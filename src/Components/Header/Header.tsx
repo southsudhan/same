@@ -105,7 +105,7 @@ const Header: React.FC = () => {
         </div>
         <Button
           className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  "
-          onClick={() => (document.location = "/dashboard")}
+          onClick={() => (document.location = "/wallet")}
         >
           My Wallet
         </Button>

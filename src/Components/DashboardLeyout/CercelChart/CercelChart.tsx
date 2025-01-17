@@ -57,7 +57,7 @@ const CercelChart = () => {
           </Card>
         </Col>
         <Col span={12}>
-          <Card title="Training Impact Metrics" className="lg:w-full w-screen">
+          <Card title="Training Impact Metrics" className="w-full">
             <div className="mb-2">
               <span>+15% Technical Skills</span>
             </div>

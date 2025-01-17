@@ -7,7 +7,6 @@ const DashboardMain = () => {
     <div className="lg:flex flex-col ">
       <UserWallet />
       <ChartOwner/>
-      {/* <CercelChart/> */}
       <CercelChart/>
     </div>
   );

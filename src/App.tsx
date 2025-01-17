@@ -3,8 +3,8 @@ import "./App.css";
 import Home from "./Pages/Home/Home";
 import SignUp from "./Pages/SignUp/SignUp";
 import TradeRoom from "./Pages/TradeRoom/TradeRoom";
-import Dashboard from "./Pages/Dashboard/Dashboard";
 import Market from "./Pages/Market/Market";
+import Wallet from "./Pages/Wallet/Wallet";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/traderoom" element={<TradeRoom />} />
           <Route path="/market" element={<Market />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/wallet" element={<Wallet />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>

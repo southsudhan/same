@@ -1,7 +1,7 @@
 const MenuItem = () => {
   return (
     <div>
-      <nav className="lg:flex hidden space-x-6 justify-center items-center">
+      <nav className="lg:flex hidden space-x-6 justify-center items-center text-sm">
         <a href="#" className="text-gray-700 hover:text-orange-500" onClick={() => (document.location = "/traderoom")}>
           Exchange
         </a>
