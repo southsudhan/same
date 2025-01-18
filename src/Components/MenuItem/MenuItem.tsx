@@ -5,14 +5,14 @@ const MenuItem = () => {
         <a href="#" className="text-gray-700 hover:text-orange-500" onClick={() => (document.location = "/traderoom")}>
           Exchange
         </a>
-        <a href="#" className="text-gray-700 hover:text-orange-500">
-          Buy Crypto
-        </a>
         <a href="#" className="text-gray-700 hover:text-orange-500" onClick={()=>document.location = "market"}>
           Market
         </a>
         <a href="#" className="text-gray-700 hover:text-orange-500">
           Discover
+        </a>
+        <a href="#" className="text-gray-700 hover:text-orange-500">
+          About
         </a>
       </nav>
     </div>

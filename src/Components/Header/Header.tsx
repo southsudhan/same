@@ -10,6 +10,7 @@ import { CgOptions } from "react-icons/cg";
 import BuySellCurrencies from "../TradeLeyout/BuySellCurrencies/BuySellCurrencies";
 import SwapCurrencies from "../TradeLeyout/SwapCurrencies/SwapCurrencies";
 import Button from "../Ui/BaseUi/Button/Button";
+import UserInfo from "../UserInfo/UserInfo";
 
 const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,7 +64,7 @@ const Header: React.FC = () => {
         <SearchBar />
 
         <div className="flex items-center gap-2">
-          <MdCompare size={25} onClick={showModal} />
+          <MdCompare size={40} onClick={showModal} />
           <ReusablePopover
             title={
               <Card className="lg:hidden block">
@@ -77,32 +78,65 @@ const Header: React.FC = () => {
             }
           >
             {/* <MdOutlinePrivacyTi p size={25} /> */}
-            <CgOptions size={25} />
+            <CgOptions size={40} />
           </ReusablePopover>
 
           <ReusablePopover
             title={
               <div className="font-bold gap-2 flex-col flex">
-              Notifications
-              <Alert message="Your order has been placed successfully" type="success" closable showIcon className="lg:w-[400px] w-[300px]" />
-              <Alert message="Insufficient funds for transaction" type="warning" closable showIcon className="lg:w-[400px] w-[300px]" />
-              <Alert message="Unable to process your order" type="error" closable showIcon className="lg:w-[400px] w-[300px]" />
-              <Alert message="Your account balance has been updated" type="info" closable showIcon className="lg:w-[400px] w-[300px]" />
-            </div>
+                Notifications
+                <Alert
+                  message="Your order has been placed successfully"
+                  type="success"
+                  closable
+                  showIcon
+                  className="lg:w-[400px] w-[300px]"
+                />
+                <Alert
+                  message="Insufficient funds for transaction"
+                  type="warning"
+                  closable
+                  showIcon
+                  className="lg:w-[400px] w-[300px]"
+                />
+                <Alert
+                  message="Unable to process your order"
+                  type="error"
+                  closable
+                  showIcon
+                  className="lg:w-[400px] w-[300px]"
+                />
+                <Alert
+                  message="Your account balance has been updated"
+                  type="info"
+                  closable
+                  showIcon
+                  className="lg:w-[400px] w-[300px]"
+                />
+              </div>
             }
           >
             <Badge dot>
               <IoMdNotificationsOutline size={25} />
             </Badge>
           </ReusablePopover>
+          <ReusablePopover
+            title={
+              <div className="font-bold gap-2 flex-col flex">
+                User Information
+                {/* <CompareCurrencies /> */}
+                <UserInfo/>
+              </div>
+            }
+          >
+            <img
+              src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
+              className="rounded-full"
+              width={35}
+            />
+          </ReusablePopover>
         </div>
-        <div className="flex items-center border border-orange-500 rounded-full shadow-xl">
-          <img
-            src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
-            className="rounded-full"
-            width={130}
-          />
-        </div>
+
         <Button
           className=" lg:h-[40px] h-[3px]  lg:w-[150px] w-[53px] lg:text-sm text-[10px] lg:px-8 px-2  "
           onClick={() => (document.location = "/wallet")}

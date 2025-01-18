@@ -37,6 +37,7 @@ const ReusablePopover: React.FC<ReusablePopoverProps> = ({
       title={title}
       content={content}
       arrow={mergedArrow}
+       trigger="click"
     >
       {children}
     </Popover>

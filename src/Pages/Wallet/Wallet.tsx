@@ -11,10 +11,7 @@ const Wallet = () => {
           <SideBar />
         </div>
         <div className="lg:w-[80%] w-full mr-5 mt-20">
-            {/* <div className="flex justify-between items-center text-black mt-24 border-b border-gray-200 pb-3">
-                <p>Overview</p>
-                <Button width={200} className="bg-transparent">Custimez Widget</Button>
-            </div> */}
+       
           <DashboardMain />
         </div>
       </div>
