@@ -7,6 +7,7 @@ interface ReusablePopoverProps {
   placement?: PopoverProps["placement"];
   arrow?: "Show" | "Hide" | "Center";
   children: React.ReactNode;
+  className?:string
 }
 
 const ReusablePopover: React.FC<ReusablePopoverProps> = ({
@@ -15,6 +16,7 @@ const ReusablePopover: React.FC<ReusablePopoverProps> = ({
   placement = "bottom",
   arrow = "Show",
   children,
+  className
 }) => {
   const mergedArrow = useMemo<PopoverProps["arrow"]>(() => {
     if (arrow === "Hide") {
@@ -38,6 +40,7 @@ const ReusablePopover: React.FC<ReusablePopoverProps> = ({
       content={content}
       arrow={mergedArrow}
        trigger="click"
+       className={className}
     >
       {children}
     </Popover>

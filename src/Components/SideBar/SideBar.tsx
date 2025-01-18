@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layout, Menu, Switch } from "antd";
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiSolidContact, BiSupport } from "react-icons/bi";
 import { AiOutlineDashboard, AiOutlineBarChart } from "react-icons/ai";
 import { MdCampaign, MdShoppingCart } from "react-icons/md";
 import { FiMessageSquare, FiHelpCircle } from "react-icons/fi";
@@ -83,9 +83,8 @@ const SideBar = () => {
               Sales Platform
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="8">
-              <span>Demo Mode</span>
-              <Switch checked={demoMode} onChange={toggleDemoMode} />
+            <Menu.Item key="8" icon={<BiSupport/>}>
+              Contact Us
             </Menu.Item>
             <Menu.Item key="9" icon={<FiHelpCircle />}>
               Feedback

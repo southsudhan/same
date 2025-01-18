@@ -1,7 +1,7 @@
 import { Alert, Badge, Card, Modal } from "antd";
 import React, { useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { MdCompare } from "react-icons/md";
+import { MdCompare, MdOutlinePrivacyTip } from "react-icons/md";
 import ReusablePopover from "../ReusablePopover/ReusablePopover";
 import SearchBar from "../SearchBar/SearchBar";
 import MenuItem from "../MenuItem/MenuItem";
@@ -64,8 +64,8 @@ const Header: React.FC = () => {
         <SearchBar />
 
         <div className="flex items-center gap-2">
-          <MdCompare size={40} onClick={showModal} />
-          <ReusablePopover
+          <MdCompare size={50} onClick={showModal} />
+          <ReusablePopover  className="lg:hidden block"
             title={
               <Card className="lg:hidden block">
                 <span className="font-bold" onClick={showModalSell}>
@@ -77,8 +77,8 @@ const Header: React.FC = () => {
               </Card>
             }
           >
-            {/* <MdOutlinePrivacyTi p size={25} /> */}
-            <CgOptions size={40} />
+            {/* <MdOutlinePrivacyTip size={25} /> */}
+            <CgOptions size={60} />
           </ReusablePopover>
 
           <ReusablePopover
@@ -122,8 +122,8 @@ const Header: React.FC = () => {
           </ReusablePopover>
           <ReusablePopover
             title={
-              <div className="font-bold gap-2 flex-col flex">
-                User Information
+              <div className="font-bold gap-2 flex-col flex ">
+                {/* User Information */}
                 {/* <CompareCurrencies /> */}
                 <UserInfo/>
               </div>
