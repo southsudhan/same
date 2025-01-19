@@ -4,7 +4,7 @@ import UserWallet from "./UserWallet/UserWallet";
 
 const DashboardMain = () => {
   return (
-    <div className="lg:flex flex-col ">
+    <div className="lg:flex flex-col">
       <UserWallet />
       <ChartOwner/>
       <CercelChart/>

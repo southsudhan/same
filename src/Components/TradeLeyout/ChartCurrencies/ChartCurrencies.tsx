@@ -62,7 +62,7 @@ const ChartCurrencies = () => {
 
   return (
     <div className="flex w-[100%] flex-col ">
-      <div className="flex flex-col justify-center gap-4 w-[100%] lg:mt-0 mt-7 ">
+      <div className="flex flex-col justify-center gap-4 w-[100%] ">
         <TopCurrencies />
         <div className="flex justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
           <Select
@@ -90,7 +90,7 @@ const ChartCurrencies = () => {
           ))}
         </div>
 
-        <div className="w-[100%] flex lg:justify-between justify-evenly gap-2">
+        <div className="w-[100%] lg:flex grid lg:justify-between justify-evenly gap-2">
           <div
             id="chart-container"
             className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-full"
@@ -126,7 +126,7 @@ const ChartCurrencies = () => {
               </>
             )}
           </div>
-          <div className="lg:w-1/4 w-[30%] border border-gray-100 rounded-md ">
+          <div className="lg:w-1/4  border border-gray-100 rounded-md ">
             <OrderBlock />
           </div>
         </div>

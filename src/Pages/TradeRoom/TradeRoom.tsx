@@ -8,7 +8,7 @@ const TradeRoom = () => {
     <>
       <Header />
       <div className="flex flex-col ">
-        <div className="justify-between items-center  gap-2  lg:mt-0 mt-16  flex h-screen">
+        <div className="justify-between items-center  mt-28 gap-2 flex">
           <div className="lg:flex flex-col hidden gap-3">
             <BuySellCurrencies />
             <SwapCurrencies />

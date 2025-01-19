@@ -32,7 +32,7 @@ const OrderBlock = () => {
               <span>
                 {crypto.name} ({crypto.symbol.toUpperCase()})
               </span>
-              <span>${crypto.market_cap .toLocaleString()}</span>
+              <span>${crypto.market_cap.toLocaleString()}</span>
               <span
                 className={
                   crypto.price_change_percentage_24h > 0

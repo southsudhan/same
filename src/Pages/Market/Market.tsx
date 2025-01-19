@@ -131,10 +131,9 @@ const Market = () => {
   return (
     <>
       <Header />
-      <div className="w-full flex justify-center gap-1">
-        <SideBar />
-        <div className="w-[80%] mt-[9vh] overflow-auto mr-10">
-          <div className="py-5 flex justify-between items-center border-b border-gray-200 mb-4 lg:mt-0 mt-20">
+      <div className="w-full flex justify-center gap-1 p-5">
+        <div className="w-[100%] mt-[9vh] overflow-auto ">
+          <div className="py-5 lg:flex grid gap-2 justify-between items-center border-b border-gray-200 mb-4 lg:mt-0 mt-5">
             <Input
               placeholder="Search Token, Coin, Airdrop"
               size="middle"
@@ -147,7 +146,7 @@ const Market = () => {
               size="large"
               value={filter}
               onChange={handleFilter}
-              className="text-sm text-gray-700 w-[300px]"
+              className="text-sm text-gray-700 w-[330px]"
             >
               <Option value="">Select Filter</Option>
               <Option value="asc">Ascending</Option>

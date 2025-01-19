@@ -32,16 +32,16 @@ const SearchBar = () => {
   };
 
   if (isLoading) return <Spin />;
-  if (error) return <p>Error loading currencies!</p>;
+  if (error) return <p>Error...</p>;
 
   return (
-    <div >
+    <div>
       <Input
         size="middle"
         value={searchValue}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Search Token, Coin, Airdrop"
-        className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[330px] lg:relative absolute lg:right-0 right-4 lg:top-0 top-16 outline-none border-none hover:bg-gray-100"
+        className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[350px] lg:relative absolute lg:right-0 right-4 lg:top-0 top-16 outline-none border-none hover:bg-gray-100"
         prefix={<BiSearch />}
       />
       {filteredCurrencies.length > 0 && (

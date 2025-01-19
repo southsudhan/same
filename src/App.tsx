@@ -5,6 +5,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import TradeRoom from "./Pages/TradeRoom/TradeRoom";
 import Market from "./Pages/Market/Market";
 import Wallet from "./Pages/Wallet/Wallet";
+import Playground from "./Playground/Playground";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/market" element={<Market />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/playground" element={<Playground />} />
         </Routes>
       </BrowserRouter>
     </div>

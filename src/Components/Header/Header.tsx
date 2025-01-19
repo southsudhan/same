@@ -64,8 +64,13 @@ const Header: React.FC = () => {
         <SearchBar />
 
         <div className="flex items-center gap-2">
-          <MdCompare size={50} onClick={showModal} />
-          <ReusablePopover  className="lg:hidden block"
+          <MdCompare
+            size={50}
+            className="lg:w-[60px] w-[40px]"
+            onClick={showModal}
+          />
+          <ReusablePopover
+            className="lg:hidden block"
             title={
               <Card className="lg:hidden block">
                 <span className="font-bold" onClick={showModalSell}>
@@ -78,7 +83,7 @@ const Header: React.FC = () => {
             }
           >
             {/* <MdOutlinePrivacyTip size={25} /> */}
-            <CgOptions size={60} />
+            <CgOptions size={45} />
           </ReusablePopover>
 
           <ReusablePopover
@@ -125,7 +130,7 @@ const Header: React.FC = () => {
               <div className="font-bold gap-2 flex-col flex ">
                 {/* User Information */}
                 {/* <CompareCurrencies /> */}
-                <UserInfo/>
+                <UserInfo />
               </div>
             }
           >

@@ -4,8 +4,26 @@ import { BiMenu, BiSolidContact, BiSupport } from "react-icons/bi";
 import { AiOutlineDashboard, AiOutlineBarChart } from "react-icons/ai";
 import { MdCampaign, MdShoppingCart } from "react-icons/md";
 import { FiMessageSquare, FiHelpCircle } from "react-icons/fi";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BsFillDatabaseFill, BsFillPersonFill } from "react-icons/bs";
 import Button from "../Ui/BaseUi/Button/Button";
+import {
+  BiSolidChevronsRight,
+  BiSolidDashboard,
+  BiSolidEvStation,
+  BiSolidUserAccount,
+  BiTransferAlt,
+} from "react-icons/bi";
+import DashboardMain from "../DashboardLeyout/DashboardMain";
+import Market from "../../Pages/Market/Market";
+
+const menuItems = [
+  { key: "dashboard", label: "Dashboard", icon: <BiSolidDashboard /> },
+  { key: "market", label: "Market", icon: <BiSolidUserAccount /> },
+  { key: "cards", label: "Cards", icon: <BsFillDatabaseFill /> },
+  { key: "transactions", label: "Transactions", icon: <BiTransferAlt /> },
+  { key: "insights", label: "Insights", icon: <BiSolidChevronsRight /> },
+  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
+];
 
 const { Sider } = Layout;
 
@@ -13,7 +31,7 @@ const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [demoMode, setDemoMode] = useState(false);
 
-  const isMobile = window.innerWidth < 900; 
+  const isMobile = window.innerWidth < 900;
 
   useEffect(() => {
     if (isMobile) {
@@ -28,9 +46,42 @@ const SideBar = () => {
   const toggleDemoMode = (checked: any) => {
     setDemoMode(checked);
   };
+  const [selectedItem, setSelectedItem] = useState("dashboard");
+  const [visible, setVisible] = useState(false);
+
+  const handleMenuClick = (e: any) => {
+    setSelectedItem(e.key);
+  };
+
+  const renderContent = () => {
+    switch (selectedItem) {
+      case "dashboard":
+        return (
+          <div>
+            <DashboardMain />
+          </div>
+        );
+      case "market":
+        return (
+          <div>
+            <p>Ohter </p>
+          </div>
+        );
+      case "cards":
+        return <div>Cards Content</div>;
+      case "transactions":
+        return <div>Transactions Content</div>;
+      case "insights":
+        return <div>Insights Content</div>;
+      case "settings":
+        return <div>Settings Content</div>;
+      default:
+        return <div>Dashboard Content</div>;
+    }
+  };
 
   return (
-    <Layout style={{ minHeight: "100vh", background: "none" }}>
+    <div style={{ minHeight: "100vh", background: "none" }}>
       <div
         onClick={toggleSidebar}
         className={`${
@@ -50,12 +101,6 @@ const SideBar = () => {
           }}
           className="lg:h-[86%] h-[75%] lg:top-[80px] top-[110px]"
         >
-          <div
-            style={{ padding: "16px", color: "#ffffff", fontWeight: "bold" }}
-            className="bg-orange-500 text-white font-bold p-16"
-          >
-            Hi, Mohamad Amin Keimasi
-          </div>
           <Menu
             mode="inline"
             defaultSelectedKeys={["1"]}
@@ -83,7 +128,7 @@ const SideBar = () => {
               Sales Platform
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="8" icon={<BiSupport/>}>
+            <Menu.Item key="8" icon={<BiSupport />}>
               Contact Us
             </Menu.Item>
             <Menu.Item key="9" icon={<FiHelpCircle />}>
@@ -105,7 +150,7 @@ const SideBar = () => {
           onClick={toggleSidebar}
         ></div>
       )} */}
-    </Layout>
+    </div>
   );
 };
 
