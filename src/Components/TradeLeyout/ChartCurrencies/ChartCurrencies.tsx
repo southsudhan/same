@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import CandlestickChart from "./CandlestickChart";
-import { Select, Spin } from "antd";
+import { Alert, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
@@ -60,9 +60,12 @@ const ChartCurrencies = () => {
     fetchCandlestickData("bitcoin");
   }, []);
 
+  if (error)
+    return <Alert message="Error loading currencies" type="error" showIcon />;
+
   return (
     <div className="flex w-[100%] flex-col ">
-      <div className="flex flex-col justify-center gap-4 w-[100%] ">
+      <div className="flex flex-col justify-center gap-3 w-[100%] ">
         <TopCurrencies />
         <div className="flex justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
           <Select

@@ -60,7 +60,7 @@ const ChartOwner = () => {
       {/* Revenue Over Time Card */}
       <Card
         title="Revenue Over Time"
-        className="rounded-lg lg:w-3/4 w-screen"
+        className="rounded-lg "
       >
         <BarChart width={1000} height={320} data={data}>
           <CartesianGrid strokeDasharray="3 3" />

@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Select, Card, Spin, Typography } from "antd";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import { CurrenciesModel } from "../../../Models/Currencies";
-import { Select, Card, Spin, Typography } from "antd";
 
 const { Option } = Select;
 const { Title, Text } = Typography;

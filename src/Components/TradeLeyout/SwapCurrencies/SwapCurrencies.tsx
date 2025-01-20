@@ -89,8 +89,8 @@ const SwapCurrencies = () => {
       <div style={{ marginTop: 10 }}>
         <h4>Converted Amount</h4>
         <Typography.Text strong>
-          {amount} {fromCurrencyValue?.name}({fromCurrency}) is approximately{" "}
-          {toCurrencyValue?.name} {convertedAmount.toFixed(2)} ({toCurrency})
+          {amount} {fromCurrencyValue?.name} {(fromCurrency)} is approximately{" "}
+          {toCurrencyValue?.name} {convertedAmount.toFixed(2)} {(toCurrency)}
         </Typography.Text>
       </div>
     </Card>

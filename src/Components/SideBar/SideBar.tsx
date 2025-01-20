@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
-import { Layout, Menu, Switch } from "antd";
-import { BiMenu, BiSolidContact, BiSupport } from "react-icons/bi";
-import { AiOutlineDashboard, AiOutlineBarChart } from "react-icons/ai";
-import { MdCampaign, MdShoppingCart } from "react-icons/md";
-import { FiMessageSquare, FiHelpCircle } from "react-icons/fi";
-import { BsFillDatabaseFill, BsFillPersonFill } from "react-icons/bs";
-import Button from "../Ui/BaseUi/Button/Button";
+import React, { useState } from "react";
+import { Menu, Drawer } from "antd";
 import {
   BiSolidChevronsRight,
   BiSolidDashboard,
   BiSolidEvStation,
   BiSolidUserAccount,
   BiTransferAlt,
+  BiMenu,
 } from "react-icons/bi";
+import { BsFillDatabaseFill } from "react-icons/bs";
 import DashboardMain from "../DashboardLeyout/DashboardMain";
-import Market from "../../Pages/Market/Market";
+import Header from "../Header/Header";
+import Button from "../Ui/BaseUi/Button/Button";
 
 const menuItems = [
   { key: "dashboard", label: "Dashboard", icon: <BiSolidDashboard /> },
@@ -23,29 +20,12 @@ const menuItems = [
   { key: "transactions", label: "Transactions", icon: <BiTransferAlt /> },
   { key: "insights", label: "Insights", icon: <BiSolidChevronsRight /> },
   { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
+  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
+  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
+  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
 ];
 
-const { Sider } = Layout;
-
-const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [demoMode, setDemoMode] = useState(false);
-
-  const isMobile = window.innerWidth < 900;
-
-  useEffect(() => {
-    if (isMobile) {
-      setIsOpen(false);
-    }
-  }, [isMobile]);
-
-  const toggleSidebar = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const toggleDemoMode = (checked: any) => {
-    setDemoMode(checked);
-  };
+const Playground = () => {
   const [selectedItem, setSelectedItem] = useState("dashboard");
   const [visible, setVisible] = useState(false);
 
@@ -64,7 +44,7 @@ const SideBar = () => {
       case "market":
         return (
           <div>
-            <p>Ohter </p>
+            <p>Hello world</p>
           </div>
         );
       case "cards":
@@ -81,77 +61,67 @@ const SideBar = () => {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "none" }}>
-      <div
-        onClick={toggleSidebar}
-        className={`${
-          isMobile ? "left-[320px]" : ""
-        } fixed top-[110px]  items-center gap-2 z-[1000] lg:hidden flex`}
-      >
-        <BiMenu size={30} />
-      </div>
-
-      {isOpen && (
-        <Sider
-          width={300}
-          style={{
-            position: "fixed",
-            left: 0,
-            zIndex: 10,
-          }}
-          className="lg:h-[86%] h-[75%] lg:top-[80px] top-[110px]"
-        >
+    <>
+      <Header />
+      <div className="flex fixed mt-20 ">
+        <div className="lg:block hidden bg-red-300  ">
           <Menu
             mode="inline"
-            defaultSelectedKeys={["1"]}
-            style={{ height: "100%" }}
+            defaultSelectedKeys={["dashboard"]}
+            className="w-72 border h-screen"
+            onClick={handleMenuClick}
           >
-            <Menu.Item key="1" icon={<AiOutlineDashboard />}>
-              Overview
-            </Menu.Item>
-            <Menu.Item key="2" icon={<AiOutlineBarChart />}>
-              Performance
-            </Menu.Item>
-            <Menu.Item key="3" icon={<MdCampaign />}>
-              Campaigns
-            </Menu.Item>
-            <Menu.Item key="4" icon={<MdShoppingCart />}>
-              Orders
-            </Menu.Item>
-            <Menu.Item key="5" icon={<BsFillPersonFill />}>
-              Products
-            </Menu.Item>
-            <Menu.Item key="6" icon={<FiMessageSquare />}>
-              Message
-            </Menu.Item>
-            <Menu.Item key="7" icon={<AiOutlineBarChart />}>
-              Sales Platform
-            </Menu.Item>
-            <Menu.Divider />
-            <Menu.Item key="8" icon={<BiSupport />}>
-              Contact Us
-            </Menu.Item>
-            <Menu.Item key="9" icon={<FiHelpCircle />}>
-              Feedback
-            </Menu.Item>
-            <Menu.Item key="10" icon={<FiHelpCircle />}>
-              Help and docs
-            </Menu.Item>
+            {menuItems.map((item) => (
+              <Menu.Item key={item.key} icon={item.icon}>
+                {item.label}
+              </Menu.Item>
+            ))}
+            <Button className="absolute bottom-24 left-2" width={270}>
+              Upgrade to Pro
+            </Button>
           </Menu>
-          <div className="absolute w-full -bottom-10 left-2 flex flex-col gap-2">
-            <Button width={280}>Upgrade Now</Button>
-          </div>
-        </Sider>
-      )}
+        </div>
+        <div className="lg:hidden block">
+          <Button
+            className="absolute top-8 left-2 z-40"
+            width={40}
+            onClick={() => setVisible(true)}
+          >
+            <BiMenu size={24} />
+          </Button>
+          <Drawer
+            title="Hi, Mohamad Amin "
+            placement="left"
+            closable={false}
+            onClose={() => setVisible(false)}
+            visible={visible}
+            width={200}
+          >
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={["dashboard"]}
+              className="w-full border h-[400px] border-none"
+              onClick={(e) => {
+                handleMenuClick(e);
+                setVisible(false);
+              }}
+            >
+              {menuItems.map((item) => (
+                <Menu.Item key={item.key} icon={item.icon}>
+                  {item.label}
+                </Menu.Item>
+              ))}
+              <Button className="absolute bottom-24 left-2" width={170}>
+                Upgrade to Pro
+              </Button>
+            </Menu>
+          </Drawer>
+        </div>
 
-      {/* {isOpen && (
-        <div
-          className="fixed inset-0 z-20 cursor-pointer"
-          onClick={toggleSidebar}
-        ></div>
-      )} */}
-    </div>
+        <div className="p-10  ">{renderContent()}</div>
+      </div>
+    </>
   );
 };
 
-export default SideBar;
+export default Playground;

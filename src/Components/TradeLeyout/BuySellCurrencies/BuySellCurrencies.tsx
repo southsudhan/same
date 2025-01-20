@@ -1,7 +1,8 @@
-import { Alert, Form, Input, message, Select } from "antd";
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
+import { Alert, Card, Form, Input, message, Select } from "antd";
 import { useState } from "react";
 import Button from "../../Ui/BaseUi/Button/Button";
+import Title from "antd/es/typography/Title";
+import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 
 const { Option } = Select;
 
@@ -67,12 +68,12 @@ const BuySellCurrencies = () => {
   const Iranian_Inventory = currencyInventory * DollerPrice;
 
   return (
-    <div className="w-[350px]  bg-white rounded-lg border border-gray-100 p-6 flex flex-col">
-      <p className="text-sm font-bold mb-4">Buy Currencies</p>
+    <Card title={<Title level={5}>Buy Currencies</Title>}>
+      <p className="text-sm font-bold mb-4"></p>
       <div className="flex flex-col gap-4 mb-6">
         <div className="flex justify-between items-center">
           <span className="text-sm font-semibold">My Wallet:</span>
-          <span className="text-lg">${walletBalance.toLocaleString()}</span>
+          <span className="text-lg font-bold">${walletBalance.toLocaleString()}</span>
         </div>
 
         <Form form={form} onFinish={handleSubmit}>
@@ -141,7 +142,7 @@ const BuySellCurrencies = () => {
           </span>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

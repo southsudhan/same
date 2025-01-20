@@ -1,5 +1,6 @@
-import { Spin } from "antd";
+import { Card, Spin } from "antd";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
+import Title from "antd/es/typography/Title";
 
 const OrderBlock = () => {
   const { data, error, isLoading } = useCurrencies();
@@ -12,11 +13,12 @@ const OrderBlock = () => {
   }
 
   return (
-    <div className="overflow-x-scroll overflow-y-visible lg:p-5 p-1 h-[700px] lg:w-full w-screen">
+    <div className="overflow-y-scroll overflow-x-clip lg:p-2 p-10 h-[700px] lg:w-full w-screen">
       {isLoading ? (
         <Spin size="large" />
       ) : (
         <div className="grid grid-cols-1 gap-4 h-[40px] text-[10px]">
+          <p>Order Block</p>
           {data?.map((crypto) => (
             <div
               key={crypto.id}

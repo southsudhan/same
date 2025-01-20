@@ -3,7 +3,7 @@ import { Card } from "antd";
 
 const UserWallet = () => {
   return (
-    <div className="rounded-lg py-2 w-full text-black lg:flex flex-grow  justify-center gap-2 lg:mt-1 mt-16">
+    <div className="rounded-lg py-2 w-full text-black lg:flex flex-grow  justify-center gap-2 ">
       <Card
         title="Total Income"
         bordered
