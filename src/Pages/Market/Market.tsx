@@ -131,6 +131,9 @@ const Market = () => {
   return (
     <>
       <Header />
+
+
+
       <div className="w-full flex justify-center gap-1 p-5">
         <div className="w-[100%] mt-[9vh] overflow-auto ">
           <div className="py-5 lg:flex grid gap-2 justify-between items-center border-b border-gray-200 mb-4 lg:mt-0 mt-5">

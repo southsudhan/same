@@ -1,6 +1,6 @@
 import { Button } from "antd";
 
-const HeroSections = () => {
+const  HeroSections = () => {
   return (
     <div className="hero-section">
       <img src="" alt="" />

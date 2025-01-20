@@ -81,7 +81,7 @@ const ChartCurrencies = () => {
           {data?.slice(0, 7).map((crypto: Crypto) => (
             <div
               key={crypto.id}
-              className="flex justify-center gap-1 items-center w-[150px] h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
+              className="flex justify-center gap-1 items-center w-[150px]  h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
               onClick={() => fetchCandlestickData(crypto.id)}
             >
               <img src={crypto.image} alt={crypto.name} width={20} />
@@ -96,14 +96,15 @@ const ChartCurrencies = () => {
             className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-full"
           >
             {isLoading || !data ? (
-              <Spin tip="در حال بارگذاری..." />
+              <Spin tip="Loading ..." />
             ) : (
               <>
                 {selectedCrypto ? (
                   <>
-                    <div className="lg:flex grid justify-between items-center mb-2">
-                      <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px]">
-                        {selectedCrypto} Candlestick Chart
+                    <div className="lg:flex grid justify-between items-center mb-4 border-b  ">
+                      <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px] flex gap-1">
+                        <p className="text-orange-500">{selectedCrypto}</p>
+                        Candlestick Chart
                       </p>
 
                       <TimeFarmChart />
@@ -126,7 +127,7 @@ const ChartCurrencies = () => {
               </>
             )}
           </div>
-          <div className="lg:w-1/4  border border-gray-100 rounded-md ">
+          <div className="lg:w-1/4 w-screen  border border-gray-100 rounded-md ">
             <OrderBlock />
           </div>
         </div>

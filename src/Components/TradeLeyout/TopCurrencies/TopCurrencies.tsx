@@ -25,7 +25,7 @@ const TopCurrencies = () => {
   const topLosers = sortedData.slice(-5);
 
   if (error && error instanceof Error) {
-    return <p>خطا در دریافت داده‌ها: {error.message}</p>;
+    return <p>network is error : {error.message}</p>;
   }
 
   return (
@@ -34,7 +34,7 @@ const TopCurrencies = () => {
         {topGainers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className="flex flex-col justify-evenly border items-center border-gray-100 rounded-md w-[140px] p-2 text-[12px] "
+            className="flex flex-col justify-evenly border items-center border-gray-100 rounded-md w-[140px] p-2 text-[12px] hover:border hover:border-orange-200 "
           >
             <p>{item.name}</p>
             <p className="text-green-500">
@@ -49,7 +49,7 @@ const TopCurrencies = () => {
         {topLosers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className=" flex flex-col justify-evenly items-center border border-gray-100 rounded-md p-2 w-[140px] text-[12px]"
+            className=" flex flex-col justify-evenly items-center border border-gray-100 rounded-md p-2 w-[140px] text-[12px] hover:border hover:border-orange-200"
           >
             <p>{item.name}: </p>{" "}
             <p className="text-red-500">

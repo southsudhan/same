@@ -1,7 +1,6 @@
 import { Alert, Form, Input, message, Select } from "antd";
 import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import { useState } from "react";
-import { FaDollarSign } from "react-icons/fa";
 import Button from "../../Ui/BaseUi/Button/Button";
 
 const { Option } = Select;
@@ -48,7 +47,6 @@ const BuySellCurrencies = () => {
 
     message.success(
       <>
-        <FaDollarSign style={{ marginRight: "5px" }} />
         Transaction successful! Bought {currencyAmount.toFixed(2)} of{" "}
         {selectedCurrency}.
       </>

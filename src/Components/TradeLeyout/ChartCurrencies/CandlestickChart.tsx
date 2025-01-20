@@ -40,7 +40,7 @@ const CandlestickChart = ({ data }: CandlestickChartProps) => {
     };
   }, [data]);
 
-  return <div ref={chartContainerRef} className="lg:w-full w-screen h-[57vh] z-0" />;
+  return <div ref={chartContainerRef} className="lg:w-full w-full lg:h-[60vh] h-[50vh] z-0" />;
 };
 
 export default CandlestickChart;
