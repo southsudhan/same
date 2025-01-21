@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Menu, Drawer } from "antd";
 import {
-  BiSolidChevronsRight,
   BiSolidDashboard,
-  BiSolidEvStation,
   BiSolidUserAccount,
   BiTransferAlt,
   BiMenu,
@@ -11,18 +9,22 @@ import {
 import { BsFillDatabaseFill } from "react-icons/bs";
 import DashboardMain from "../DashboardLeyout/DashboardMain";
 import Header from "../Header/Header";
+import { MdAddCircleOutline, MdOutlineInbox, MdSettings } from "react-icons/md";
+import { FaRegChartBar } from "react-icons/fa";
+import { IoIosRepeat } from "react-icons/io";
+import ProfileContent from "../DashboardLeyout/ProfileContant/ProfileContant";
 import Button from "../Ui/BaseUi/Button/Button";
 
 const menuItems = [
   { key: "dashboard", label: "Dashboard", icon: <BiSolidDashboard /> },
-  { key: "market", label: "Market", icon: <BiSolidUserAccount /> },
+  { key: "profile", label: "Profile", icon: <BiSolidUserAccount /> },
   { key: "cards", label: "Cards", icon: <BsFillDatabaseFill /> },
   { key: "transactions", label: "Transactions", icon: <BiTransferAlt /> },
-  { key: "insights", label: "Insights", icon: <BiSolidChevronsRight /> },
-  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
-  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
-  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
-  { key: "settings", label: "Settings", icon: <BiSolidEvStation /> },
+  { key: "insights", label: "Insights", icon: <MdAddCircleOutline /> },
+  { key: "inbox", label: "Inbox", icon: <MdOutlineInbox /> },
+  { key: "fouram", label: "Fouram", icon: <FaRegChartBar /> },
+  { key: "reports", label: "Reports", icon: <IoIosRepeat /> },
+  { key: "settings", label: "Settings", icon: <MdSettings /> },
 ];
 
 const Playground = () => {
@@ -41,10 +43,10 @@ const Playground = () => {
             <DashboardMain />
           </div>
         );
-      case "market":
+      case "profile":
         return (
           <div>
-            <p>Hello world</p>
+            <ProfileContent />
           </div>
         );
       case "cards":
@@ -118,7 +120,7 @@ const Playground = () => {
           </Drawer>
         </div>
 
-        <div className="p-10  ">{renderContent()}</div>
+        <div className="p-10">{renderContent()}</div>
       </div>
     </>
   );

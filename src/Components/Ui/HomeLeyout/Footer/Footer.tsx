@@ -3,9 +3,9 @@ import { BsDiscord, BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-4 px-4 relative bottom-0 w-screen lg:text-[15px] text-sm">
+    <footer className="bg-white  relative bottom-0 w-screen lg:text-[15px] text-sm">
       <div className="flex justify-between  h-[250px]">
-        <div className="bg-gray-200 m-2 p-2 rounded-md w-1/3">
+        <div className="bg-gray-200 m-2 p-10 rounded-md w-1/3">
           <h1 className="text-3xl font-bold">dydX</h1>
           <p>Milton, Brisbane, Queensland</p>
           <p>Media enquiries</p>
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex  bg-gray-200 m-2 p-2 rounded-md w-2/3 text-center justify-around py-14 ">
+        <div className="flex  bg-gray-200 m-2 rounded-md w-2/3 text-center justify-around py-14 ">
           <div>
             <h2 className="font-semibold">Company</h2>
             <ul className="mt-2 space-y-1">
