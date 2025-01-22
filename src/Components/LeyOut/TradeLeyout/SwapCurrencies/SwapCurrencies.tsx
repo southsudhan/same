@@ -1,8 +1,8 @@
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import { useState } from "react";
 import { Select, InputNumber, Card, Typography, Spin, Alert } from "antd";
 import { MdOutlineCurrencyExchange } from "react-icons/md";
-import Button from "../../Ui/BaseUi/Button/Button";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
+import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const { Option } = Select;
 const { Title } = Typography;

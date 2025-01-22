@@ -75,7 +75,7 @@ const ChartOwner = () => {
 
       {/* Session by Country Card */}
       <Card
-        className="lg:w-1/4 w-screen"
+        className="lg:w-2/4 w-screen "
         style={{ minHeight: "410px" }}
         title="Session by Country"
       >

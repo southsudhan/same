@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
 
 const CurrencyTable: React.FC = () => {
   const { data, error, isLoading } = useCurrencies();

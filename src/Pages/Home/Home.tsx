@@ -1,14 +1,15 @@
-import HomeAppBar from "../../Components/Ui/HomeLeyout/HomeAppBar/HomeAppBar";
-import HeroSections from "../../Components/Ui/HomeLeyout/HeroSections/HeroSections";
-import IntroApps from "../../Components/Ui/HomeLeyout/IntroApps/IntroApps";
+import HomeAppBar from "../../Components/BasedComponents/HomeLeyout/HomeAppBar/HomeAppBar";
+import HeroSections from "../../Components/BasedComponents/HomeLeyout/HeroSections/HeroSections";
+import IntroApps from "../../Components/BasedComponents/HomeLeyout/IntroApps/IntroApps";
+import Footer from "../../Components/BasedComponents/HomeLeyout/Footer/Footer";
 
 const Home = () => {
   return (
     <>
       <HomeAppBar />
       <HeroSections />
-      {/* <IntroApps/> */}
-      {/* <Footer/> */}
+      <IntroApps/>
+      <Footer/>
     </>
   );
 };

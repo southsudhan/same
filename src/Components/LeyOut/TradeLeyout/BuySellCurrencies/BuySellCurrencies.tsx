@@ -1,8 +1,8 @@
 import { Alert, Card, Form, Input, message, Select } from "antd";
 import { useState } from "react";
-import Button from "../../Ui/BaseUi/Button/Button";
 import Title from "antd/es/typography/Title";
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
+import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const { Option } = Select;
 

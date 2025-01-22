@@ -1,7 +1,7 @@
 import { Card, Tabs, Typography, Popconfirm } from "antd";  
 import { DollarOutlined, TransactionOutlined } from "@ant-design/icons";  
 import { BiSolidUserAccount, BiLogOut } from "react-icons/bi"; // Import the sign-out icon  
-import Button from "../Ui/BaseUi/Button/Button";  
+import Button from "../../../BasedComponents/BaseUi/Button/Button";  
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";  
 
 const { Text } = Typography;  

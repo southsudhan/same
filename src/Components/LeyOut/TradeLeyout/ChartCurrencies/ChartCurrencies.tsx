@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import CandlestickChart from "./CandlestickChart";
 import { Alert, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
-import TimeFarmChart from "../../TimeFarmChart/TimeFarmChart";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
+import TimeFarmChart from "../../../TimeFarmChart/TimeFarmChart";
 
 interface Crypto {
   id: string;

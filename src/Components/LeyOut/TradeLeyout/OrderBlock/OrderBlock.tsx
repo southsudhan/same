@@ -1,6 +1,6 @@
 import { Card, Spin } from "antd";
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
 import Title from "antd/es/typography/Title";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
 
 const OrderBlock = () => {
   const { data, error, isLoading } = useCurrencies();

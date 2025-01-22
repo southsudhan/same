@@ -6,7 +6,7 @@ const Wallet = () => {
     <>
       <Header />
       <div className="flex justify-between w-full">
-        <div className="w-[20%]">
+        <div>
           <SideBar />
         </div>
       </div>

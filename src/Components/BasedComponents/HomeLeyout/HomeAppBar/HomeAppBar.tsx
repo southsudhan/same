@@ -1,4 +1,4 @@
-import { Button } from "antd/es/radio";
+import Button from "../../BaseUi/Button/Button";
 
 const HomeAppBar = () => {
   return (
@@ -35,14 +35,13 @@ const HomeAppBar = () => {
       <div className="flex  items-center gap-3">
         <Button
           onClick={() => (document.location = "/signup")}
-          className="rounded-lg"
+          width={120}
         >
-          SignUp | Login
+
+          
+          SignUp
         </Button>
-        <Button
-          onClick={() => (document.location = "/traderoom")}
-          className="bg-orange-500  text-white border-none  lg:text-sm text-sm lg:px-8 px-3 py-1.5 rounded-md hover:text-white"
-        >
+        <Button onClick={() => (document.location = "/traderoom")} width={120}>
           Trade Now
         </Button>
       </div>

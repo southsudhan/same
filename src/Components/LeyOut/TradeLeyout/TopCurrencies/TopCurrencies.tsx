@@ -1,4 +1,4 @@
-import { useCurrencies } from "../../../Hooks/Currencies/useCurrencies";
+import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
 
 interface CurrenciesModel {
   id: string;

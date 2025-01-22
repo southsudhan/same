@@ -7,13 +7,13 @@ import {
   BiMenu,
 } from "react-icons/bi";
 import { BsFillDatabaseFill } from "react-icons/bs";
-import DashboardMain from "../DashboardLeyout/DashboardMain";
+import DashboardMain from "../LeyOut/WalletLeyout/DashboardLeyout/DashboardMain";
 import Header from "../Header/Header";
 import { MdAddCircleOutline, MdOutlineInbox, MdSettings } from "react-icons/md";
 import { FaRegChartBar } from "react-icons/fa";
 import { IoIosRepeat } from "react-icons/io";
-import ProfileContent from "../DashboardLeyout/ProfileContant/ProfileContant";
-import Button from "../Ui/BaseUi/Button/Button";
+import ProfileContent from "../LeyOut/WalletLeyout/DashboardLeyout/ProfileContant/ProfileContant";
+import Button from "../BasedComponents/BaseUi/Button/Button";
 
 const menuItems = [
   { key: "dashboard", label: "Dashboard", icon: <BiSolidDashboard /> },

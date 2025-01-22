@@ -1,11 +1,10 @@
 import { Form, Input, Checkbox } from "antd";
-import BlurCard from "../../Components/SignUpLeyout/BlurCard/BlurCard";
-import VideoSignUp from "../../Components/SignUpLeyout/VideoSignUp/VideoSignUp";
+import BlurCard from "../../Components/LeyOut/SignUpLeyout/BlurCard/BlurCard";
+import VideoSignUp from "../../Components/LeyOut/SignUpLeyout/VideoSignUp/VideoSignUp";
 import { BiArrowBack } from "react-icons/bi";
-import Button from "../../Components/Ui/BaseUi/Button/Button";
+import Button from "../../Components/BasedComponents/BaseUi/Button/Button";
 import { useSignUp } from "../../Hooks/SignUp/useSignUp";
 import Alert from "antd/es/alert/Alert";
-import SideBar from "../../Components/SideBar/SideBar";
 
 const SignUp = () => {
   const {

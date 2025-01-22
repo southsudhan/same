@@ -1,20 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.light {
-  background-color: white;
-  color: black;
-  transition: background-color 0.3s ease, color 0.5s ease;
-}
-
-.dark {
-  background-color: #252525;
-  color: white;
-  transition: background-color 0.3s ease, color 0.5s ease;
-}
-

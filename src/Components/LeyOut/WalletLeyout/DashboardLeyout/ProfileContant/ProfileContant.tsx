@@ -8,7 +8,7 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
-import Button from "../../Ui/BaseUi/Button/Button";
+import Button from "../../../../BasedComponents/BaseUi/Button/Button";
 import { Tooltip } from "antd";
 
 const ProfileContent = () => {

@@ -5,12 +5,12 @@ import { MdCompare, MdOutlinePrivacyTip } from "react-icons/md";
 import ReusablePopover from "../ReusablePopover/ReusablePopover";
 import SearchBar from "../SearchBar/SearchBar";
 import MenuItem from "../MenuItem/MenuItem";
-import CompareCurrencies from "../TradeLeyout/CompareCurrencies/CompareCurrencies";
 import { CgOptions } from "react-icons/cg";
-import BuySellCurrencies from "../TradeLeyout/BuySellCurrencies/BuySellCurrencies";
-import SwapCurrencies from "../TradeLeyout/SwapCurrencies/SwapCurrencies";
-import Button from "../Ui/BaseUi/Button/Button";
-import UserInfo from "../UserInfo/UserInfo";
+import Button from "../BasedComponents/BaseUi/Button/Button";
+import UserInfo from "../LeyOut/WalletLeyout/UserInfo/UserInfo";
+import CompareCurrencies from "../LeyOut/TradeLeyout/CompareCurrencies/CompareCurrencies";
+import BuySellCurrencies from "../LeyOut/TradeLeyout/BuySellCurrencies/BuySellCurrencies";
+import SwapCurrencies from "../LeyOut/TradeLeyout/SwapCurrencies/SwapCurrencies";
 
 const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
