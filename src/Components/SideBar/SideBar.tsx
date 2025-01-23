@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, Drawer } from "antd";
+import { Menu, Drawer, Card } from "antd";
 import {
   BiSolidDashboard,
   BiSolidUserAccount,
@@ -66,7 +66,7 @@ const Playground = () => {
     <>
       <Header />
       <div className="flex fixed mt-20 ">
-        <div className="lg:block hidden bg-red-300  ">
+        <div className="lg:block hidden  ">
           <Menu
             mode="inline"
             defaultSelectedKeys={["dashboard"]}
@@ -85,7 +85,7 @@ const Playground = () => {
         </div>
         <div className="lg:hidden block">
           <Button
-            className="absolute top-8 left-2 z-40"
+            className="absolute top-1 left-2 z-40 "
             width={40}
             onClick={() => setVisible(true)}
           >
@@ -119,8 +119,9 @@ const Playground = () => {
             </Menu>
           </Drawer>
         </div>
-
-        <div className="p-10">{renderContent()}</div>
+      </div>
+      <div className="lg:p-10 p-0 lg:w-[84%] w-[95%] lg:float-right float-none lg:mt-20 mt-40 ">
+        {renderContent()}
       </div>
     </>
   );
