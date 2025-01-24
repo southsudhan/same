@@ -1,4 +1,4 @@
-import Button from "../../BaseUi/Button/Button";
+import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const HomeAppBar = () => {
   return (

@@ -1,5 +1,5 @@
 import { AiOutlineCheck, AiOutlineMail } from "react-icons/ai";
-import { Card, Row, Col, Typography, Tabs } from "antd";
+import { Card, Row, Col, Typography, Tabs, Table } from "antd";
 import Button from "../../../../BasedComponents/BaseUi/Button/Button";
 import { DollarOutlined, TransactionOutlined } from "@ant-design/icons";
 import { BiPhone, BiRename, BiRepost, BiSolidRename } from "react-icons/bi";
@@ -11,6 +11,27 @@ const transactions = [
   { id: 2, name: "Transfer", amount: -30, time: "09:28 AM" },
   { id: 3, name: "Receive", amount: 43, time: "12:43 AM" },
   { id: 4, name: "Transfer", amount: -74, time: "08:01 AM" },
+];
+
+const currencyData = [
+  { currency: "USD", balance: 1500.0, icon: <DollarOutlined /> },
+  { currency: "EUR", balance: 1200.5 },
+  { currency: "GBP", balance: 800.75 },
+  { currency: "JPY", balance: 200000.0 },
+  { currency: "CNY", balance: 3500.4 },
+];
+const columns = [
+  {
+    title: "Currency",
+    dataIndex: "currency",
+    key: "currency",
+  },
+  {
+    title: "Balance",
+    dataIndex: "balance",
+    key: "balance",
+    render: (text: any) => text.toFixed(2), // Format balance to 2 decimal places
+  },
 ];
 
 const renderTransactions = () => (
@@ -94,6 +115,18 @@ const renderInformation = () => (
   </div>
 );
 
+const renderMyCurrencyBalance = () => (
+  <div className="lg:flex grid w-full gap-2">
+    <Table
+      className="w-full"
+      dataSource={currencyData}
+      columns={columns}
+      rowKey={(record) => record.currency}
+      pagination={false} // Set to true if you want pagination
+    />
+  </div>
+);
+
 const ProfileContent = () => {
   return (
     <div className="p-6 space-y-6 ">
@@ -161,6 +194,11 @@ const ProfileContent = () => {
       </div>
 
       <Tabs defaultActiveKey="1" className="w-full">
+        <TabPane tab="My currency balance" key="mycurrencybalance">
+          <Card title="Card Details" bordered={true} className="mt-4 w-full">
+            {renderMyCurrencyBalance()}
+          </Card>
+        </TabPane>
         <TabPane tab="Information" key="information">
           <Card title="Information" bordered={true} style={{ width: "100%" }}>
             {renderInformation()}
