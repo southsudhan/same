@@ -3,7 +3,7 @@ import Button from '../../../BasedComponents/BaseUi/Button/Button';
 
 const LandingSections = () => {  
   return (  
-    <div className="flex flex-col items-center justify-center mt-16 gap-3 bg-white">  
+    <div className="flex flex-col items-center justify-center mt-16 gap-3 bg-white ">  
       {/* Header Text */}  
       <p>--- BlockChain orcale for market data ---</p>
       <h1 className="lg:text-5xl text-lg font-bold text-center mb-2 grid">  

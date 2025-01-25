@@ -34,11 +34,12 @@ const HomeAppBar = () => {
       </div>
       <div className="flex  items-center gap-3">
         <Button
+          bgColor="#FFFFFF"
+          border="solid 1px orange"
+          color="orange"
           onClick={() => (document.location = "/signup")}
           width={120}
         >
-
-          
           SignUp
         </Button>
         <Button onClick={() => (document.location = "/traderoom")} width={120}>
