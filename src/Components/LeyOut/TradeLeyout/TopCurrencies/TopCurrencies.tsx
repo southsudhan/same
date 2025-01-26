@@ -29,7 +29,7 @@ const TopCurrencies = () => {
   }
 
   return (
-    <div className="flex justify-center items-center gap-0 w-full lg:overflow-hidden overflow-scroll lg:text-sm text-xs ">
+    <div className="flex justify-center  items-center gap-0 w-full lg:overflow-clip overflow-scroll lg:text-sm text-xs ">
       <div className="flex w-full gap-1">
         {topGainers.map((item: CurrenciesModel) => (
           <div

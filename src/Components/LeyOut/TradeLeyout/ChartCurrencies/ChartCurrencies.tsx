@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CandlestickChart from "./CandlestickChart";
-import { Alert, Select, Spin } from "antd";
+import { Alert, Card, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
@@ -67,9 +67,9 @@ const ChartCurrencies = () => {
     <div className="flex w-[100%] flex-col ">
       <div className="flex flex-col justify-center gap-3 w-[100%] ">
         <TopCurrencies />
-        <div className="flex justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
+        <div className="lg:flex grid justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
           <Select
-            className="w-[300px]"
+            className="w-[350px] h-[40px]"
             placeholder="Select a cryptocurrency"
             onChange={fetchCandlestickData}
             allowClear
@@ -81,22 +81,24 @@ const ChartCurrencies = () => {
               </Select.Option>
             ))}
           </Select>
-          {data?.slice(0, 7).map((crypto: Crypto) => (
-            <div
-              key={crypto.id}
-              className="flex justify-center gap-1 items-center w-[150px]  h-[35px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
-              onClick={() => fetchCandlestickData(crypto.id)}
-            >
-              <img src={crypto.image} alt={crypto.name} width={20} />
-              <p>{crypto.name}</p>
-            </div>
-          ))}
+          <div className="lg:flex hidden gap-2 lg:overflow-hidden overflow-scroll">
+            {data?.slice(0, 7).map((crypto: Crypto) => (
+              <div
+                key={crypto.id}
+                className="flex justify-center gap-1 items-center w-[150px]  h-[40px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
+                onClick={() => fetchCandlestickData(crypto.id)}
+              >
+                <img src={crypto.image} alt={crypto.name} width={20} />
+                <p>{crypto.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="w-[100%] lg:flex grid lg:justify-between justify-evenly gap-2">
-          <div
+          <Card title={`${selectedCrypto} Candlestick Chart`} 
             id="chart-container"
-            className="border border-gray-100 rounded-md p-5 lg:w-4/5 h-full"
+            className="border border-gray-100 rounded-md p-0 lg:w-4/5 h-full"
           >
             {isLoading || !data ? (
               <Spin tip="Loading ..." />
@@ -106,8 +108,8 @@ const ChartCurrencies = () => {
                   <>
                     <div className="lg:flex grid justify-between items-center mb-4 border-b  ">
                       <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px] flex gap-1">
-                        <p className="text-orange-500">{selectedCrypto}</p>
-                        Candlestick Chart
+                        {/* <p className="text-orange-500">{}</p> */}
+                        
                       </p>
 
                       <TimeFarmChart />
@@ -129,8 +131,8 @@ const ChartCurrencies = () => {
                 )}
               </>
             )}
-          </div>
-          <div className="lg:w-1/4 w-screen  border border-gray-100 rounded-md ">
+          </Card>
+          <div className="lg:w-1/4 w-screen   rounded-md ">
             <OrderBlock />
           </div>
         </div>

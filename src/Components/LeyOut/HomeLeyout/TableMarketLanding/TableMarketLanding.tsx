@@ -51,7 +51,9 @@ const TableMarketLanding = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r  justify-around rounded-lg p-4 lg:w-2/3 w-full lg:ml-80 ml-0 mt-10">
+    <div
+      className="bg-gradient-to-r  justify-around rounded-lg p-4 lg:w-2/3 w-full lg:ml-80 ml-0 mt-10"
+      onClick={() => (document.location = "/traderoom")}>
       <h2 className="lg:text-2xl text-sm font-semibold  mt-10  text-center mb-10">
         Popular Cryptocurrencies
       </h2>

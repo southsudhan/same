@@ -15,12 +15,12 @@ const OrderBlock = () => {
     <Card
       title="Order Block"
       size="default"
-      className="overflow-y-scroll overflow-x-clip  h-[700px] lg:w-full w-screen"
+      className="overflow-y-scroll overflow-x-clip  h-[700px] lg:w-full w-screen " 
     >
       {isLoading ? (
         <Spin size="large" />
       ) : (
-        <div className="grid grid-cols-1 gap- h-[40px] text-[10px]">
+        <div className="grid grid-cols-1 gap-2 h-[40px] text-[10px]">
           {data?.map((crypto) => (
             <div
               key={crypto.id}

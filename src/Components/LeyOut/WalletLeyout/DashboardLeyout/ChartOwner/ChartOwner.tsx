@@ -62,7 +62,7 @@ const ChartOwner = () => {
         title="Revenue Over Time"
         className="rounded-lg "
       >
-        <BarChart width={1000} height={320} data={data}>
+        <BarChart width={1000} height={320} data={data} >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
           <YAxis />

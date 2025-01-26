@@ -85,8 +85,8 @@ const Playground = () => {
         </div>
         <div className="lg:hidden block">
           <Button
-            className="absolute top-1 left-2 z-40 "
-            width={40}
+            className="absolute top-1 left-1 z-40 "
+            width={20}
             onClick={() => setVisible(true)}
           >
             <BiMenu size={24} />

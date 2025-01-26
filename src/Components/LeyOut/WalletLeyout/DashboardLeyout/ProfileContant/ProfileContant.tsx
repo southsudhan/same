@@ -129,7 +129,7 @@ const renderMyCurrencyBalance = () => (
 
 const ProfileContent = () => {
   return (
-    <div className="p-6 space-y-6 ">
+    <div className="p-3 space-y-6 ">
       <div className="lg:flex grid items-center justify-between">
         <div className="lg:flex grid items-center justify-center gap-4">
           <img
@@ -165,8 +165,8 @@ const ProfileContent = () => {
           </div>
         </div>
       </div>
-      <div className="grid justify-center gap-2">
-        <h3 className="text-md font-semibold mt-4">About me</h3>
+      <div className="grid justify-center gap-2 w-screen">
+        <h3 className="text-md font-semibold mt-4 ">About me</h3>
         <p>
           I'm a trader based in New York, USA. I specialize in stock and options
           trading, combining analytics and intuition to maximize profits. I
