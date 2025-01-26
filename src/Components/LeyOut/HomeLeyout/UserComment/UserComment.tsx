@@ -34,7 +34,7 @@ const UserComment = () => {
       <Title level={3} className=" text-center">
         Meet the Worldwide <span className="text-orange-500">Community.</span>
       </Title>
-      <Row gutter={16}>
+      <div className="lg:flex grid gap-3">
         {articles.map((article, index) => (
           <Col key={index} span={8}>
             <Card
@@ -54,11 +54,20 @@ const UserComment = () => {
             </Card>
           </Col>
         ))}
-      </Row>
-      <div className="flex justify-around mt-8 w-[95%]  ">
-        <p>You can reade more user comment on our social media:</p>
-        <div className="flex gap-2 w-1/6">
-          <Button border="solid 1px " bgColor="#FFFFFF" color="orange">reade More</Button>
+      </div>
+      <div className="lg:flex gap-2 justify-around mt-8 w-[95%]  ">
+        <p className="text-gray-600 text-sm">
+          You can reade more user comment on our social media:
+        </p>
+        <div className="flex gap-2 lg:w-1/6 w-full">
+          <Button
+            border="solid 1px "
+            bgColor="#FFFFFF"
+            color="orange"
+            width={350}
+          >
+            reade More
+          </Button>
         </div>
       </div>
     </div>

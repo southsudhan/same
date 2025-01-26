@@ -1,5 +1,4 @@
-import React from "react";
-import { Card, Typography, Row, Col } from "antd";
+import { Card, Typography, Col } from "antd";
 import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const { Title, Paragraph } = Typography;
@@ -31,17 +30,17 @@ const SliderHome = () => {
 
   return (
     <div className="mt-10 justify-around p-3 lg:w-2/3 w-full lg:ml-80 m-0">
-      <Title level={2} style={{ textAlign: "center" }}>
+      <h1 className="text-center lg:text-3xl text-xl font-semibold">
         Clients Feedback
-      </Title>
+      </h1>
       <p className="text-center text-gray-400 mb-5">
         Crypto Card Users Share their Experiences with Our Platform and Services
       </p>
 
-      <Row gutter={16} justify="center" className="lg:flex-row flex-col">
+      <div className="lg:flex grid gap-3">
         {feedbackData.map((feedback, index) => (
           <Col key={index} span={8}>
-            <Card style={{ borderRadius: "10px" }}>
+            <Card className="rounded-md lg:w-full w-[360px]">
               <Title level={4} style={{ color: "#FBAF00" }}>
                 {feedback.title}
               </Title>
@@ -53,15 +52,19 @@ const SliderHome = () => {
             </Card>
           </Col>
         ))}
-      </Row>
+      </div>
 
-      <div className="flex justify-between mt-6 items-center ">
-        <p>You can download the app from the following links:</p>
-        <div className="flex gap-2 w-2/6">
-          <Button border="solid 1px orange" bgColor="#FFFFFF" color="orange">
-            Download App
-          </Button>
-          <Button border="solid 1px orange" bgColor="#FFFFFF" color="orange">
+      <div className="lg:flex grid justify-between mt-6 items-center gap-2">
+        <p className="text-sm text-gray-600 ">
+          You can See and reade more from the following links:
+        </p>
+        <div className="lg:flex grid gap-2 ">
+          <Button
+            border="solid 1px orange"
+            bgColor="#FFFFFF"
+            color="orange"
+            width={350}
+          >
             More reviews
           </Button>
         </div>

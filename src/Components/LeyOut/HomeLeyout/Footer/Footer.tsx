@@ -11,7 +11,7 @@ const { Text } = Typography;
 
 const FooterComponent = () => {
   return (
-    <Footer className="justify-around lg:w-2/3 w-full lg:ml-80 ml-0 text-center bg-white border-t mt-10">
+    <Footer className="grid w-screen text-center bg-white border-t mt-10">
       <h1 className="text-orange-500 mb-10">Crypto Exchange Hub</h1>
       <Row gutter={16} className="mb-3">
         <Col span={8}>
@@ -43,7 +43,7 @@ const FooterComponent = () => {
           </Space>
         </Col>
       </Row>
-      <Row style={{ marginTop: "20px" }} justify="space-between">
+      <Row style={{ marginTop: "20px" }} justify="space-around">
         <Col>
           <Text>© 2023 Pyth Data Association</Text>
         </Col>
