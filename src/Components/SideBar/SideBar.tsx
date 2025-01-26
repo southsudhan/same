@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Menu, Drawer, Card } from "antd";
+import { useState } from "react";
+import { Menu, Drawer } from "antd";
 import {
   BiSolidDashboard,
   BiSolidUserAccount,

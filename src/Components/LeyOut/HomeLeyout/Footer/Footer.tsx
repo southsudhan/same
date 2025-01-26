@@ -13,7 +13,7 @@ const FooterComponent = () => {
   return (
     <Footer className="justify-around lg:w-2/3 w-full lg:ml-80 ml-0 text-center bg-white border-t mt-10">
       <h1 className="text-orange-500 mb-10">Crypto Exchange Hub</h1>
-      <Row gutter={16}>
+      <Row gutter={16} className="mb-3">
         <Col span={8}>
           {/* <Text strong>Pyth</Text>   */}
           <Space direction="vertical" size="small">
@@ -27,7 +27,6 @@ const FooterComponent = () => {
         <Col span={8}>
           <Space direction="vertical" size="small">
             <Text>About</Text>
-            <Text>Stats</Text>
             <Text>Ranking</Text>
             <Text>Developers</Text>
             <Text>Documentation</Text>
@@ -38,7 +37,6 @@ const FooterComponent = () => {
           <Space direction="vertical" size="small">
             <Text>Blog</Text>
             <Text>Jobs</Text>
-            <Text>Disclaimer</Text>
             <Text>Brand Assets</Text>
             <Text>Blockchain Guides</Text>
             <Text>Data Driven</Text>

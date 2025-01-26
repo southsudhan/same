@@ -64,7 +64,6 @@ const TableMarketLanding = () => {
         pagination={false}  
         className="text-center"  
         bordered  
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}  
       />  
     </div>  
   );  

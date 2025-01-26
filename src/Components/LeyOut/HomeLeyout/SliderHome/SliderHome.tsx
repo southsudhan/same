@@ -34,11 +34,11 @@ const SliderHome = () => {
       <Title level={2} style={{ textAlign: "center" }}>
         Clients Feedback
       </Title>
-      <p  className="text-center text-gray-400 mb-5">
+      <p className="text-center text-gray-400 mb-5">
         Crypto Card Users Share their Experiences with Our Platform and Services
       </p>
 
-      <Row gutter={16} justify="center">
+      <Row gutter={16} justify="center" className="lg:flex-row flex-col">
         {feedbackData.map((feedback, index) => (
           <Col key={index} span={8}>
             <Card style={{ borderRadius: "10px" }}>
@@ -58,8 +58,12 @@ const SliderHome = () => {
       <div className="flex justify-between mt-6 items-center ">
         <p>You can download the app from the following links:</p>
         <div className="flex gap-2 w-2/6">
-          <Button>Download App</Button>
-          <Button>More reviews</Button>
+          <Button border="solid 1px orange" bgColor="#FFFFFF" color="orange">
+            Download App
+          </Button>
+          <Button border="solid 1px orange" bgColor="#FFFFFF" color="orange">
+            More reviews
+          </Button>
         </div>
       </div>
     </div>
