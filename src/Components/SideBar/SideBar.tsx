@@ -85,8 +85,9 @@ const Playground = () => {
         </div>
         <div className="lg:hidden block">
           <Button
-            className="absolute top-1 left-1 z-40 "
-            width={20}
+            className="absolute top-7 left-1 z-40 "
+            width={50}
+            height={40}
             onClick={() => setVisible(true)}
           >
             <BiMenu size={24} />
@@ -120,7 +121,7 @@ const Playground = () => {
           </Drawer>
         </div>
       </div>
-      <div className="lg:p-10 p-0 lg:w-[84%] w-[95%] lg:float-right float-none lg:mt-20 mt-40 ">
+      <div className="lg:p-10 p-0 lg:w-[84%] w-[95%] lg:float-right float-none lg:mt-20 mt-48 ">
         {renderContent()}
       </div>
     </>

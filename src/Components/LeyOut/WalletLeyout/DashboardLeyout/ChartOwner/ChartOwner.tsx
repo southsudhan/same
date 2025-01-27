@@ -7,10 +7,10 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 
 const ChartOwner = () => {
-  // Data for the bar chart (structured for Recharts)
   const data = [
     { month: "Jan", Created: 30, Solved: 20 },
     { month: "Feb", Created: 20, Solved: 10 },
@@ -26,7 +26,6 @@ const ChartOwner = () => {
     { month: "Dec", Created: 30, Solved: 20 },
   ];
 
-  // Latest visits data
   const latestVisits = [
     { id: 1, name: "Esther Howard", specialty: "Dermatology", time: "8:44" },
     {
@@ -57,25 +56,22 @@ const ChartOwner = () => {
 
   return (
     <div className="p-0 lg:flex grid gap-2">
-      {/* Revenue Over Time Card */}
-      <Card
-        title="Revenue Over Time"
-        className="rounded-lg "
-      >
-        <BarChart width={1000} height={320} data={data} >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="Created" fill="rgb(255, 147, 24)" />
-          <Bar dataKey="Solved" fill="rgb(0, 0, 0)" />
-        </BarChart>
+      <Card title="Revenue Over Time" className="rounded-lg lg:w-2/3 w-full">
+        <ResponsiveContainer width="100%" height={320}>
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="Created" fill="rgb(255, 147, 24)" />
+            <Bar dataKey="Solved" fill="rgb(0, 0, 0)" />
+          </BarChart>
+        </ResponsiveContainer>
       </Card>
 
-      {/* Session by Country Card */}
       <Card
-        className="lg:w-2/4 w-screen "
+        className="lg:w-1/3 w-screen"
         style={{ minHeight: "410px" }}
         title="Session by Country"
       >
@@ -95,7 +91,6 @@ const ChartOwner = () => {
           role="button"
           tabIndex={0}
           onClick={() => {
-            // Handle "view more" click
             console.log("View more clicked");
           }}
         >
