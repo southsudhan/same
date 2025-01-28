@@ -1,13 +1,16 @@
 import React from "react";
 import { Modal } from "antd";
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Legend,
+  Bar,
 } from "recharts";
+import Button from "../BasedComponents/BaseUi/Button/Button";
 
 interface CryptoChartModalProps {
   visible: boolean;
@@ -33,16 +36,24 @@ const CryptoChartModal: React.FC<CryptoChartModalProps> = ({
       visible={visible}
       onCancel={onClose}
       footer={null}
-      width={1200}
+      width="100%"
       height={500}
     >
-      <LineChart width={1100} height={700} data={data}>
-        <Line type="monotone" dataKey="value" stroke="#8884d8" />
-        <XAxis dataKey="time" />
-        <YAxis />
-        <CartesianGrid stroke="#ccc" />
-        <Tooltip />
-      </LineChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="Created" fill="rgb(255, 147, 24)" />
+          <Bar dataKey="Solved" fill="rgb(0, 0, 0)" />
+        </BarChart>
+      </ResponsiveContainer>
+      <div className="flex w-full gap-2 justify-start">
+        <Button>Buy</Button>
+        <Button>Sell</Button>
+      </div>
     </Modal>
   );
 };

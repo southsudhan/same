@@ -10,7 +10,7 @@ const { TabPane } = Tabs;
 
 const ProfileContent = () => {
   return (
-    <div className="p-3 space-y-6 w-[100%]">
+    <div className="p-3 space-y-6 w-[100%] ">
       <div className="lg:flex grid items-center justify-between">
         <div className="lg:flex grid items-center justify-center gap-4">
           <img
@@ -46,7 +46,7 @@ const ProfileContent = () => {
           </div>
         </div>
       </div>
-      <div className="grid justify-center gap-2 lg:w-full w-[350px] ">
+      {/* <div className="grid justify-center gap-2 lg:w-full w-[350px] ">
         <h3 className="text-md font-semibold mt-4 ">About me</h3>
         <p>
           I'm a trader based in New York, USA. I specialize in stock and options
@@ -54,7 +54,7 @@ const ProfileContent = () => {
           enjoy sharing insights and reports to help others succeed in their
           trading journey.
         </p>
-      </div>
+      </div> */}
 
       <div className="mt-6">
         <h3 className="text-lg mb-2">Skills</h3>

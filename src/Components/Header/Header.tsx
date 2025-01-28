@@ -1,7 +1,7 @@
-import { Alert, Badge, Card, Modal } from "antd";
+import { Alert, Badge, Card, Drawer, Modal } from "antd";
 import React, { useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { MdCompare, MdOutlinePrivacyTip } from "react-icons/md";
+import { MdCompare } from "react-icons/md";
 import ReusablePopover from "../ReusablePopover/ReusablePopover";
 import SearchBar from "../SearchBar/SearchBar";
 import MenuItem from "../MenuItem/MenuItem";
@@ -16,6 +16,17 @@ const Header: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalSell, setisModalSell] = useState(false);
   const [isSwap, setisSwap] = useState(false);
+
+  /* compare */
+  const [avatar, setAvatar] = useState(false);
+
+  const showDrawerAvatar = () => {
+    setAvatar(true);
+  };
+
+  const onCloseAvatar = () => {
+    setAvatar(false);
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -72,14 +83,11 @@ const Header: React.FC = () => {
           <ReusablePopover
             className="lg:hidden block"
             title={
-              <Card className="lg:hidden block">
-                <span className="font-bold" onClick={showModalSell}>
-                  Buy Currencies |
-                </span>
-                <span className="font-bold" onClick={showModalSwap}>
-                  Swap Currencies
-                </span>
-              </Card>
+              <div className="lg:hidden grid w-full gap-2">
+                <Button onClick={showModalSell}>Buy Currencies</Button>
+                <Button onClick={showModalSwap}>Swap Currencies</Button>
+                <Button onClick={()=>document.location = "/market"}>Market</Button>
+              </div>
             }
           >
             {/* <MdOutlinePrivacyTip size={25} /> */}
@@ -125,21 +133,12 @@ const Header: React.FC = () => {
               <IoMdNotificationsOutline size={25} />
             </Badge>
           </ReusablePopover>
-          <ReusablePopover
-            title={
-              <div className="font-bold gap-2 flex-col flex ">
-                {/* User Information */}
-                {/* <CompareCurrencies /> */}
-                <UserInfo />
-              </div>
-            }
-          >
-            <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
-              className="rounded-full"
-              width={35}
-            />
-          </ReusablePopover>
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/002/002/403/small/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
+            className="rounded-full"
+            width={35}
+            onClick={showDrawerAvatar}
+          />
         </div>
 
         <Button
@@ -162,6 +161,14 @@ const Header: React.FC = () => {
       <Modal open={isSwap} onOk={showModalSwap} onCancel={handleCancelSwap}>
         <SwapCurrencies />
       </Modal>
+      <Drawer
+        title="User Information:"
+        onClose={onCloseAvatar}
+        open={avatar}
+        width={500}
+      >
+        <UserInfo />
+      </Drawer>
     </header>
   );
 };

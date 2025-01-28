@@ -1,38 +1,56 @@
-import { Table } from "antd";
+import React from "react";  
+import { Table } from "antd";  
 
+// Updated currency data with icons  
 const currencyData = [  
-    { currency: "USD", balance: 1500.0, symbol: "$", exchangeRate: 1.0 },  
-    { currency: "EUR", balance: 1200.5, icon: null, symbol: "€", exchangeRate: 1.1 },  
-    { currency: "GBP", balance: 800.75, icon: null, symbol: "£", exchangeRate: 1.3 },  
-    { currency: "JPY", balance: 200000.0, icon: null, symbol: "¥", exchangeRate: 0.009 },  
-    { currency: "CNY", balance: 3500.4, icon: null, symbol: "¥", exchangeRate: 0.15 },  
-  ];
+  { currency: "Tether", balance: 1500.0, icon: "💵" }, // Added icon placeholders  
+  { currency: "Bitcoin", balance: 0.12005, icon: "₿" },  
+  { currency: "Solana", balance: 800.75, icon: "☀️" },  
+  { currency: "Cardano", balance: 200000.0, icon: "⚡" },  
+];  
 
-  const columns = [
-    {
-      title: "Currency",
-      dataIndex: "currency",
-      key: "currency",
-    },
-    {
-      title: "Balance",
-      dataIndex: "balance",
-      key: "balance",
-      render: (text: any) => text.toFixed(2), // Format balance to 2 decimal places
-    },
-  ];
-  
+// Currency columns with icons  
+const columns = [  
+  {  
+    title: "Currency",  
+    dataIndex: "currency",  
+    key: "currency",  
+    render: (text, record) => (  
+      <span>  
+        {record.icon} {text}  
+      </span>  
+    ),  
+  },  
+  {  
+    title: "Balance",  
+    dataIndex: "balance",  
+    key: "balance",  
+    render: (text) => text.toFixed(2), // Format balance to 2 decimal places  
+  },  
+];  
 
-const renderMyCurrencyBalance = () => (
-  <div className="lg:flex grid w-full gap-2">
-    <Table
-      className="w-full"
-      dataSource={currencyData}
-      columns={columns}
-      rowKey={(record) => record.currency}
-      pagination={false} // Set to true if you want pagination
-    />
-  </div>
-);
+// Function to calculate total balance  
+const calculateTotalBalance = (data) => {  
+  return data.reduce((total, item) => total + item.balance, 0).toFixed(2);  
+};  
+
+const renderMyCurrencyBalance = () => {  
+  const totalBalance = calculateTotalBalance(currencyData); // Calculate the total balance  
+
+  return (  
+    <div className="lg:flex grid w-full gap-2">  
+      <Table  
+        className="w-full"  
+        dataSource={currencyData}  
+        columns={columns}  
+        rowKey={(record) => record.currency}  
+        pagination={false} // Set to true if you want pagination  
+      />  
+      <div className="total-balance">  
+        {/* <h2>Total Balance: ${totalBalance}</h2> Display Total Balance   */}
+      </div>  
+    </div>  
+  );  
+};  
 
 export default renderMyCurrencyBalance;

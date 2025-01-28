@@ -178,6 +178,8 @@ const Market: React.FC<CurrencyTableProps> = ({ data2, error2, isLoading2 }) => 
             rowKey="id"  
             pagination={{ pageSize: 10 }}  
             style={{ fontSize: 12 }}  
+            size="middle"
+            tableLayout="fixed"
           />  
         </div>  
       </div>  
