@@ -121,7 +121,7 @@ const Playground = () => {
           </Drawer>
         </div>
       </div>
-      <div className="lg:p-10 p-0 lg:w-[100%] w-[100%] float-right lg:mt-20 mt-48 relative lg:left-72 left-0 ">
+      <div className="lg:p-10 p-0 lg:w-[100%] w-[100%] float-right lg:mt-20 mt-48 relative lg:left-72 left-0">
         {renderContent()}
       </div>
     </>

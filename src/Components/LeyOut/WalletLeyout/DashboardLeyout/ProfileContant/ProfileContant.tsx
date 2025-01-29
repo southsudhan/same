@@ -10,13 +10,14 @@ const { TabPane } = Tabs;
 
 const ProfileContent = () => {
   return (
-    <div className="p-3 space-y-6 w-[100%] ">
+    <div className="p-3 space-y-6 w-full ">
       <div className="lg:flex grid items-center justify-between">
         <div className="lg:flex grid items-center justify-center gap-4">
           <img
             src="https://choosewichita.com/user/image/layouts/photo_inline_photo_3120.jpg?1598645919"
             alt=""
-            width={200}
+            width={100}
+            height={100}
             className="rounded-full justify-center flex items-center"
           />
           <div className="grid justify-between gap-4">
@@ -26,7 +27,6 @@ const ProfileContent = () => {
                 this is my profile page about my trade, transfers, buy or sell
               </p>
             </div>
-            <p className="text-orange-500 text-sm">see more about me</p>
           </div>
         </div>
         <div className="grid gap-4">
@@ -56,25 +56,7 @@ const ProfileContent = () => {
         </p>
       </div> */}
 
-      <div className="mt-6">
-        <h3 className="text-lg mb-2">Skills</h3>
-        <div className="flex flex-wrap">
-          <span className="bg-gray-200 rounded-full px-3 py-1 text-sm mr-2">
-            Technical Analysis
-          </span>
-          <span className="bg-gray-200 rounded-full px-3 py-1 text-sm mr-2">
-            Day Trading
-          </span>
-          <span className="bg-gray-200 rounded-full px-3 py-1 text-sm mr-2">
-            Risk Management
-          </span>
-          <span className="bg-gray-200 rounded-full px-3 py-1 text-sm">
-            Market Research
-          </span>
-        </div>
-      </div>
-
-      <Tabs defaultActiveKey="1" className="w-full">
+      <Tabs defaultActiveKey="1" className="lg:w-full w-[70%]">
         <TabPane tab="My currency balance" key="mycurrencybalance">
           <Card title="Card Details" bordered={true} className="mt-4 w-full">
             {renderMyCurrencyBalance()}
@@ -98,7 +80,7 @@ const ProfileContent = () => {
         <TabPane tab="History" key="history" disabled></TabPane>
       </Tabs>
 
-      <div className="grid md:grid-cols-3 gap-4 mt-6">
+      <div className="grid md:grid-cols-3 gap-4 mt-6 lg:w-full w-[70%]">
         <Card title="Trading Reports" className="flex  flex-col justify-around">
           <a href="https://example.com/report1" className="hover:underline">
             <div className="flex items-center gap-1">
