@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
 
 interface CurrenciesModel {
@@ -27,9 +28,12 @@ const TopCurrencies = () => {
   if (error && error instanceof Error) {
     return <p>network is error : {error.message}</p>;
   }
+  if (isLoading) {
+    <Spin size="large" />;
+  }
 
   return (
-    <div className="flex justify-center  items-center gap-0 w-full lg:overflow-clip overflow-scroll lg:text-sm text-xs ">
+    <div className="flex justify-between   items-center  w-full lg:overflow-clip overflow-scroll lg:text-sm text-xs ">
       <div className="flex w-full gap-1">
         {topGainers.map((item: CurrenciesModel) => (
           <div
@@ -49,7 +53,7 @@ const TopCurrencies = () => {
         {topLosers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className=" flex flex-col justify-evenly items-center h-[60px] border border-gray-100 rounded-md p-1 w-[130px] text-[10px] hover:border hover:border-orange-200"
+            className="flex flex-col justify-evenly items-center p-2 border border-gray-100 rounded-md  w-[100px] text-[10px] hover:border hover:border-orange-200"
           >
             <p>{item.name}: </p>{" "}
             <p className="text-red-500">

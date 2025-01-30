@@ -67,7 +67,7 @@ const ChartCurrencies = () => {
     <div className="flex w-[100%] flex-col ">
       <div className="flex flex-col justify-center gap-3 w-[100%] ">
         <TopCurrencies />
-        <div className="lg:flex grid justify-start items-center gap-2 lg:overflow-hidden overflow-scroll">
+        <div className="lg:flex grid justify-start items-center gap-2 lg:overflow-hidden overflow-scroll lg:px-0 px-5">
           <Select
             className="w-[350px] h-[40px]"
             placeholder="Select a cryptocurrency"
@@ -96,7 +96,8 @@ const ChartCurrencies = () => {
         </div>
 
         <div className="w-[100%] lg:flex grid lg:justify-between justify-evenly gap-2">
-          <Card title={`${selectedCrypto} Candlestick Chart`} 
+          <Card
+            title={`${selectedCrypto} Candlestick Chart`}
             id="chart-container"
             className="border border-gray-100 rounded-md p-0 lg:w-4/5 h-full"
           >
@@ -106,10 +107,8 @@ const ChartCurrencies = () => {
               <>
                 {selectedCrypto ? (
                   <>
-                    <div className="lg:flex grid justify-between items-center mb-4 border-b  ">
+                    <div className="lg:flex grid justify-between items-center -mb-20 border-b h-[10vh] ">
                       <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px] flex gap-1">
-                        {/* <p className="text-orange-500">{}</p> */}
-                        
                       </p>
 
                       <TimeFarmChart />

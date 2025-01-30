@@ -41,12 +41,12 @@ const SearchBar = () => {
         value={searchValue}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Search Token, Coin, Airdrop"
-        className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[350px] lg:relative absolute lg:right-0 right-4 lg:top-0 top-16 outline-none border-none hover:bg-gray-100"
+        className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[330px] relative lg:top-0 top-10 lg:mb-0 mb-12  outline-none border-none hover:bg-gray-100"
         prefix={<BiSearch />}
       />
       {filteredCurrencies.length > 0 && (
         <List
-          className="absolute z-10 max-h-[700px] overflow-x-scroll mt-2 w-[350px] bg-white border border-gray-300"
+          className="absolute z-10 max-h-[700px] overflow-x-scroll mt-2 w-[330px] bg-white border border-gray-300"
           bordered
           dataSource={filteredCurrencies}
           renderItem={(item) => (

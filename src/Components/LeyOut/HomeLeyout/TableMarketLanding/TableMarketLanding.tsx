@@ -17,14 +17,16 @@ const TableMarketLanding = () => {
       render: (text: any, record: any) => (
         <div className="flex items-center">
           <img src={record.image} width={20} alt={text} className="mr-2" />
-          {text}/USDT PERP
+          <p className="text-[10px] text-center">{text}/USDT PERP</p>
         </div>
       ),
     },
     {
       title: "Price",
       dataIndex: "current_price",
-      render: (text: any) => `$${text}`,
+      render: (text: any) => (
+        <p className="text-[10px] text-center"> ${text}</p>
+      ),
     },
     {
       title: "Change (24h)",
@@ -35,15 +37,13 @@ const TableMarketLanding = () => {
             record.low_24h > 0 ? "text-green-500" : "text-red-500"
           }`}
         >
-          {record.high_24h > 0 ? "▲" : "▼"} {record.high_24h}%
+          <p className="text-[12px] text-center">
+            {record.high_24h > 0 ? "▲" : "▼"} {record.high_24h}%
+          </p>
         </span>
       ),
     },
-    {
-      title: "Volume",
-      dataIndex: "volume",
-      render: () => "21,252.000m",
-    },
+
     {
       title: "Actions",
       render: () => <Button height={40}>Trade</Button>,
@@ -63,7 +63,7 @@ const TableMarketLanding = () => {
         columns={columns}
         rowKey="symbol"
         pagination={false}
-        className="text-center "
+        className="text-cente "
         size="small"
         tableLayout="fixed"
         bordered
