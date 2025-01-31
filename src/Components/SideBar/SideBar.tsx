@@ -85,8 +85,8 @@ const Playground = () => {
         </div>
         <div className="lg:hidden block">
           <Button
-            className="absolute top-2 justify-between flex items-center gap-5 left-1 z-40 "
-            width={200}
+            className="absolute  justify-center flex items-center gap-2 left-1 z-40 "
+            width={130}
             height={40}
             onClick={() => setVisible(true)}
           >
@@ -122,7 +122,7 @@ const Playground = () => {
           </Drawer>
         </div>
       </div>
-      <div className="lg:p-10 p-0   lg:mt-20 mt-48 relative lg:left-72 left-0">
+      <div className="lg:p-10 p-0 lg:mt-20 mt-48 relative lg:left-72 left-0">
         {renderContent()}
       </div>
     </>

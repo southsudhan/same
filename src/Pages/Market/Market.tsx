@@ -45,30 +45,36 @@ const Market = () => {
               alt={text}
               className="inline-block w-6 h-6 mr-2"
             />
-            <span>{text}</span>
+            <span className="text-[12px] text-center"> {text}</span>
           </div>
         ),
       },
       {
         title: "Symbol",
         dataIndex: "symbol",
-        render: (text: any) => text.toUpperCase(),
+        render: (text: any) => (
+          <p className="text-[10px] text-center">{text.toUpperCase()}</p>
+        ),
       },
       {
         title: "Current Price",
         dataIndex: "current_price",
-        render: (text: any) => `$${text.toFixed(2)}`,
+        render: (text: any) => (
+          <p className="text-[10px] text-center">{text.toFixed(2)}</p>
+        ),
       },
       {
         title: "Market Cap",
         dataIndex: "market_cap",
-        render: (text: any) => `$${text.toLocaleString()}`,
+        render: (text: any) => (
+          <p className="text-[10px] text-center">{text.toLocaleString()}</p>
+        ),
       },
       {
         title: "24h Change",
         dataIndex: "price_change_percentage_24h",
         render: (text: any) => (
-          <span className={text >= 0 ? "text-green-600" : "text-red-600"}>
+          <span className={text >= 0 ? "text-green-600" : "text-red-600 text-[12px] text-center" }>
             {text.toFixed(2)}%
           </span>
         ),
@@ -148,7 +154,7 @@ const Market = () => {
     <>
       <Header />
       <div className="w-full flex justify-center gap-1 p-5 ">
-        <div className="w-[100%] mt-[9vh] overflow-auto ">
+        <div className="w-[100%] mt-[6vh] overflow-auto ">
           <div className="py-5 lg:flex grid gap-2 justify-between items-center border-b border-gray-200 ">
             <Input
               placeholder="Search Token, Coin, Airdrop"

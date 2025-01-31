@@ -10,51 +10,47 @@ const { TabPane } = Tabs;
 
 const ProfileContent = () => {
   return (
-    <div className="p-3 space-y-6 w-full ">
-      <div className="lg:flex grid items-center justify-between">
-        <div className="lg:flex grid items-center justify-center gap-4">
-          <img
-            src="https://choosewichita.com/user/image/layouts/photo_inline_photo_3120.jpg?1598645919"
-            alt=""
-            width={100}
-            height={100}
-            className="rounded-full justify-center flex items-center"
-          />
-          <div className="grid justify-between gap-4">
-            <div>
-              <h2 className="text-lg font-semibold ">Mohamad Amin keimasi</h2>
-              <p className="text-gray-500 text-sm">
-                this is my profile page about my trade, transfers, buy or sell
-              </p>
+    <div className="p-3 space-y-6 lg:mb-0 mb-16">
+      <Card className="grid items-center  justify-between  lg:w-full w-[70%] ">
+        <div className="lg:flex  lg:w-[100vh] w-[100%] items-center justify-between  gap-4  ">
+          <div className="lg:flex grid items-center gap-2">
+            <img
+              src="https://choosewichita.com/user/image/layouts/photo_inline_photo_3120.jpg?1598645919"
+              alt=""
+              width={100}
+              height={100}
+              className="rounded-full relative lg:left-0 left-1/3 lg:top-0 -top-20"
+            />
+            <div className="lg:flex grid justify-between gap-4 lg:mt-0 -mt-20 ">
+              <div >
+                <h2 className="text-lg font-semibold text-center ">
+                  Mohamad Amin keimasi
+                </h2>
+                <p className="text-gray-500 text-sm text-center">
+                  this is my profile page about my trade, transfers, buy or sell
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="grid gap-4">
-          <h1 className="text-2xl flex gap-2 items-center font-semibold">
-            <p className="text-xl text-gray-500">My total wallet:</p>$32/000.00
+          <h1 className="font-semibold text-center text-xl gap-1 flex justify-center items-center">
+            <p className="text-gray-600 text-[15px]">My total wallet:</p>
+            <p className="text-lg">$32/000.00</p>
           </h1>
-          <div className="flex">
-            <Button
-              className="mr-2"
-              border="solid 1px orange"
-              bgColor="#FFFFFF"
-              color="orange"
-            >
-              Edit Profile
-            </Button>
-            <Button>Logout</Button>
-          </div>
         </div>
-      </div>
-      {/* <div className="grid justify-center gap-2 lg:w-full w-[350px] ">
-        <h3 className="text-md font-semibold mt-4 ">About me</h3>
-        <p>
-          I'm a trader based in New York, USA. I specialize in stock and options
-          trading, combining analytics and intuition to maximize profits. I
-          enjoy sharing insights and reports to help others succeed in their
-          trading journey.
-        </p>
-      </div> */}
+        <div className="flex mt-5 justify-end w-full  ">
+          <Button
+            className="mr-2"
+            border="solid 1px orange"
+            bgColor="#FFFFFF"
+            color="orange"
+            width={150}
+          >
+            Edit Profile
+          </Button>
+          <Button width={150}>Logout</Button>
+        </div>
+        <div className="grid gap-4"></div>
+      </Card>
 
       <Tabs defaultActiveKey="1" className="lg:w-full w-[70%]">
         <TabPane tab="My currency balance" key="mycurrencybalance">
