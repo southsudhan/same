@@ -10,7 +10,7 @@ const { TabPane } = Tabs;
 
 const ProfileContent = () => {
   return (
-    <div className="p-3 space-y-6 lg:mb-0 mb-16">
+    <div className="p-3 space-y-6 lg:mb-0 mb-16 2xl:w-[124%] w-full">
       <Card className="grid items-center  justify-between  lg:w-full w-[70%] ">
         <div className="lg:flex  lg:w-[100vh] w-[100%] items-center justify-between  gap-4  ">
           <div className="lg:flex grid items-center gap-2">

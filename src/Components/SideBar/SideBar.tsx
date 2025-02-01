@@ -8,7 +8,6 @@ import {
 } from "react-icons/bi";
 import { BsFillDatabaseFill } from "react-icons/bs";
 import DashboardMain from "../LeyOut/WalletLeyout/DashboardLeyout/DashboardMain";
-import Header from "../Header/Header";
 import { MdAddCircleOutline, MdOutlineInbox, MdSettings } from "react-icons/md";
 import { FaRegChartBar } from "react-icons/fa";
 import { IoIosRepeat } from "react-icons/io";
@@ -64,7 +63,6 @@ const Playground = () => {
 
   return (
     <>
-      <Header />
       <div className="flex fixed mt-20 ">
         <div className="lg:block hidden  ">
           <Menu

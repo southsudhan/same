@@ -107,15 +107,11 @@ const ChartCurrencies = () => {
               <>
                 {selectedCrypto ? (
                   <>
-                    <div className="lg:flex grid justify-between items-center -mb-20 border-b h-[10vh] ">
-                      <p className="text-md font-bold mb-6 lg:text-[14px] text-[10px] flex gap-1">
-                      </p>
-
-                      <TimeFarmChart />
-                      <button onClick={toggleFullScreen}>
-                        {isFullScreen ? <BiExitFullscreen /> : <BiFullscreen />}
-                      </button>
-                    </div>
+                    <TimeFarmChart />
+                    <button onClick={toggleFullScreen}>
+                      {isFullScreen ? <BiExitFullscreen /> : <BiFullscreen />}
+                    </button>
+                    <div className="lg:flex grid justify-between items-center -mb-20 border-b h-[10vh] "></div>
                     {candlestickData.length > 0 ? (
                       <CandlestickChart
                         key="candlestick-chart"
