@@ -1,59 +1,57 @@
 import React from "react";
 import { Modal } from "antd";
-import {
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  BarChart,
-  Legend,
-  Bar,
-} from "recharts";
 import Button from "../BasedComponents/BaseUi/Button/Button";
 
+// Define the Currency type
+interface Currency {
+  name: string;
+  current_price: number;
+  market_cap: number;
+  price_change_percentage_24h: number;
+  // Add any other properties you expect from the currency object
+}
+
+// Define the props type for the CryptoChartModal
 interface CryptoChartModalProps {
   visible: boolean;
   onClose: () => void;
-  cryptoData: any;
+  currency: Currency | null; // Currency can be null if not selected
 }
 
 const CryptoChartModal: React.FC<CryptoChartModalProps> = ({
   visible,
   onClose,
-  cryptoData,
+  currency,
 }) => {
-  const data = cryptoData?.market_data?.sparkline_7d?.price.map(
-    (price: number, index: number) => ({
-      value: price,
-      time: index, // You might want to replace this with actual time data if available
-    })
-  );
+  if (!currency) return null;
 
   return (
     <Modal
-      title={cryptoData?.name}
+      title={`${currency.name} Details`}
       visible={visible}
       onCancel={onClose}
       footer={null}
-      width="100%"
-      height={500}
     >
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="Created" fill="rgb(255, 147, 24)" />
-          <Bar dataKey="Solved" fill="rgb(0, 0, 0)" />
-        </BarChart>
-      </ResponsiveContainer>
-      <div className="flex w-full gap-2 justify-start">
-        <Button>Buy</Button>
-        <Button>Sell</Button>
+      <h3 className="font-semibold">
+        Current Price: ${currency.current_price.toFixed(2)}
+      </h3>
+      <h4 className="font-semibold">
+        Market Cap: ${currency.market_cap.toLocaleString()}
+      </h4>
+      <h4 className="font-semibold">
+        24h Change: {currency.price_change_percentage_24h.toFixed(2)}%
+      </h4>
+      {/* Add your chart component here */}
+      <div>
+        {/* Placeholder for chart */}
+        <p>Chart goes here...</p>
+        <hr />
+        <div className="flex mt-10 gap-2 ">
+          <Button>Buy</Button>
+          <Button>Sell</Button>
+        </div>
       </div>
+      {/* Add your table component here if needed */}
     </Modal>
   );
 };

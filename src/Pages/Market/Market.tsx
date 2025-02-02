@@ -2,12 +2,12 @@ import { useState, useMemo } from "react";
 import Header from "../../Components/Header/Header";
 import { Table, Spin, Alert, Input, Select } from "antd";
 import { BiSearch } from "react-icons/bi";
-import CryptoChartModal from "../../Components/CryptoModal/CryptoModal";
 import { useCurrencies } from "../../Hooks/Currencies/useCurrencies";
+import CryptoChartModal from "../../Components/CryptoModal/CryptoModal";
 
 const { Option } = Select;
 
-const TrendLine = ({ change }: { change: number }) => {
+const TrendLine = ({ change }) => {
   const isUpward = change >= 0;
 
   return (
@@ -27,19 +27,16 @@ const Market = () => {
   const { data, error, isLoading } = useCurrencies();
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("");
-  const [selectedCrypto, setSelectedCrypto] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const columns = useMemo(() => {
     return [
       {
         title: "Currency",
         dataIndex: "name",
-        render: (text: any, record: any) => (
-          <div
-            className="flex items-center"
-            onClick={() => handleRowClick(record)}
-          >
+        render: (text, record) => (
+          <div className="flex items-center" onClick={() => handleRowClick(record)}>
             <img
               src={record.image}
               alt={text}
@@ -52,29 +49,35 @@ const Market = () => {
       {
         title: "Symbol",
         dataIndex: "symbol",
-        render: (text: any) => (
+        render: (text) => (
           <p className="text-[10px] text-center">{text.toUpperCase()}</p>
         ),
       },
       {
         title: "Current Price",
         dataIndex: "current_price",
-        render: (text: any) => (
+        render: (text) => (
           <p className="text-[10px] text-center">{text.toFixed(2)}</p>
         ),
       },
       {
         title: "Market Cap",
         dataIndex: "market_cap",
-        render: (text: any) => (
+        render: (text) => (
           <p className="text-[10px] text-center">{text.toLocaleString()}</p>
         ),
       },
       {
         title: "24h Change",
         dataIndex: "price_change_percentage_24h",
-        render: (text: any) => (
-          <span className={text >= 0 ? "text-green-600" : "text-red-600 text-[12px] text-center" }>
+        render: (text) => (
+          <span
+            className={
+              text >= 0
+                ? "text-green-600"
+                : "text-red-600 text-[12px] text-center"
+            }
+          >
             {text.toFixed(2)}%
           </span>
         ),
@@ -82,7 +85,7 @@ const Market = () => {
       {
         title: "Trend",
         dataIndex: "price_change_percentage_24h",
-        render: (text: any) => <TrendLine change={text} />,
+        render: (text) => <TrendLine change={text} />,
       },
     ];
   }, []);
@@ -113,21 +116,22 @@ const Market = () => {
     return filtered;
   }, [data, searchQuery, filter]);
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  const handleFilter = (value: any) => {
+  const handleFilter = (value) => {
     setFilter(value);
   };
 
-  const handleRowClick = (record: any) => {
-    setSelectedCrypto(record);
-    setIsModalOpen(true);
+  const handleRowClick = (currency) => {
+    setSelectedCurrency(currency);
+    setIsModalVisible(true);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
+    setIsModalVisible(false);
+    setSelectedCurrency(null);
   };
 
   if (isLoading) {
@@ -188,9 +192,9 @@ const Market = () => {
         </div>
       </div>
       <CryptoChartModal
-        visible={isModalOpen}
+        visible={isModalVisible}
         onClose={handleModalClose}
-        cryptoData={selectedCrypto}
+        currency={selectedCurrency}
       />
     </>
   );
