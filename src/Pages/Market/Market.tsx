@@ -7,7 +7,7 @@ import CryptoChartModal from "../../Components/CryptoModal/CryptoModal";
 
 const { Option } = Select;
 
-const TrendLine = ({ change }) => {
+const TrendLine = ({ change }: any) => {
   const isUpward = change >= 0;
 
   return (
@@ -35,8 +35,11 @@ const Market = () => {
       {
         title: "Currency",
         dataIndex: "name",
-        render: (text, record) => (
-          <div className="flex items-center" onClick={() => handleRowClick(record)}>
+        render: (text: any, record: any) => (
+          <div
+            className="flex items-center"
+            onClick={() => handleRowClick(record)}
+          >
             <img
               src={record.image}
               alt={text}
@@ -49,28 +52,28 @@ const Market = () => {
       {
         title: "Symbol",
         dataIndex: "symbol",
-        render: (text) => (
+        render: (text: any) => (
           <p className="text-[10px] text-center">{text.toUpperCase()}</p>
         ),
       },
       {
         title: "Current Price",
         dataIndex: "current_price",
-        render: (text) => (
+        render: (text: any) => (
           <p className="text-[10px] text-center">{text.toFixed(2)}</p>
         ),
       },
       {
         title: "Market Cap",
         dataIndex: "market_cap",
-        render: (text) => (
+        render: (text: any) => (
           <p className="text-[10px] text-center">{text.toLocaleString()}</p>
         ),
       },
       {
         title: "24h Change",
         dataIndex: "price_change_percentage_24h",
-        render: (text) => (
+        render: (text: any) => (
           <span
             className={
               text >= 0
@@ -85,7 +88,7 @@ const Market = () => {
       {
         title: "Trend",
         dataIndex: "price_change_percentage_24h",
-        render: (text) => <TrendLine change={text} />,
+        render: (text: any) => <TrendLine change={text} />,
       },
     ];
   }, []);
@@ -116,15 +119,15 @@ const Market = () => {
     return filtered;
   }, [data, searchQuery, filter]);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     setSearchQuery(e.target.value);
   };
 
-  const handleFilter = (value) => {
+  const handleFilter = (value: any) => {
     setFilter(value);
   };
 
-  const handleRowClick = (currency) => {
+  const handleRowClick = (currency: any) => {
     setSelectedCurrency(currency);
     setIsModalVisible(true);
   };
@@ -137,7 +140,7 @@ const Market = () => {
   if (isLoading) {
     return (
       <div className="text-center py-5">
-        <Spin />
+        <Spin tip="Loading cryptocurrencies..." />
       </div>
     );
   }
@@ -146,7 +149,7 @@ const Market = () => {
     return (
       <Alert
         message="Error"
-        description={error.message}
+        description={error.message || "An unexpected error occurred."}
         type="error"
         showIcon
         className="text-center py-5"
@@ -195,6 +198,7 @@ const Market = () => {
         visible={isModalVisible}
         onClose={handleModalClose}
         currency={selectedCurrency}
+        candlestickData={selectedCurrency || []}
       />
     </>
   );

@@ -18,7 +18,31 @@ const ProfileUser = () => {
           <p className="text-gray-600 text-sm">
             Interface and Brand Designer based in San Antonio
           </p>
-          <div className="flex space-x-2 mt-4">
+          <div className="flex  mt-5">
+          <div className="flex items-center mr-4">
+            <Badge count={2985} color="orange" />
+            <span className="ml-2">Trade</span>
+          </div>
+          <div className="flex items-center mr-4">
+            <Badge count={32} color="orange" />
+            <span className="ml-2">Bonus</span>
+          </div>
+          <div className="flex items-center">
+            <Badge count={5} className=" text-white" color="orange" />
+            <span className="ml-2">Lunchers</span>
+          </div>
+          
+        </div>
+         
+        </div>
+      </div>
+      <div className="flex flex-col justify-between ">
+        <div className="flex items-center gap-2">
+          <p>My Total Wallet:</p>
+          <h1 className="text-2xl font-semibold">$3200.00</h1>
+        </div>
+      
+        <div className="flex space-x-2 mt-4">
             <Button height={40} width={120}>
               Edit
             </Button>
@@ -32,27 +56,6 @@ const ProfileUser = () => {
               Get in touch
             </Button>
           </div>
-        </div>
-      </div>
-      <div className="flex flex-col justify-between ">
-        <div className="flex items-center gap-2">
-          <p>My Total Wallet:</p>
-          <h1 className="text-2xl font-semibold">$3200.00</h1>
-        </div>
-        <div className="flex  float-right mt-5">
-          <div className="flex items-center mr-4">
-            <Badge count={2985} color="orange" />
-            <span className="ml-2">Trade</span>
-          </div>
-          <div className="flex items-center mr-4">
-            <Badge count={32} color="orange" />
-            <span className="ml-2">Bonus</span>
-          </div>
-          <div className="flex items-center">
-            <Badge count={5} className=" text-white" color="orange" />
-            <span className="ml-2">Lunchers</span>
-          </div>
-        </div>
       </div>
     </div>
   );
