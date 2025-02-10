@@ -8,7 +8,7 @@ import UserComment from "../../Components/LeyOut/HomeLeyout/UserComment/UserComm
 
 const Home = () => {
   return (
-    <>
+    <div className="justify-between items-center grid">
       <HomeAppBar />
       <LandingSections />
       <TableMarketLanding/>
@@ -16,7 +16,7 @@ const Home = () => {
       <QuestionBox/>
       <UserComment/>
       <Footer/>
-    </>
+    </div>
   );
 };
 
