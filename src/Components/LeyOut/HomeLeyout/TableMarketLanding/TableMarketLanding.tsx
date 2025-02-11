@@ -31,7 +31,7 @@ const TableMarketLanding = () => {
     {
       title: "Change (24h)",
       dataIndex: "high_24h",
-      render: (text: any, record: any) => (
+      render: ( record: any) => (
         <span
           className={`font-semibold ${
             record.low_24h > 0 ? "text-green-500" : "text-red-500"

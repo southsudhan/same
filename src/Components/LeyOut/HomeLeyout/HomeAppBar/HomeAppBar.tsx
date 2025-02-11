@@ -30,8 +30,12 @@ const HomeAppBar = () => {
           <a href="#" className="text-gray-700 hover:text-orange-500">
             About
           </a>
+          <a href="#" className="text-gray-700 hover:text-orange-500">
+          APIs
+        </a>
         </nav>
       </div>
+      
       <div className="flex  items-center gap-3">
         <Button
           bgColor="#FFFFFF"

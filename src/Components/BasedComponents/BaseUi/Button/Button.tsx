@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 type Position = "absolute" | "relative";
 type BgColor = "#000" | "#FFFFFF" | "transparent";
 

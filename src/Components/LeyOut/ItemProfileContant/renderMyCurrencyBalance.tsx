@@ -28,7 +28,7 @@ const columns = [
     title: "Currency",
     dataIndex: "currency",
     key: "currency",
-    render: (text, record) => (
+    render: (text: any, record: any) => (
       <div className="flex items-center">
         <img src={record.icon} alt={text} className="w-7 h-6 mr-2" />
         <p>{text}</p>
@@ -43,9 +43,10 @@ const columns = [
   },
 ];
 
-// Function to calculate total balance
 const calculateTotalBalance = (data: any) => {
-  return data.reduce((total, item) => total + item.balance, 0).toFixed(2);
+  return data
+    .reduce((total: any, item: any) => total + item.balance, 0)
+    .toFixed(2);
 };
 
 const renderMyCurrencyBalance = () => {

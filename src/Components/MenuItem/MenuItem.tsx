@@ -14,6 +14,9 @@ const MenuItem = () => {
         <a href="#" className="text-gray-700 hover:text-orange-500">
           About
         </a>
+        <a href="#" className="text-gray-700 hover:text-orange-500">
+          APIs
+        </a>
       </nav>
     </div>
   );

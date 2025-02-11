@@ -8,9 +8,7 @@ import { CurrenciesModel } from "../../Models/Currencies";
 const SearchBar = () => {
   const { data, error, isLoading } = useCurrencies();
   const [searchValue, setSearchValue] = useState("");
-  const [filteredCurrencies, setFilteredCurrencies] = useState<
-    CurrenciesModel[]
-  >([]);
+  const [filteredCurrencies, setFilteredCurrencies] = useState<CurrenciesModel[]>([]);
 
   const handleSearch = (value: any) => {
     setSearchValue(value);
