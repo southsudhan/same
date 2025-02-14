@@ -9,5 +9,5 @@ export const useCurrencies = () => {
     staleTime: StaleTime.CURRENCIES_TIME,
   });
 
-  return { data, isLoading, error };
+  return { data, isLoading, error};
 };
