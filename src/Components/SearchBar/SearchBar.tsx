@@ -3,12 +3,20 @@ import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useCurrencies } from "../../Hooks/Currencies/useCurrencies";
 import { List, Spin } from "antd";
-import { CurrenciesModel } from "../../Models/Currencies";
+
+export interface CurrenciesModel {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+}
 
 const SearchBar = () => {
-  const { data, error, isLoading } = useCurrencies();
+  const { data = [], error, isLoading } = useCurrencies();
   const [searchValue, setSearchValue] = useState("");
-  const [filteredCurrencies, setFilteredCurrencies] = useState<CurrenciesModel[]>([]);
+  const [filteredCurrencies, setFilteredCurrencies] = useState<
+    CurrenciesModel[]
+  >([]);
 
   const handleSearch = (value: any) => {
     setSearchValue(value);

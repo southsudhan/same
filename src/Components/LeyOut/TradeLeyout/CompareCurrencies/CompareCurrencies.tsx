@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { Select, Card, Spin, Typography } from "antd";
 import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
-import { CurrenciesModel } from "../../../../Models/Currencies";
+
+export interface CurrenciesModel {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+  current_price: number;
+  market_cap: number;
+  price_change_percentage_24h: number;
+}
 
 const { Option } = Select;
 const { Title, Text } = Typography;
@@ -11,16 +20,20 @@ const CompareCurrencies = () => {
   const [coin1, setCoin1] = useState<CurrenciesModel | null>(null);
   const [coin2, setCoin2] = useState<CurrenciesModel | null>(null);
 
-  const handleSelectCoin1 = (coin: CurrenciesModel) => {
-    setCoin1(coin);
+  const handleSelectCoin1 = (value: number) => {
+    if (data) {
+      setCoin1(data[value]);
+    }
   };
 
-  const handleSelectCoin2 = (coin: CurrenciesModel) => {
-    setCoin2(coin);
+  const handleSelectCoin2 = (value: number) => {
+    if (data) {
+      setCoin2(data[value]);
+    }
   };
 
   if (isLoading) return <Spin size="large" />;
-  if (error) return <div>Error loading currencies</div>;
+  if (error || !data) return <div>Error loading currencies</div>;
 
   return (
     <div className="flex flex-col gap-4 w-full h-full">
@@ -30,12 +43,12 @@ const CompareCurrencies = () => {
         <div className="flex flex-col w-[100%]">
           <Text strong>Select Coin 1:</Text>
           <Select
-            onChange={(value) => handleSelectCoin1(data[value])}
+            onChange={handleSelectCoin1}
             className="w-[230px]"
             placeholder="Select a coin..."
             showSearch
           >
-            {data?.map((coin, index) => (
+            {data.map((coin, index) => (
               <Option key={coin.id} value={index}>
                 {coin.name} ({coin.symbol.toUpperCase()})
               </Option>
@@ -46,12 +59,12 @@ const CompareCurrencies = () => {
         <div className="flex flex-col">
           <Text strong>Select Coin 2:</Text>
           <Select
-            onChange={(value) => handleSelectCoin2(data[value])}
+            onChange={handleSelectCoin2}
             className="w-[230px]"
             placeholder="Select a coin..."
             showSearch
           >
-            {data?.map((coin, index) => (
+            {data.map((coin, index) => (
               <Option key={coin.id} value={index}>
                 {coin.name} ({coin.symbol.toUpperCase()})
               </Option>

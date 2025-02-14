@@ -34,7 +34,7 @@ const CercelChart = () => {
                 <YAxis />
                 <Tooltip
                   formatter={(value, name) => {
-                    return [`$${value.toFixed(2)}`, name];
+                    return [`$${value}`, name];
                   }}
                 />
                 <CartesianGrid strokeDasharray="3 3" />

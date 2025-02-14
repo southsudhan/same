@@ -20,10 +20,10 @@ const SwapCurrencies = () => {
   };
 
   const fromCurrencyValue = data?.find(
-    (currency) => currency.current_price === fromCurrency
+    (currency) => String(currency.current_price) === fromCurrency
   );
   const toCurrencyValue = data?.find(
-    (currency) => currency.current_price === toCurrency
+    (currency) => String(currency.current_price) === toCurrency
   );
 
   const convertedAmount =
