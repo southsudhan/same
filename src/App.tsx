@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="w-screen h-screen">
       <NavigationBar />
-      <BrowserRouter >
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/traderoom" element={<TradeRoom />} />
