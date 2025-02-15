@@ -16,8 +16,8 @@ function App() {
       <NavigationBar />
       <BrowserRouter basename="/">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/traderoom" element={<TradeRoom />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<TradeRoom />} />
           <Route path="/market" element={<Market />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/signup" element={<SignUp />} />
