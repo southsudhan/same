@@ -14,10 +14,10 @@ function App() {
   return (
     <div className="w-screen h-screen">
       <NavigationBar />
-      <BrowserRouter basename="/">
+      <BrowserRouter >
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<TradeRoom />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/traderoom" element={<TradeRoom />} />
           <Route path="/market" element={<Market />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/signup" element={<SignUp />} />

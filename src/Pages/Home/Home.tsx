@@ -7,6 +7,7 @@ import QuestionBox from "../../Components/LeyOut/HomeLeyout/QueastionBox/Queasti
 import UserComment from "../../Components/LeyOut/HomeLeyout/UserComment/UserComment";
 
 const Home = () => {
+  
   return (
     <div className="justify-between items-center grid">
       <HomeAppBar />
