@@ -18,10 +18,10 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        {/* <App /> */}
-        <NavigationBar />
-        <BrowserRouter>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          {/* <App /> */}
+          <NavigationBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/traderoom" element={<TradeRoom />} />
@@ -30,8 +30,8 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/signup" element={<SignUp />} />
             {/* <Route path="/playground" element={<Playground />} /> */}
           </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </BrowserRouter>
     </Provider>
   </StrictMode>
 );
