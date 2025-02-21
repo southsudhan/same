@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const HomeAppBar = () => {
@@ -10,13 +11,14 @@ const HomeAppBar = () => {
 
       <div className="justify-between items-center gap-4 lg:flex hidden ">
         <nav className="lg:flex hidden space-x-6 justify-center items-center">
-          <a
+          {/* <a
             href="#"
             className="text-gray-700 hover:text-orange-500"
             onClick={() => (document.location = "/traderoom")}
           >
             Exchange
-          </a>
+          </a> */}
+          <Link to={"/traderoom"}>Exchange</Link>
           <a
             href="#"
             className="text-gray-700 hover:text-orange-500"
