@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -12,6 +11,7 @@ import TradeRoom from "./Pages/TradeRoom/TradeRoom.tsx";
 import Market from "./Pages/Market/Market.tsx";
 import Wallet from "./Pages/Wallet/Wallet.tsx";
 import SignUp from "./Pages/SignUp/SignUp.tsx";
+import { StrictMode } from "react";
 
 const queryClient = new QueryClient();
 

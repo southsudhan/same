@@ -11,7 +11,7 @@ const { Text } = Typography;
 
 const FooterComponent = () => {
   return (
-    <Footer className="grid w-screen text-center bg-white border-t mt-10">
+    <Footer className="grid w-full text-center bg-white border-t mt-10">
       <h1 className="text-orange-500 mb-10">Crypto Exchange Hub</h1>
       <Row gutter={16} className="mb-3">
         <Col span={8}>

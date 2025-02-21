@@ -9,7 +9,7 @@ import UserComment from "../../Components/LeyOut/HomeLeyout/UserComment/UserComm
 const Home = () => {
   
   return (
-    <div className="justify-between items-center grid">
+    <div className="justify-center items-center ">
       <HomeAppBar />
       <LandingSections />
       <TableMarketLanding/>

@@ -11,7 +11,7 @@ const LandingSections = () => {
       </h1>
 
       {/* Subtitle */}
-      <p className="text-gray-500 lg:text-lg text-sm text-center mb-6 lg:w-1/2 w-full p-5">
+      <p className="text-gray-500 lg:text-lg text-sm text-center mb-6 lg:w-1/2 w-[350px] p-5">
         Secure your smart contracts with reliable, low-latency market data from
         institutional sources. Build apps with high-fidelity oracle feeds
         designed for mission-critical systems.

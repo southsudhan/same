@@ -29,7 +29,7 @@ const SliderHome = () => {
   ];
 
   return (
-    <div className="mt-10 justify-around p-3 lg:w-2/3 w-full lg:ml-80 m-0">
+    <div className="mt-10 justify-center items-center mx-auto p-3 lg:w-2/3">
       <h1 className="text-center lg:text-3xl text-xl font-semibold">
         Clients Feedback
       </h1>
@@ -37,14 +37,14 @@ const SliderHome = () => {
         Crypto Card Users Share their Experiences with Our Platform and Services
       </p>
 
-      <div className="lg:flex grid gap-3">
+      <div className="lg:flex grid gap-2">
         {feedbackData.map((feedback, index) => (
           <Col key={index} span={8}>
             <Card className="rounded-md lg:w-full w-[360px]">
               <Title level={4} style={{ color: "#FBAF00" }}>
                 {feedback.title}
               </Title>
-              <Paragraph style={{}}>{feedback.description}</Paragraph>
+              <Paragraph>{feedback.description}</Paragraph>
               <Paragraph style={{ color: "#AAAAAA", marginBottom: 0 }}>
                 {feedback.name} -{" "}
                 <span style={{ fontStyle: "italic" }}>{feedback.role}</span>
@@ -63,7 +63,7 @@ const SliderHome = () => {
             border="solid 1px orange"
             bgColor="#FFFFFF"
             color="orange"
-            width={350}
+            width={360}
           >
             More reviews
           </Button>

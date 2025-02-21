@@ -1,4 +1,4 @@
-import { Card, Col,  Typography } from "antd";
+import { Card, Col, Typography } from "antd";
 import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const { Title, Text } = Typography;

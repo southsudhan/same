@@ -2,7 +2,7 @@ import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const HomeAppBar = () => {
   return (
-    <div className="flex lg:justify-evenly justify-between items-center p-4  bg-[#ffffff] border-b cursor-pointer ">
+    <div className="flex w-full lg:justify-evenly justify-between items-center p-5  gap-2 bg-[#ffffff] border-b cursor-pointer ">
       <div className="flex items-center">
         <span className="text-black font-bold text-lg ml-1">Crypto</span>
         <span className="text-orange-500 font-bold text-lg">Hub</span>
@@ -31,11 +31,11 @@ const HomeAppBar = () => {
             About
           </a>
           <a href="#" className="text-gray-700 hover:text-orange-500">
-          APIs
-        </a>
+            APIs
+          </a>
         </nav>
       </div>
-      
+
       <div className="flex  items-center gap-3">
         <Button
           bgColor="#FFFFFF"
