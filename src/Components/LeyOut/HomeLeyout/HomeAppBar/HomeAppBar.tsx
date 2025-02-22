@@ -17,7 +17,6 @@ const HomeAppBar = () => {
           >
             Exchange
           </a>
-
           <a
             href="#"
             className="text-gray-700 hover:text-orange-500"
