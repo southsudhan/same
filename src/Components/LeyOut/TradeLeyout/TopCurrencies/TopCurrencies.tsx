@@ -33,12 +33,12 @@ const TopCurrencies = () => {
   }
 
   return (
-    <div className="flex justify-start items-center  w-full lg:overflow-clip overflow-scroll lg:text-sm text-xs font-medium">
+    <div className="flex justify-start items-center  w-full lg:overflow-clip overflow-scroll lg:text-sm text-xs font-medium ">
       <div className="flex w-full gap-1">
         {topGainers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className="flex flex-col justify-evenly border items-center border-gray-100 rounded-md min-w-[100px] p-2 text-[10px] hover:border hover:border-orange-200 "
+            className="flex flex-col justify-evenly border items-center border-gray-100 rounded-md min-w-[100px] h-[50px] p-2 text-[10px] hover:border hover:border-orange-200 "
           >
             <p>{item.name}</p>
             <p className="text-green-500">
@@ -53,7 +53,7 @@ const TopCurrencies = () => {
         {topLosers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className="flex flex-col justify-evenly items-center p-2 border border-gray-100 rounded-md  min-w-[100px] text-[10px] hover:border hover:border-orange-200"
+            className="flex flex-col justify-evenly items-center p-2 border border-gray-100 rounded-md  min-w-[80px] h-[50px] text-[10px] hover:border hover:border-orange-200"
           >
             <p>{item.name}: </p>{" "}
             <p className="text-red-500">

@@ -3,7 +3,7 @@ import Button from "../../BasedComponents/BaseUi/Button/Button";
 
 const ProfileUser = () => {
   return (
-    <div className="lg:flex grid md:flex-row items-center bg-white rounded-lg border p-5  ml-0 justify-between lg:w-[100%] w-[70%]">
+    <div className="lg:flex grid md:flex-row items-center bg-white rounded-lg border p-5  ml-0 justify-between lg:w-[100%] w-[100%]">
       <div className="lg:flex grid items-center gap-5">
         <div className="w-32 h-32 rounded-full bg-gray-300 overflow-hidden flex relative lg:-top-0 -top-1/2  lg:-right-0 -right-1/3">
           <Avatar
@@ -16,7 +16,7 @@ const ProfileUser = () => {
             Mohamad Amin keimasi <span className="text-orange-500"> | PRO</span>
           </h2>
           <p className="text-gray-600 text-sm">
-            Interface and Brand Designer based in San Antonio
+            Trader based from San Antonio
           </p>
           <div className="flex  mt-5">
           <div className="flex items-center mr-4">

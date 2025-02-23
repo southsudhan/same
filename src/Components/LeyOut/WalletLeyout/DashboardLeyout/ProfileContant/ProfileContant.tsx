@@ -10,9 +10,9 @@ const { TabPane } = Tabs;
 
 const ProfileContent = () => {
   return (
-    <div className="p-3 space-y-6 lg:mb-0 mb-16 lg:w-[120%]">
+    <div className="p-3 space-y-6 lg:mb-0 mb-16   lg:w-full w-[380px] ">
       <ProfileUser />
-      <Tabs defaultActiveKey="1" className="lg:w-[100%] w-[70%]">
+      <Tabs defaultActiveKey="1" className="lg:w-[100%] w-[100%]">
         <TabPane tab="My currency balance" key="mycurrencybalance">
           <Card title="Card Details" bordered={true} className="mt-4 w-full">
             {renderMyCurrencyBalance()}

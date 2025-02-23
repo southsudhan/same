@@ -22,11 +22,11 @@ const SignUp = () => {
   } = useSignUp();
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full h-screen ">
       <div className="justify-between items-center flex absolute top-3 left-5">
         <p className=" lg:block hidden border-b-2">Join us</p>
       </div>
-      <div className="md:w-1/2 w-full h-full flex flex-col justify-center items-start p-10  ">
+      <div className="md:w-1/2 w-full h-full flex flex-col justify-center items-start p-10 -mt-8 ">
         <Form
           className="flex flex-col gap-4 w-full max-w-sm justify-center lg:translate-x-1/2"
           layout="vertical"

@@ -39,7 +39,7 @@ const UserComment = () => {
             <Card
               hoverable
               cover={<img alt="article" src={article.image} />}
-              className="w-[380px]"
+              className="lg:w-[400px] w-[330px]"
             >
               <Text strong style={{ color: "lightgrey" }}>
                 Social Network

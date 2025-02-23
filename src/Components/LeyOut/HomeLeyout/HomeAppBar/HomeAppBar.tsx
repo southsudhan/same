@@ -2,7 +2,7 @@ import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const HomeAppBar = () => {
   return (
-    <div className="flex w-full lg:justify-evenly justify-between items-center p-5  gap-2 bg-[#ffffff] border-b cursor-pointer ">
+    <div className="flex w-full lg:justify-evenly justify-between items-center p-5  gap-1 bg-[#ffffff] border-b cursor-pointer ">
       <div className="flex items-center">
         <span className="text-black font-bold text-lg ml-1">Crypto</span>
         <span className="text-orange-500 font-bold text-lg">Hub</span>
@@ -42,14 +42,14 @@ const HomeAppBar = () => {
           border="solid 1px orange"
           color="orange"
           onClick={() => (document.location = "/signup")}
-          width={120}
+          width={100}
           height={40}
         >
           SignUp
         </Button>
         <Button
           onClick={() => (document.location = "/traderoom")}
-          width={120}
+          width={100}
           height={40}
         >
           Trade Now
