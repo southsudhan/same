@@ -53,7 +53,7 @@ const TopCurrencies = () => {
         {topLosers.map((item: CurrenciesModel) => (
           <div
             key={item.id}
-            className="flex flex-col justify-evenly items-center p-2 border border-gray-100 rounded-md  min-w-[80px] h-[50px] text-[10px] hover:border hover:border-orange-200"
+            className="flex flex-col justify-evenly items-center p-2 border border-gray-100 rounded-md  min-w-[100px] h-[50px] text-[10px] hover:border hover:border-orange-200"
           >
             <p>{item.name}: </p>{" "}
             <p className="text-red-500">

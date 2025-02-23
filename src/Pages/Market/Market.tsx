@@ -166,7 +166,7 @@ const Market = () => {
             <Input
               placeholder="Search Token, Coin, Airdrop"
               size="middle"
-              className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[330px] outline-none border-none hover:bg-gray-100"
+              className="bg-gray-100 h-[40px] placeholder:text-gray-500 w-[310px] outline-none border-none hover:bg-gray-100"
               value={searchQuery}
               prefix={<BiSearch />}
               onChange={handleSearch}
@@ -175,7 +175,7 @@ const Market = () => {
               size="large"
               value={filter}
               onChange={handleFilter}
-              className="text-sm text-gray-700 w-[330px]"
+              className="text-sm text-gray-700 w-[310px]"
             >
               <Option value="">Select Filter</Option>
               <Option value="asc">Ascending</Option>

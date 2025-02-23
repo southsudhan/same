@@ -69,7 +69,7 @@ const ChartCurrencies = () => {
         <TopCurrencies />
         <div className="lg:flex grid justify-start items-center gap-2 lg:overflow-hidden overflow-scroll lg:px-0 px-5">
           <Select
-            className="w-[350px] h-[40px] mb-2"
+            className="w-[320px] h-[40px] mb-2"
             placeholder="Select a cryptocurrency"
             onChange={fetchCandlestickData}
             allowClear
