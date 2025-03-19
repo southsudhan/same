@@ -37,7 +37,7 @@ const OrderBlock = () => {
                 {crypto.market_cap.toLocaleString()}  
               </span>  
               <span className={`text-[12px] ${priceColor}`}>  
-                {crypto.price_change_percentage_24h.toFixed(6)}  
+                {crypto.price_change_percentage_24h?.toFixed(6)}  
               </span>  
             </div>  
           );  
