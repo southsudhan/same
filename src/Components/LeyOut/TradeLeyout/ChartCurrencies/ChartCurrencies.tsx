@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CandlestickChart from "./CandlestickChart";
+// import CandlestickChart from "./CandlestickChart";
 import { Alert, Card, Select, Spin } from "antd";
 import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
@@ -22,26 +22,41 @@ interface Crypto {
 
 const ChartCurrencies = () => {
   const { data, error, isLoading } = useCurrencies();
-  const [candlestickData, setCandlestickData] = useState([]);
   const [selectedCrypto, setSelectedCrypto] = useState<string | null>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  const fetchCandlestickData = async (id: string) => {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${id}/ohlc?vs_currency=usd&days=7`
-    );
-    const data = await response.json();
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/tv.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-    const formattedData = data.map((item: any) => ({
-      time: item[0] / 1000,
-      open: item[1],
-      high: item[2],
-      low: item[3],
-      close: item[4],
-    }));
+    script.onload = () => {
+      createWidget();
+    };
 
-    setCandlestickData(formattedData);
-    setSelectedCrypto(id);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [selectedCrypto]);
+
+  const createWidget = () => {
+    if (typeof (window as any).TradingView !== "undefined" && selectedCrypto) {
+      new (window as any).TradingView.widget({
+        width: "100%",
+        height: 500,
+        symbol: `BINANCE:${selectedCrypto?.toUpperCase()}USD`,
+        interval: "D",
+        timezone: "Etc/UTC",
+        theme: "light",
+        style: "1",
+        locale: "en",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: "tradingview_chart",
+      });
+    }
   };
 
   const toggleFullScreen = () => {
@@ -57,8 +72,12 @@ const ChartCurrencies = () => {
   };
 
   useEffect(() => {
-    fetchCandlestickData("bitcoin");
+    setSelectedCrypto("btc");
   }, []);
+
+  const handleCryptoSelect = (id: string) => {
+    setSelectedCrypto(id);
+  };
 
   if (error)
     return <Alert message="Error loading currencies" type="error" showIcon />;
@@ -71,7 +90,7 @@ const ChartCurrencies = () => {
           <Select
             className="lg:w-[350px] w-[320px] h-[40px] lg:mb-0 mb-2"
             placeholder="Select a cryptocurrency"
-            onChange={fetchCandlestickData}
+            onChange={handleCryptoSelect}
             allowClear
             showSearch
           >
@@ -86,7 +105,7 @@ const ChartCurrencies = () => {
               <div
                 key={crypto.id}
                 className="flex justify-center gap-1 items-center w-[150px]  h-[40px] text-[12px] border border-gray-100 rounded-md p-1.5 cursor-pointer"
-                onClick={() => fetchCandlestickData(crypto.id)}
+                onClick={() => handleCryptoSelect(crypto.id)}
               >
                 <img src={crypto.image} alt={crypto.name} width={20} />
                 <p>{crypto.name}</p>
@@ -97,7 +116,7 @@ const ChartCurrencies = () => {
 
         <div className="w-[100%] lg:flex grid lg:justify-between justify-evenly gap-2">
           <Card
-            title={`${selectedCrypto} Candlestick Chart`}
+            title={`${selectedCrypto} Chart`}
             id="chart-container"
             className="border border-gray-100 rounded-md p-0 lg:w-4/5 h-full"
           >
@@ -112,14 +131,7 @@ const ChartCurrencies = () => {
                       {isFullScreen ? <BiExitFullscreen /> : <BiFullscreen />}
                     </button>
                     <div className="lg:flex grid justify-between items-center -mb-20 border-b h-[10vh] "></div>
-                    {candlestickData.length > 0 ? (
-                      <CandlestickChart
-                        key="candlestick-chart"
-                        data={candlestickData}
-                      />
-                    ) : (
-                      <Spin />
-                    )}
+                    <div id="tradingview_chart"></div>
                   </>
                 ) : (
                   <p>Select a cryptocurrency to see the chart.</p>
@@ -127,7 +139,7 @@ const ChartCurrencies = () => {
               </>
             )}
           </Card>
-          <div className="lg:w-1/4 w-screen   rounded-md ">
+          <div className="lg:w-1/4 w-screen rounded-md ">
             <OrderBlock />
           </div>
         </div>

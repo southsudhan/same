@@ -7,7 +7,7 @@ const TradeRoom = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col lg:px-5 p-0 h-screen lg:mt-0 -mt-10">
+      <div className="flex flex-col lg:px-5 p-0 h-screen lg:-mt-5 -mt-10">
         <div className="justify-between items-center  mt-28 gap-2 flex">
           <div className="lg:flex flex-col hidden gap-3 w-2/5">
             <BuySellCurrencies />

@@ -4,6 +4,7 @@ import { Table, Spin, Alert, Input, Select } from "antd";
 import { BiSearch } from "react-icons/bi";
 import { useCurrencies } from "../../Hooks/Currencies/useCurrencies";
 import CryptoChartModal from "../../Components/CryptoModal/CryptoModal";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -24,11 +25,13 @@ const TrendLine = ({ change }: any) => {
 };
 
 const Market = () => {
-  const { data, error, isLoading } = useCurrencies();
+  const { data, error, isLoading } = useCurrencies("usd");
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const navigate = useNavigate() 
 
   const columns = useMemo(() => {
     return [
@@ -128,8 +131,11 @@ const Market = () => {
   };
 
   const handleRowClick = (currency: any) => {
-    setSelectedCurrency(currency);
-    setIsModalVisible(true);
+    // setSelectedCurrency(currency);
+    // setIsModalVisible(true);
+    console.log("currency.id", currency.id)
+    navigate(`/currency/${currency.id}`);
+    
   };
 
   const handleModalClose = () => {

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useCurrencies } from "../../Hooks/Currencies/useCurrencies";
 import { List, Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export interface CurrenciesModel {
   id: string;
@@ -17,6 +18,8 @@ const SearchBar = () => {
   const [filteredCurrencies, setFilteredCurrencies] = useState<
     CurrenciesModel[]
   >([]);
+
+  const navigate = useNavigate();
 
   const handleSearch = (value: any) => {
     setSearchValue(value);
@@ -40,6 +43,11 @@ const SearchBar = () => {
   if (isLoading) return <Spin />;
   if (error) return <p>Error...</p>;
 
+  const handleRowClick = (currency: any) => {
+    console.log("currency.id", currency.id)
+    navigate(`/currency/${currency.id}`);
+  };
+
   return (
     <div>
       <Input
@@ -57,7 +65,9 @@ const SearchBar = () => {
           dataSource={filteredCurrencies}
           renderItem={(item) => (
             <List.Item onClick={handleClearSearch}>
-              <div className="justify-between items-center flex gap-2">
+              <div
+                className="justify-between items-center flex gap-2"
+                onClick={()=>handleRowClick(item)}              >
                 <img src={item.image} alt="" width={15} />
                 <strong>{item.name}</strong> ({item.symbol})
               </div>

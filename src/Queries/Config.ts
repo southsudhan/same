@@ -3,7 +3,9 @@ export const QueryKey = {
 };
 
 export const EndPoints = {
-  CURRENCIES: "/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false",
+  // CURRENCIES: "/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false",
+  CURRENCIES: "/coins/markets?vs_currency=",
+  COIN:"/coins/",
 };
 
 export const StaleTime = {

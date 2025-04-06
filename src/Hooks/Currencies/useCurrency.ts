@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { QueryKey, StaleTime } from "../../Queries/Config";
-import { getCurrencies } from "../../Queries/Currencies";
+import { getProductById } from "../../Queries/Currencies";
 
-export const useCurrencies = (vs_currency?: string) => {
+export const useCurrency = (coin?: string) => {
   const { data, error, isLoading } = useQuery({
     queryKey: [QueryKey.CURRENCIES],
-    queryFn: () => getCurrencies(vs_currency),
+    queryFn: () => getProductById(coin),
+    enabled: !!coin,
     staleTime: StaleTime.CURRENCIES_TIME,
   });
 

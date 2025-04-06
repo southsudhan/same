@@ -15,25 +15,21 @@ const ProfileUser = () => {
           <h2 className="text-xl font-bold">
             Mohamad Amin keimasi <span className="text-orange-500"> | PRO</span>
           </h2>
-          <p className="text-gray-600 text-sm">
-            Trader based from San Antonio
-          </p>
+          <p className="text-gray-600 text-sm">Trader based from San Antonio</p>
           <div className="flex  mt-5">
-          <div className="flex items-center mr-4">
-            <Badge count={2985} color="orange" />
-            <span className="ml-2">Trade</span>
+            <div className="flex items-center mr-4">
+              <Badge count={2985} color="orange" />
+              <span className="ml-2">Trade</span>
+            </div>
+            <div className="flex items-center mr-4">
+              <Badge count={32} color="orange" />
+              <span className="ml-2">Bonus</span>
+            </div>
+            <div className="flex items-center">
+              <Badge count={5} className=" text-white" color="orange" />
+              <span className="ml-2">Lunchers</span>
+            </div>
           </div>
-          <div className="flex items-center mr-4">
-            <Badge count={32} color="orange" />
-            <span className="ml-2">Bonus</span>
-          </div>
-          <div className="flex items-center">
-            <Badge count={5} className=" text-white" color="orange" />
-            <span className="ml-2">Lunchers</span>
-          </div>
-          
-        </div>
-         
         </div>
       </div>
       <div className="flex flex-col justify-between ">
@@ -41,21 +37,21 @@ const ProfileUser = () => {
           <p>My Total Wallet:</p>
           <h1 className="text-2xl font-semibold">$3200.00</h1>
         </div>
-      
+
         <div className="flex space-x-2 mt-4">
-            <Button height={40} width={120}>
-              Edit
-            </Button>
-            <Button
-              height={40}
-              width={120}
-              border="orange solid 1px"
-              bgColor="#FFFFFF"
-              color="orange"
-            >
-              Get in touch
-            </Button>
-          </div>
+          <Button height={40} width={120}>
+            Edit
+          </Button>
+          <Button
+            height={40}
+            width={120}
+            border="orange solid 1px"
+            bgColor="#FFFFFF"
+            color="orange"
+          >
+            Get in touch
+          </Button>
+        </div>
       </div>
     </div>
   );
