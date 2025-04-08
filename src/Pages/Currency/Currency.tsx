@@ -1,17 +1,7 @@
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import { useCurrency } from "../../Hooks/Currencies/useCurrency";
-import {
-  Card,
-  Row,
-  Col,
-  Statistic,
-  Typography,
-  Image,
-  Button,
-  Table,
-  Input,
-} from "antd";
+import { Card, Row, Col, Statistic, Typography, Image } from "antd";
 
 const { Text } = Typography;
 
@@ -26,22 +16,10 @@ const Currency = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const orderColumns = [
-    { title: "Price (USD)", dataIndex: "price", key: "price" },
-    { title: "Amount", dataIndex: "amount", key: "amount" },
-    { title: "Total", dataIndex: "total", key: "total" },
-  ];
-
-  const dummyOrders = [
-    { key: "1", price: "29,342.50", amount: "0.15", total: "4,401.37" },
-    { key: "2", price: "29,340.00", amount: "0.25", total: "7,335.00" },
-    { key: "3", price: "29,339.75", amount: "0.10", total: "2,933.97" },
-  ];
-
   return (
     <div>
       <Header />
-      <div className="p-24">
+      <div className="p-2  mt-24">
         {data && (
           <>
             <Card
@@ -64,7 +42,6 @@ const Currency = () => {
             >
               <Row gutter={[24, 24]} align="middle">
                 <Col span={24}></Col>
-                {/* <Divider /> */}
                 <Col span={24}>
                   <div className="tradingview-widget-container">
                     <iframe
@@ -133,82 +110,6 @@ const Currency = () => {
                 </Col>
               </Row>
             </Card>
-
-            <Row gutter={[24, 24]} style={{ marginTop: "24px" }}>
-              <Col xs={24} lg={16}>
-                <Card title="Order Book">
-                  <Row gutter={[24, 24]}>
-                    <Col span={12}>
-                      <Table
-                        columns={orderColumns}
-                        dataSource={dummyOrders}
-                        pagination={false}
-                        size="small"
-                        title={() => "Bids"}
-                      />
-                    </Col>
-                    <Col span={12}>
-                      <Table
-                        columns={orderColumns}
-                        dataSource={dummyOrders}
-                        pagination={false}
-                        size="small"
-                        title={() => "Asks"}
-                      />
-                    </Col>
-                  </Row>
-                </Card>
-              </Col>
-              <Col xs={24} lg={8}>
-                <Card title="Place Order">
-                  <Row gutter={[16, 16]}>
-                    <Col span={24}>
-                      <Input.Group compact>
-                        <Input
-                          style={{ width: "70%" }}
-                          placeholder="Amount"
-                          type="number"
-                        />
-                        <Input
-                          style={{ width: "30%" }}
-                          disabled
-                          value={data.symbol.toUpperCase()}
-                        />
-                      </Input.Group>
-                    </Col>
-                    <Col span={24}>
-                      <Input
-                        placeholder="Price in USD"
-                        type="number"
-                        prefix="$"
-                      />
-                    </Col>
-                    <Col span={24}>
-                      <Input
-                        placeholder="Total in USD"
-                        type="number"
-                        prefix="$"
-                        disabled
-                      />
-                    </Col>
-                    <Col span={12}>
-                      <Button
-                        type="primary"
-                        block
-                        style={{ background: "#4CAF50" }}
-                      >
-                        Buy {data.symbol.toUpperCase()}
-                      </Button>
-                    </Col>
-                    <Col span={12}>
-                      <Button type="primary" danger block>
-                        Sell {data.symbol.toUpperCase()}
-                      </Button>
-                    </Col>
-                  </Row>
-                </Card>
-              </Col>
-            </Row>
           </>
         )}
       </div>

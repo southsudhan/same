@@ -5,7 +5,6 @@ import TopCurrencies from "../TopCurrencies/TopCurrencies";
 import OrderBlock from "../OrderBlock/OrderBlock";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
 import { useCurrencies } from "../../../../Hooks/Currencies/useCurrencies";
-import TimeFarmChart from "../../../TimeFarmChart/TimeFarmChart";
 
 interface Crypto {
   id: string;
@@ -126,7 +125,7 @@ const ChartCurrencies = () => {
               <>
                 {selectedCrypto ? (
                   <>
-                    <TimeFarmChart />
+                    {/* <TimeFarmChart /> */}
                     <button onClick={toggleFullScreen}>
                       {isFullScreen ? <BiExitFullscreen /> : <BiFullscreen />}
                     </button>
