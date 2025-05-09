@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { store } from "./store.ts";
@@ -14,6 +13,7 @@ import SignUp from "./Pages/SignUp/SignUp.tsx";
 import { StrictMode } from "react";
 import Currency from "./Pages/Currency/Currency.tsx";
 import Playground from "./Playground/Playground.tsx";
+import NotFound from "./Components/NotFound/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,6 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          {/* <App /> */}
           <NavigationBar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,6 +31,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/signup" element={<SignUp />} />
             <Route path="/currency/:coin" element={<Currency />} />
             <Route path="/playground" element={<Playground />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </QueryClientProvider>
       </BrowserRouter>

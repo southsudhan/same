@@ -1,4 +1,4 @@
-import { Alert, Badge,  Drawer, Modal } from "antd";
+import { Alert, Badge, Drawer, Modal } from "antd";
 import React, { useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdCompare } from "react-icons/md";
@@ -108,7 +108,6 @@ const Header: React.FC = () => {
               </div>
             }
           >
-            {/* <MdOutlinePrivacyTip size={25} /> */}
             <CgOptions size={25} />
           </ReusablePopover>
 
