@@ -1,7 +1,15 @@
 import { Avatar, Badge } from "antd";
-import Button from "../../BasedComponents/BaseUi/Button/Button";
+import Button from "../../../BasedComponents/BaseUi/Button/Button";
 
 const ProfileUser = () => {
+  const handleUpgradePro = () => {
+    window.location.href = "/upgrade-pro";
+  };
+
+  const handleGetInTouch = () => {
+    window.location.href = "/contact";
+  };
+
   return (
     <div className="lg:flex grid md:flex-row items-center bg-white rounded-lg border p-5  ml-0 justify-between lg:w-[100%] w-[100%]">
       <div className="lg:flex grid items-center gap-5">
@@ -39,7 +47,7 @@ const ProfileUser = () => {
         </div>
 
         <div className="flex space-x-2 mt-4">
-          <Button height={40} width={120}>
+          <Button height={40} width={120} onClick={handleUpgradePro}>
             Edit
           </Button>
           <Button
@@ -48,6 +56,7 @@ const ProfileUser = () => {
             border="orange solid 1px"
             bgColor="#FFFFFF"
             color="orange"
+            onClick={handleGetInTouch}
           >
             Get in touch
           </Button>

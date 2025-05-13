@@ -34,6 +34,10 @@ const Playground = () => {
     setSelectedItem(e.key);
   };
 
+  const handleUpgradePro = () => {
+    window.location.href = "/upgrade-pro";
+  };
+
   const renderContent = () => {
     switch (selectedItem) {
       case "dashboard":
@@ -76,7 +80,11 @@ const Playground = () => {
                 {item.label}
               </Menu.Item>
             ))}
-            <Button className="absolute bottom-24 left-2" width={270}>
+            <Button 
+              className="absolute bottom-24 left-2" 
+              width={270}
+              onClick={handleUpgradePro}
+            >
               Upgrade to Pro
             </Button>
           </Menu>
@@ -113,7 +121,11 @@ const Playground = () => {
                   {item.label}
                 </Menu.Item>
               ))}
-              <Button className="absolute bottom-24 left-2" width={170}>
+              <Button 
+                className="absolute bottom-24 left-2" 
+                width={170}
+                onClick={handleUpgradePro}
+              >
                 Upgrade to Pro
               </Button>
             </Menu>

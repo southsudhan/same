@@ -14,6 +14,8 @@ import { StrictMode } from "react";
 import Currency from "./Pages/Currency/Currency.tsx";
 import Playground from "./Playground/Playground.tsx";
 import NotFound from "./Components/NotFound/NotFound.tsx";
+import UpgradePro from "./Pages/UpgradePro/UpgradePro.tsx";
+import Contact from "./Pages/Contact/Contact.tsx";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/signup" element={<SignUp />} />
             <Route path="/currency/:coin" element={<Currency />} />
             <Route path="/playground" element={<Playground />} />
+            <Route path="/upgrade-pro" element={<UpgradePro />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </QueryClientProvider>
