@@ -8,15 +8,19 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview"  
+    "start": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
+    "@hyperledger/fabric-gateway": "^1.4.0",
     "@reduxjs/toolkit": "^2.5.0",
+    "@supabase/supabase-js": "^2.39.7",
     "@tanstack/react-query": "^5.62.11",
     "antd": "^5.22.7",
     "axios": "^1.7.9",
     "chart.js": "^4.4.7",
     "chartjs-chart-financial": "^0.2.1",
+    "ethers": "^6.11.1",
     "lightweight-charts": "^4.2.2",
     "react": "^18.3.1",
     "react-candlestick-chart": "^1.0.15",
@@ -29,6 +33,7 @@
     "recharts": "^2.15.0",
     "redux": "^5.0.1",
     "socket.io-client": "^4.7.5",
+    "web3": "^4.5.0",
     "ws": "^8.16.0"
   },
   "devDependencies": {
