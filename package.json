@@ -21,6 +21,7 @@
     "chart.js": "^4.4.7",
     "chartjs-chart-financial": "^0.2.1",
     "ethers": "^6.11.1",
+    "framer-motion": "^11.0.8",
     "lightweight-charts": "^4.2.2",
     "react": "^18.3.1",
     "react-candlestick-chart": "^1.0.15",
@@ -33,6 +34,7 @@
     "recharts": "^2.15.0",
     "redux": "^5.0.1",
     "socket.io-client": "^4.7.5",
+    "three": "^0.162.0",
     "web3": "^4.5.0",
     "ws": "^8.16.0"
   },
@@ -40,6 +42,7 @@
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.162.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.17.0",
