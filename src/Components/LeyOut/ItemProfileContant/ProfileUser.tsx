@@ -1,5 +1,5 @@
 import { Avatar, Badge } from "antd";
-import Button from "../../../BasedComponents/BaseUi/Button/Button";
+import Button from "../../../Components/BasedComponents/BaseUi/Button/Button";
 
 const ProfileUser = () => {
   const handleUpgradePro = () => {
