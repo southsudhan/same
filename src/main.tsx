@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { store } from "./store.ts";
-import { Auth0ProviderWithConfig } from "./auth/Auth0ProviderWithConfig.tsx";
+import { Auth0ProviderWithConfig } from "./auth/Auth0ProviderWithConfig";
 import NavigationBar from "./Components/NavigationBar/NavigationBar.tsx";
 import Home from "./Pages/Home/Home.tsx";
 import TradeRoom from "./Pages/TradeRoom/TradeRoom.tsx";
